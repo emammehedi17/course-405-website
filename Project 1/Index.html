@@ -1,0 +1,2123 @@
+<!-- Kire Pagla, ki korchis? -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complete Study for Midterm [Course-405]</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+	<link rel="icon" href="https://eco.du.ac.bd//assets/images/fab_icon.ico" type="image/x-icon">
+
+    <style>
+
+
+/* --- Styles for Interactive Button Hover Effect --- */
+
+/* Make the button a container for the absolute-positioned image span */
+.main-menu-btn {
+    position: relative;
+    overflow: hidden; /* This keeps the image within the button's rounded corners */
+}
+
+/* Position the text on top of the background image */
+.main-menu-btn .btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+/* Style the background image span itself */
+.main-menu-btn .btn-bg-image {
+    background-image: url('course-405-bg.jpg'); /* Your image file! */
+    background-size: cover;
+    background-position: center;
+    
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1; /* Place it behind the text */
+    
+    opacity: 0; /* Hidden by default */
+    filter: brightness(70%); /* Dims the image so text is readable */
+    transition: opacity 0.4s ease-in-out; /* This creates the smooth fade effect */
+}
+/* --- Add these new rules to define the image for each button --- */
+
+.main-menu-btn .bg-405 {
+    background-image: url('course-405-bg.jpg');
+}
+
+.main-menu-btn .bg-406 {
+    background-image: url('course-406-bg.jpg');
+}
+
+.main-menu-btn .bg-407 {
+    background-image: url('course-407-bg.jpg');
+}
+
+.main-menu-btn .bg-408 {
+    background-image: url('course-408-bg.jpg');
+}
+
+/* This is the magic part: On hover of the button, fade the image in */
+.main-menu-btn:hover .btn-bg-image {
+    opacity: 1;
+}
+	@font-face {
+
+        font-family: 'Basmala'; /* We are naming our font 'Basmala' */
+
+        src: url('Basmala.ttf') format('truetype');
+
+    }
+
+
+
+    body {
+
+        font-family: 'Cairo', 'Kalpurush', sans-serif;
+
+        background-color: #f0f4f8;
+
+    }
+
+/* This gives the 3D space for the animation to happen in */
+
+.translation-container {
+
+    perspective: 1200px;
+
+}
+
+
+
+/* Keyframes for the "Next" button peel effect */
+
+@keyframes peel-off-next {
+
+    from {
+
+        transform: rotateY(0deg);
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform: translateX(-50%) rotateY(-80deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+@keyframes peel-in-next {
+
+    from {
+
+        transform: translateX(50%) rotateY(80deg);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: rotateY(0deg);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+
+/* Keyframes for the "Previous" button peel effect */
+
+@keyframes peel-off-prev {
+
+    from {
+
+        transform: rotateY(0deg);
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform: translateX(50%) rotateY(80deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+@keyframes peel-in-prev {
+
+    from {
+
+        transform: translateX(-50%) rotateY(-80deg);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: rotateY(0deg);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+
+/* Classes to trigger the animations */
+
+.peel-out-next {
+
+    animation: peel-off-next 0.5s ease-in-out forwards;
+
+}
+
+.peel-in-next {
+
+    animation: peel-in-next 0.5s ease-in-out;
+
+}
+
+.peel-out-prev {
+
+    animation: peel-off-prev 0.5s ease-in-out forwards;
+
+}
+
+.peel-in-prev {
+
+    animation: peel-in-prev 0.5s ease-in-out;
+
+}
+
+
+
+
+
+        .arabic-text, .arabic-title {
+
+			font-family: 'Times New Roman', serif;
+
+									}
+
+        .bengali-text, .bengali-title {
+
+            font-family: 'Kalpurush', sans-serif;
+
+        }
+
+        .eng-btn {
+
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+        }
+
+        .page {
+
+            display: none;
+
+        }
+
+        .page.active {
+
+            display: block;
+
+        }
+
+        .card-hover {
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+        .card-hover:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+        }
+
+        .word-by-word-arabic {
+
+    font-family: 'Times New Roman', serif;
+
+    font-size: 1.6rem;
+
+    line-height: 2.4rem;
+
+	text-align: right;
+
+	}
+
+	.line-by-line-arabic {
+
+    font-family: 'Times New Roman', serif;
+
+    font-size: 1.25rem;
+
+    line-height: 2rem;
+
+	text-align: right;
+
+}
+
+        }
+
+        table {
+
+            border-collapse: collapse;
+
+        }
+
+        tbody tr:last-child {
+
+            border-bottom: none;
+
+        }
+
+        tr {
+
+            border-bottom: 1px solid #e5e7eb;
+
+        }
+
+        .pagination-btn:disabled {
+
+            opacity: 0.5;
+
+            cursor: not-allowed;
+
+        }
+
+	/* NEW CSS for the hiding header */
+
+    #global-header, #du-logo, #profile-picture {
+
+        transition: transform 0.3s ease-in-out;
+
+    }
+
+
+
+    .header-hidden {
+
+        transform: translateY(-120%);
+
+    }
+
+
+/* This rule changes the text color to white on hover */
+.main-menu-btn:hover .btn-text {
+    color: white;
+}
+    </style>
+
+
+
+<style>
+    /* This sets up the CSS variable for dynamic font sizing */
+    :root {
+        --base-font-size: 16px;
+    }
+
+    /* Apply the font size to the body */
+    body {
+        font-size: var(--base-font-size);
+    }
+    
+    /* --- Corrected and Complete Dark Mode Theme Styles --- */
+    .dark body {
+        background-color: rgb(17 24 39); /* bg-gray-900 */
+        color: rgb(229 231 235); /* text-gray-200 */
+    }
+    /* Cards and main content areas */
+    .dark .bg-white {
+        background-color: rgb(31 41 55); /* bg-gray-800 */
+        border-color: rgb(55 65 81); /* border-gray-700 */
+    }
+    /* Table headers, etc. */
+    .dark .bg-gray-100 {
+        background-color: rgb(17 24 39); /* bg-gray-900 */
+    }
+    .dark .bg-gray-100:hover {
+        background-color: rgb(55 65 81) !important; /* Overrides for specific buttons */
+    }
+    /* Buttons inside Settings Panel */
+    .dark .bg-gray-200 {
+        background-color: rgb(55 65 81); /* bg-gray-700 */
+    }
+    .dark .bg-gray-200:hover {
+        background-color: rgb(75 85 99); /* bg-gray-600 */
+    }
+     /* Text color corrections */
+    .dark .text-gray-800 {
+        color: rgb(243 244 246); /* text-gray-100 */
+    }
+    .dark .text-gray-700 {
+        color: rgb(209 213 219); /* text-gray-300 */
+    }
+    .dark .text-gray-500 {
+        color: rgb(156 163 175); /* text-gray-400 */
+    }
+    /* Borders */
+    .dark .border, .dark .border-b, .dark tr {
+        border-color: rgb(55 65 81); /* border-gray-700 */
+    }
+    /* Remove shadows in dark mode for a flatter look */
+    .dark .shadow-lg, .dark .shadow-md, .dark .shadow-xl {
+        box-shadow: none;
+    }
+    /* Specific overrides for buttons and header */
+    .dark .main-menu-btn {
+        background-color: rgb(31 41 55); /* bg-gray-800 */
+        border-color: rgb(55 65 81); /* border-gray-700 */
+    }
+    .dark .main-menu-btn:hover {
+        background-color: rgb(55 65 81); /* hover:bg-gray-700 */
+    }
+    .dark #global-header {
+        background-color: rgba(31, 41, 55, 0.8); /* bg-gray-800/80 */
+        border-color: rgb(55 65 81); /* border-gray-700 */
+    }
+</style>
+
+
+
+
+</head>
+
+
+
+<body class="text-gray-800">
+
+
+
+    <!-- =================================================================
+
+        GLOBAL FIXED HEADER
+
+    ================================================================== -->
+
+    <div id="global-header" class="fixed top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm shadow-md flex justify-center py-4 border-b border-gray-200">
+
+        <div class="flex flex-col items-center space-y-4">
+
+            <a href="https://course-405.netlify.app/#page-main"><img src="Name.png" alt="The Class Caddy Logo" class="h-12 md:h-14"></a>
+
+            <div class="relative inline-block text-left">
+
+                <div>
+
+                    <button type="button" id="courses-menu-button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-8 py-2 bg-white text-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 eng-btn">
+
+                        Courses
+
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+                <div id="courses-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="courses-menu-button">
+
+                    <div class="py-1" role="none">
+
+                        <a href="#" data-target="page-course-405" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-405</a>
+
+                        <a href="#" data-target="page-course-406" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-406</a>
+
+                        <a href="#" data-target="page-course-407" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-407</a>
+
+                        <a href="#" data-target="page-course-408" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-408</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Top Left Profile Image -->
+
+    <div id="profile-picture" class="fixed top-14 left-4 z-20">
+
+        <a href="https://www.facebook.com/emammehedi17"><img src="https://scontent.fdac24-5.fna.fbcdn.net/v/t39.30808-6/515472996_2338185433242213_3000687231462222459_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=3ARiZHZ7zYUQ7kNvwF3Dvur&_nc_oc=AdlvyH5CDuWpAQSDf9QOM4TCWE6Fm-GPqIECHU6rWfwFYx5hrQ8EgbmdtxCOEWekY1Q&_nc_zt=23&_nc_ht=scontent.fdac24-5.fna&_nc_gid=t_UQlsN7MxWwAFGqWM4d_A&oh=00_AfMUbl4onSUIkgGn_zpQElDQM-q8fjM2zx2RUA4pbIez5A&oe=686D6365" alt="Emam Mehedi" class="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-lg">
+
+        </a>
+
+    </div>
+
+
+
+    <!-- Dhaka University Logo -->
+
+    <div id="du-logo" class="fixed top-14 right-4 z-20">
+
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNBAHKuj1sO6IJF6tmiRnrF-W9C2gKbWs9EUZ1bhH8o9AIC1O4JlI9sIBmT22TJPbaSH93pyXcSIvMCL2pztom6QD7XbB6JpjvzVFLXW2BjMgzzTDKJeQnMRECM_VYjIcC-UmfiaVVH7G5/s1600/dhaka-university.jpg" alt="Dhaka University Logo" class="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-lg">
+
+    </div>
+
+    
+
+    <div id="app" class="container mx-auto p-4 pt-44 md:pt-48 min-h-screen pb-24">
+
+
+
+        <!-- =================================================================
+
+        PAGE 1: MAIN MENU
+
+        ================================================================== -->
+
+        <div id="page-main" class="page active">
+					<div class="my-12 max-w-2xl mx-auto">
+				<h2 class="text-3xl font-bold text-center mb-4">Ask a Question</h2>
+				<div class="flex gap-2">
+					<input type="text" id="ai-search-input" class="w-full border-2 border-gray-300 rounded-lg p-3" placeholder="e.g., What is 'The Frozen River' about?">
+					<button id="ai-search-btn" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700">Search</button>
+				</div>
+				<div id="ai-answer-box" class="mt-4 p-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 hidden"></div>
+			</div>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-4"></div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+					
+					<button data-target="page-course-405" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-blue-100 hover:bg-blue-200 rounded-2xl shadow-lg border border-blue-200 transition-colors duration-300">
+						<span class="btn-text">Course-405</span>
+						<span class="btn-bg-image bg-405"></span>
+					</button>
+
+					<button data-target="page-course-406" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-emerald-100 hover:bg-emerald-200 rounded-2xl shadow-lg border border-emerald-200 transition-colors duration-300">
+						<span class="btn-text">Course-406</span>
+						<span class="btn-bg-image bg-406"></span>
+					</button>
+
+					<button data-target="page-course-407" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-amber-100 hover:bg-amber-200 rounded-2xl shadow-lg border border-amber-200 transition-colors duration-300">
+						<span class="btn-text">Course-407</span>
+						<span class="btn-bg-image bg-407"></span>
+					</button>
+					
+					<button data-target="page-course-408" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-rose-100 hover:bg-rose-200 rounded-2xl shadow-lg border border-rose-200 transition-colors duration-300">
+						<span class="btn-text">Course-408 (B)</span>
+						<span class="btn-bg-image bg-408"></span>
+					</button>
+
+				</div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: COURSE 405 TEACHERS Is very interesting... Hellow world.
+
+        ================================================================== -->
+
+        <div id="page-course-405" class="page"> 
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-main">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Course-405 Teachers.</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <button data-target="page-sir-ruhul" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-violet-100 hover:bg-violet-200 rounded-2xl shadow-lg border border-violet-200 transition-colors duration-300">Ruhul Amin Sir</button>
+
+                <button data-target="page-sir-fozlur" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-teal-100 hover:bg-teal-200 rounded-2xl shadow-lg border border-teal-200 transition-colors duration-300">Fozlur Rahman Sir</button>
+
+            </div>
+
+            <div class="mt-10 text-center">
+
+                <a href="https://drive.google.com/file/d/1TM9CYPGuex9qNlgAAbuCo0FAbbLtUqdc/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full md:w-auto bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+
+                    Download All Contents
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: COURSE 406 DOWNLOADS
+
+        ================================================================== -->
+
+        <div id="page-course-406" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-main">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Course-406 Downloads</h2>
+
+            <div class="max-w-xl mx-auto flex flex-col items-center gap-6">
+
+                <a href="https://drive.google.com/file/d/1l_FoN0XbUpheXeaSnUAFrT7a1paadDO3/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Ehsan Sir: Translation</a>
+
+                <a href="https://drive.google.com/file/d/1PJgwa5Zvw0yLLhkKMPnE8D_R87TtIPg0/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Ehsan Sir: Collocation</a>
+
+                <a href="https://drive.google.com/file/d/1RPyW6CU47rmO-nvH8Q0ez9n5kZRQRL8l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Nure Alam Sir: Translation</a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: COURSE 407 TEACHERS
+
+        ================================================================== -->
+
+        <div id="page-course-407" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-main">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Course-407 Teachers</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <button data-target="page-imran-sir" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-slate-100 hover:bg-slate-200 rounded-2xl shadow-lg border border-slate-200 transition-colors duration-300">Imran Sir</button>
+
+                <button data-target="page-naimul-sir" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-cyan-100 hover:bg-cyan-200 rounded-2xl shadow-lg border border-cyan-200 transition-colors duration-300">Naimul Islam Sir</button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: Imran Sir's Materials
+
+        ================================================================== -->
+
+        <div id="page-imran-sir" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-407">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Imran Sir's Materials</h2>
+
+            <div class="max-w-xl mx-auto flex flex-col items-center gap-6">
+
+                <button class="w-full inline-flex items-center justify-center gap-3 bg-gray-400 text-white font-bold py-4 px-10 rounded-lg shadow-lg cursor-not-allowed text-lg eng-btn">Slides</button>
+
+                <a href="https://drive.google.com/file/d/1VIjHJV1KySNly76yLkQwaKF33jW7fy_k/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Note on all slides</a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: Naimul Islam Sir's Materials
+
+        ================================================================== -->
+
+        <div id="page-naimul-sir" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-407">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Naimul Islam Sir's Materials</h2>
+
+            <div class="max-w-xl mx-auto flex flex-col items-center gap-6">
+
+                <a href="https://drive.google.com/file/d/1L93ERRXFoEEeToTIbid97FzrXCJBruUW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Download Complete Note</a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: RUHUL AMIN SIR'S POEMS
+
+        ================================================================== -->
+
+        <div id="page-sir-ruhul" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-405">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Ruhul Amin Sir's Poems</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <button data-target="page-poem-akhi" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">أخي</button>
+
+                <button data-target="page-poem-nahr" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">النهر المتجمد</button>
+
+                <button data-target="page-poem-aghmid" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">أغمض جفونك</button>
+
+                <button data-target="page-poem-usfur" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">عصفور الجنة</button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        PAGE: FOZLUR RAHMAN SIR'S POEMS
+
+        ================================================================== -->
+
+        <div id="page-sir-fozlur" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-405">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Fozlur Rahman Sir's Poems</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <button data-target="page-poem-anqa" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">العنقاء</button>
+
+                <button data-target="page-poem-ina" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">إِناءٌ</button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        POEM LANDING PAGES (6 total) - CORRECTED STRUCTURE
+
+        ================================================================== -->
+
+        <div id="page-poem-akhi" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-sir-ruhul">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <header class="text-center mb-12">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9cNidYIcyiPjcbQtT-d8nrpyB69EnxJkAw&s" alt="Mikhail Nuaimah" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">أخي</h3>
+
+                <p class="text-lg text-gray-500 arabic-text mt-1">ميخائيل نعيمة</p>
+
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+
+                <button data-poem="akhi" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+
+                <button data-poem="akhi" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+
+            </div>
+<div class="mt-6 flex justify-center">
+    <a href="Akhi.pdf" download="Akhi.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download PDF
+    </a>
+</div>
+        </div>
+
+        
+
+        <div id="page-poem-nahr" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-sir-ruhul">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <header class="text-center mb-12">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9cNidYIcyiPjcbQtT-d8nrpyB69EnxJkAw&s" alt="Mikhail Nuaimah" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">النهر المتجمد</h3>
+
+                <p class="text-lg text-gray-500 arabic-text mt-1">ميخائيل نعيمة</p>
+
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+
+                <button data-poem="nahr" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+
+                <button data-poem="nahr" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+
+            </div>
+<div class="mt-6 flex justify-center">
+    <a href="Nahr.pdf" download="Nahr.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download PDF
+    </a>
+</div>
+        </div>
+
+
+
+        <div id="page-poem-aghmid" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-sir-ruhul">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <header class="text-center mb-12">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9cNidYIcyiPjcbQtT-d8nrpyB69EnxJkAw&s" alt="Mikhail Nuaimah" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">أغمض جفونك تبصر</h3>
+
+                <p class="text-lg text-gray-500 arabic-text mt-1">ميخائيل نعيمة</p>
+
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+
+                <button data-poem="aghmid" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+
+                <button data-poem="aghmid" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+
+            </div>
+<div class="mt-6 flex justify-center">
+    <a href="Aghmid.pdf" download="Aghmid.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download PDF
+    </a>
+</div>
+        </div>
+
+
+
+        <div id="page-poem-usfur" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-sir-ruhul">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <header class="text-center mb-12">
+
+                <img src="https://arab-ency.com.sy/img/res/0/7017/1.jpg" alt="Abdur Rahman Shukri" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">عصفور الجنة</h3>
+
+                <p class="text-lg text-gray-500 arabic-text mt-1">عبد الرحمن شكري</p>
+
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+
+                <button data-poem="usfur" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+
+                <button data-poem="usfur" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+
+            </div>
+<div class="mt-6 flex justify-center">
+    <a href="Usfur.pdf" download="Usfur.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download PDF
+    </a>
+</div>
+        </div>
+
+
+
+        <div id="page-poem-anqa" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-sir-fozlur">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <header class="text-center mb-12">
+
+                <img src="https://upload.wikimedia.org/wikipedia/ar/c/ce/Elia_Au_Madi.jpg" alt="Iliya Abu Madi" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">العنقاء</h3>
+
+                <p class="text-lg text-gray-500 arabic-text mt-1">إيليا ابو ماضي</p>
+
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+
+                <button data-poem="anqa" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+
+                <button data-poem="anqa" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+
+            </div>
+<div class="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
+    <a href="Anqa.pdf" download="Anqa.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download PDF
+    </a>
+    <a href="Anqa%20Translation.pdf" download="Anqa Translation.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download Translation PDF
+    </a>
+</div>
+
+        </div>
+
+
+
+        <div id="page-poem-ina" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-sir-fozlur">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <header class="text-center mb-12">
+
+                <img src="https://upload.wikimedia.org/wikipedia/ar/2/2a/AbuChabkeh.jpg" alt="Elias Abu Shabaki" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">إِناءٌ</h3>
+
+                <p class="text-lg text-gray-500 arabic-text mt-1">إلياس أبو شبكة</p>
+
+            </header>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+
+                <button data-poem="ina" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+
+                <button data-poem="ina" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+
+            </div>
+<div class="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
+    <a href="Ina.pdf" download="Ina.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download PDF
+    </a>
+    <a href="Ina%20Translation.pdf" download="Ina Translation.pdf" class="inline-flex items-center gap-3 w-full md:w-auto bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+        Download Translation PDF
+    </a>
+</div>
+
+        </div>
+
+
+
+        <!-- =================================================================
+
+        TRANSLATION PAGE TEMPLATE
+
+        ================================================================== -->
+
+        <div id="page-translation" class="page">
+
+            <div class="flex justify-between items-center mb-4">
+
+                <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow eng-btn">← Back</button>
+
+                <span id="page-info-top" class="text-gray-600 eng-btn font-semibold"></span>
+
+            </div>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden p-6 translation-container">
+
+                <h3 id="trans-title-ar" class="text-3xl font-bold text-center mb-2 arabic-text"></h3>
+
+                <p id="trans-title-bn" class="text-center text-xl mb-6 bengali-text"></p>
+
+                <table class="w-full text-sm">
+
+                    <thead class="bg-gray-100"><tr><th class="p-3 text-right bengali-text">আরবী</th><th class="p-3 text-left bengali-text">বাংলা অর্থ</th></tr></thead>
+
+                    <tbody id="trans-body"></tbody>
+
+                </table>
+
+                <div id="pagination-controls" class="flex justify-between items-center mt-6">
+
+                    <button id="prev-btn" class="pagination-btn bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 disabled:opacity-50 eng-btn">Previous</button>
+
+                    <span id="page-info-bottom" class="text-gray-600 eng-btn"></span>
+
+                    <button id="next-btn" class="pagination-btn bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 disabled:opacity-50 eng-btn">Next</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+ 
+
+        <!-- =================================================================
+
+        COURSE 408 PAGES START HERE
+
+        ================================================================== -->
+
+        <div id="page-course-408" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-main">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <h2 class="text-4xl font-bold text-center mb-10">Course-408</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <button data-target="page-408-outline" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-pink-100 hover:bg-pink-200 rounded-2xl shadow-lg border border-pink-200 transition-colors duration-300">Outline for Midterm</button>
+
+                <button data-target="page-408-contents" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-indigo-100 hover:bg-indigo-200 rounded-2xl shadow-lg border border-indigo-200 transition-colors duration-300">Contents</button>
+
+            </div>
+
+        </div>
+
+
+
+                <div id="page-408-outline" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-408">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+
+                <h2 class="text-3xl font-bold text-center mb-6">Outline for Midterm Syllabus [Course-408(B)]</h2>
+
+                <ol class="list-decimal list-inside space-y-4 text-lg">
+
+                    <li>Introduction to Research.</li>
+
+                    <li>Why research is necessary.
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Commonsense Vs Research</li>
+
+                            <li>Basic categories of knowledge.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>When a problem is researchable.</li>
+
+                    <li>What is social research.</li>
+
+                    <li>Objectives of research.</li>
+
+                    <li>Characteristics of research.</li>
+
+                    <li>Scientific method.
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>What is science?</li>
+
+                            <li>Purpose of science</li>
+
+                            <li>Scientific Method</li>
+
+                            <li>Basic assumption in scientific method.</li>
+
+                            <li>Characteristics of scientific activities.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Social Science
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Introduction, Characteristics, Objectives.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Criteria of a good research.</li>
+
+                    <li>Qualities of a good research.</li>
+
+                    <li>Need for research.</li>
+
+                    <li>Scope of research.</li>
+
+                    <li>Types of research.
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>On the basis of objectives, Outcome, Inquiry Mode, Concept.</li>
+
+                            <li>Comparison between some types of research</li>
+
+                            <li>Some other types of Research.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Research – Theory Cycle.</li>
+
+                    <li>Research Process.
+
+                        <ul class="list-disc list-inside ml-8 mt-2"><li>Steps of research.</li></ul>
+
+                    </li>
+
+                    <li>Defining research problem. (Step-1)
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Research Problem. How to find a problem.</li>
+
+                            <li>Sources of problems.</li>
+
+                            <li>Criteria of problem selection.</li>
+
+                            <li>Formulation of research problem.</li>
+
+                            <li>Criteria of a good research problem.</li>
+
+                            <li>Establishment of research objectives.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Literature Review. (Step-2)
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Definition of lit. review.</li>
+
+                            <li>Purpose of lit. review.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Research Design.
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Process of designing a research.</li>
+
+                            <li>Research Design Vs Methods.</li>
+
+                            <li>Research Strategy.</li>
+
+                            <li>Research Techniques.</li>
+
+                            <li>Effective Research Design</li>
+
+                            <li>Parts of Research Design.</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Sampling Techniques & Size.
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Importance of Sampling</li>
+
+                            <li>Important statistical terms. (Target population, sampling unit, sampling frame, sampling scheme)</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>Types of Samples.
+
+                        <ul class="list-disc list-inside ml-8 mt-2">
+
+                            <li>Non probability sampling</li>
+
+                            <li>Probablity sampling.</li>
+
+                        </ul>
+
+                    </li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+
+
+               <div id="page-408-contents" class="page">
+
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-408">← Back</button>
+
+            <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
+
+            <div class="bg-white p-4 md:p-8 rounded-lg shadow-lg">
+
+                <div class="space-y-8">
+
+                    <!-- Section 1 -->
+
+                    <div>
+
+                        <h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">1. What is Research?</h3>
+
+                        <div class="border border-gray-300 border-t-0 p-4 rounded-b-lg">
+
+                            <ul class="list-decimal list-inside space-y-2 italic text-gray-700">
+
+                                <li>"Scientific research is a systematic, controlled, empirical, and critical investigation of natural phenomena guided by theory and hypotheses about the presumed relations among such phenomena." (Kerlinger, F. N. (1986). Foundations of Behavioral Research).</li>
+
+                                <li>"Research is a process of steps used to collect and analyze information to increase our understanding of a topic or issue." (Creswell, J. W. (2014). Research Design: Qualitative, Quantitative, and Mixed Methods Approaches).</li>
+
+                            </ul>
+
+                            <p class="mt-4">Research is a systematic and rigorous process of inquiry that involves collecting and analyzing evidence to discover new knowledge, test or revise existing theories, and answer questions in a credible and verifiable way. It moves beyond common sense by employing a structured methodology to ensure that conclusions are based on solid evidence rather than mere intuition or flawed perception.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Section 2 -->
+
+                    <div>
+
+                        <h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">2. Why Research is Necessary</h3>
+
+                        <div class="border border-gray-300 border-t-0 p-4 rounded-b-lg">
+
+                            <p>Research is essential because it produces evidence-based facts, knowledge, and ideas that go beyond individual experience. It is a systematic process that allows us to understand the world with greater accuracy and confidence. The necessity of research stems from several key reasons:</p>
+
+                            <ul class="list-disc list-inside mt-4 space-y-1">
+
+                                <li>It is based on the collective experiences of many people, often using a representative sample to ensure findings are generalizable.</li>
+
+                                <li>It requires verifiable data and evidence to support its conclusions.</li>
+
+                                <li>It follows a rigorous and structured methodology, ensuring the process is transparent and repeatable.</li>
+
+                                <li>Its findings can be used for prediction and to forecast future trends or outcomes.</li>
+
+                                <li>It provides a reliable foundation for policy formulation in various sectors, including government, health, and business.</li>
+
+                            </ul>
+
+                            <h4 class="font-bold text-lg mt-6 mb-2">Common Sense vs. Research</h4>
+
+                            <div class="overflow-x-auto"><table class="w-full border-collapse border border-gray-300 min-w-[600px]"><thead><tr class="bg-gray-100"><th class="border p-2 text-left">Feature</th><th class="border p-2 text-left">Common Sense</th><th class="border p-2 text-left">Research</th></tr></thead><tbody><tr><td class="border p-2">Basis</td><td class="border p-2">Based on individual, personal experiences.</td><td class="border p-2">Based on the experiences of many people, often a representative sample.</td></tr><tr><td class="border p-2">Data Requirement</td><td class="border p-2">Does not require data or formal evidence.</td><td class="border p-2">Requires systematic collection of data/evidence.</td></tr><tr><td class="border p-2">Verification</td><td class="border p-2">Cannot be formally verified or tested by others.</td><td class="border p-2">Can be verified and replicated by other investigators.</td></tr><tr><td class="border p-2">Methodology</td><td class="border p-2">Does not follow a structured methodology or steps.</td><td class="border p-2">Follows a deliberate and systematic methodology.</td></tr><tr><td class="border p-2">Predictive Power</td><td class="border p-2">Cannot be reliably used for prediction.</td><td class="border p-2">Can be used to make predictions and forecasts.</td></tr><tr><td class="border p-2">Application</td><td class="border p-2">Not suitable for formal policy formulation.</td><td class="border p-2">Findings are widely used for policy formulation.</td></tr></tbody></table></div>
+
+                            <h4 class="font-bold text-lg mt-6 mb-2">Basic Categories of Knowledge</h4>
+
+                            <p>Scott (2002) identifies six fundamental categories of knowledge that shape our understanding of the world:</p>
+
+                            <ol class="list-decimal list-inside mt-4 space-y-1"><li><strong>Common-sense knowledge:</strong> Refers to things that are widely known and accepted as true within a society, such as the knowledge that fire burns.</li><li><strong>Authority-based knowledge:</strong> Knowledge acquired from expert sources that are given credibility, such as doctors, scientists, or other professionals.</li><li><strong>Experiential knowledge:</strong> Knowledge developed from an individual's own personal experiences, which can sometimes conflict with expert or authoritative knowledge.</li><li><strong>Traditional knowledge:</strong> Beliefs and practices passed down through generations that explain and justify various aspects of life.</li><li><strong>Non-rational knowledge:</strong> Knowledge based on faith, intuition, or divine revelation, such as a belief in God.</li><li><strong>Scientific knowledge:</strong> Knowledge that is generated through a process of systematic, rigorous testing and empirical observation.</li></ol>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Section 3 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">3. When a Problem is Researchable?</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>For a problem to be considered researchable, three conditions should be met:</p><ol class="list-decimal list-inside mt-4 space-y-1"><li>There is a perceived discrepancy between what currently is and what should be.</li><li>A question exists as to why this discrepancy is present.</li><li>There are at least two possible and plausible answers to that question.</li></ol></div></div>
+
+                    <!-- Section 4 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">4. What is Social Research?</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Social Research is a scientific undertaking which, by means of logical and systematized techniques, aims to:</p><ul class="list-disc list-inside mt-4 space-y-1"><li>Discover new facts or verify and test old facts.</li><li>Analyze their sequence, interrelationships, and causal explanations, which were derived within an appropriate theoretical frame of reference.</li><li>Develop new scientific tools, concepts, and theories that facilitate the reliable and valid study of human behavior.</li></ul><p class="text-sm italic mt-2">(Source: P.V. Young, Scientific Social Survey and Research)</p></div></div>
+
+                    <!-- Section 5 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">5. Objectives of Research:</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>The primary purpose of research is to discover answers through the application of scientific procedures. The main objectives are:</p><ul class="list-disc list-inside mt-4 space-y-1"><li><strong>Descriptive Research:</strong> To portray accurately the characteristics of a particular individual, situation, or group.</li><li><strong>Exploratory Research:</strong> To gain familiarity with a phenomenon or to achieve new insights into it.</li><li><strong>Explanatory Research:</strong> To determine the frequency with which something occurs or with which it is associated with something else.</li><li><strong>Hypothesis-Testing Research:</strong> To test a hypothesis of a causal relationship between variables.</li></ul></div></div>
+
+                    <!-- Section 6 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">6. Characteristics of Research:</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Effective research has several key characteristics:</p><ul class="list-disc list-inside mt-4 space-y-1"><li>It is directed towards the solution of a specific problem.</li><li>It is based upon observable experience or empirical evidence.</li><li>It demands accurate observation and description.</li><li>It involves gathering new data from primary sources or using existing data for a new purpose.</li><li>Its activities are characterized by carefully designed procedures.</li><li>It requires expertise and skill in investigation, literature search, and data analysis.</li><li>It is objective and logical, applying every possible test to validate the data and conclusions.</li><li>It involves a quest for answers to unsolved problems.</li><li>It requires courage, patience, and unhurried activity.</li><li>It is carefully recorded and reported.</li></ul></div></div>
+
+                    <!-- Section 7 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">7. The Scientific Method</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><h4 class="font-bold text-lg mt-2 mb-2">What is Science?</h4><p>The word 'Science' originates from the Latin 'Scire', meaning 'To Know'. It is a body of systematic and organized knowledge acquired through the scientific method. Science is distinct because of its methodology, which involves observing phenomena, establishing relationships between them, and formulating theories.</p><h4 class="font-bold text-lg mt-6 mb-2">Purpose of Science</h4><p>The purpose of science is to observe and understand the world. This involves three major components:</p><ol class="list-decimal list-inside ml-4"><li><strong>Description:</strong> Describing what is observed without relating it to other things.</li><li><strong>Discovering Regularities/Patterns:</strong> Finding patterns in phenomena and establishing relationships.</li><li><strong>Formulation of Theories and Laws:</strong> Drawing conclusions about the salient features of the subject of study.</li></ol><h4 class="font-bold text-lg mt-6 mb-2">The Scientific Method</h4><p>The scientific method is the systematic collection of data (facts) and their theoretical treatment through proper observation, experimentation, and interpretation. It aims to achieve a systematic interrelation of facts.</p><h4 class="font-bold text-lg mt-6 mb-2">Basic Assumptions in the Scientific Method</h4><ul class="list-disc list-inside mt-4 space-y-1"><li>It relies on empirical evidence.</li><li>It utilizes relevant concepts.</li><li>It is committed to objective considerations.</li><li>It presupposes ethical neutrality.</li><li>It results in probabilistic predictions.</li><li>The methodology is made known to others.</li><li>It aims at formulating scientific theories.</li></ul><h4 class="font-bold text-lg mt-6 mb-2">Characteristics of Scientific Activities</h4><ul class="list-disc list-inside mt-4 space-y-1"><li><strong>Logical:</strong> It assumes causal relationships and logical consequences (Inductive and Deductive).</li><li><strong>Deterministic:</strong> It assumes every action has a cause or antecedent event.</li><li><strong>General:</strong> It aims for general understanding rather than explaining individual events.</li><li><strong>Parsimonious:</strong> It seeks to explain the most with the fewest variables ("Less variables, More Explanation").</li><li><strong>Specific:</strong> The process of measurement must be specific and clean.</li><li><strong>Empirically Verifiable:</strong> Conclusions are based on physical, verifiable evidence.</li><li><strong>Inter-Subjective:</strong> It creates a clear, objective reality that scientists can agree upon despite different backgrounds.</li><li><strong>Open to Modification:</strong> It is not static and allows for change, modification, and falsification.</li></ul></div></div>
+
+                    <!-- Section 8 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">8. Social Science</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Social science deals with human behavior and its socio-economic and cultural aspects. While it is considered a science, it faces unique challenges, such as difficulties in measuring social phenomena, issues with respondent accuracy, and discovering social regularities.</p><h4 class="font-bold text-lg mt-6 mb-2">Characteristics of Social Science</h4><ul class="list-disc list-inside mt-4 space-y-1"><li><strong>Logical:</strong> Generally applicable, but human behavior is not always rational.</li><li><strong>Deterministic:</strong> Fully applicable; every social action or event has a cause.</li><li><strong>General:</strong> Partly applicable (e.g., marriage is universal, but its forms vary).</li><li><strong>Parsimonious:</strong> Applicable to some extent, particularly in fields like economics.</li><li><strong>Specific:</strong> Highly applicable; definitions, units, and variables must be explicit.</li><li><strong>Empirically Verifiable:</strong> Completely and entirely applicable.</li><li><strong>Inter-Subjective:</strong> Not fully applicable, as researcher bias (value judgments) can be difficult to eliminate.</li><li><strong>Open to Modification:</strong> Social science theories can be rebuilt and are not static.</li></ul><h4 class="font-bold text-lg mt-6 mb-2">Objectives of Social Science</h4><p>The ultimate goal of social science is to produce an accumulating body of reliable knowledge. Its aims are:</p><ol class="list-decimal list-inside mt-4 space-y-1"><li><strong>Explanation:</strong> To discover why events happen and explain the reasons behind them.</li><li><strong>Prediction:</strong> To make predictions based on experience and understanding of antecedents.</li><li><strong>Understanding:</strong> To apply scientific characteristics to explain human behavior, acknowledging the unique complexities involved.</li></ol></div></div>
+
+                    <!-- Section 9 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">9. Criteria of a Good Research</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><ul class="list-disc list-inside space-y-1"><li>The purpose is clearly defined.</li><li>The research process is detailed.</li><li>The research design is thoroughly planned.</li><li>High ethical standards are applied.</li><li>Limitations are frankly revealed.</li><li>Analysis is adequate for the decision-maker's needs.</li><li>Findings are presented unambiguously.</li><li>Conclusions are justified.</li><li>The researcher's experience is reflected.</li></ul></div></div>
+
+                    <!-- Section 10 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">10. Qualities of a Good Research</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><ul class="list-disc list-inside space-y-2"><li><strong>Systematic:</strong> Good research follows a structured and orderly process. This means it is not haphazard but proceeds through a logical sequence of steps, from defining a problem and reviewing literature to collecting and analyzing data, and finally drawing conclusions. This ensures the research is thorough and well-organized.</li><li><strong>Logical:</strong> The entire research process is based on valid procedures and principles of reasoning. Both inductive and deductive reasoning are used to ensure that the arguments are sound and the conclusions logically follow from the evidence.</li><li><strong>Empirical:</strong> Research is rooted in the real world. It is based on objective evidence collected through direct or indirect observation and experience, rather than on abstract theory or belief alone.</li><li><strong>Replicable:</strong> The procedures and methods used in the research are described in sufficient detail so that another researcher can repeat the study under similar conditions. If the results are similar, it increases confidence in their validity and reliability.</li><li><strong>Creative:</strong> Good research is not just about following a formula. It can involve thinking of new ways to approach a problem, developing innovative methods for collecting data, or interpreting findings in a novel and insightful way.</li><li><strong>Use of multiple methods:</strong> A problem can often be investigated more thoroughly by combining different research techniques (a practice known as triangulation). Using multiple methods can provide a more comprehensive and robust understanding of the research problem.</li></ul></div></div>
+
+                    <!-- Section 11 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">11. Need for Research</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><ul class="list-disc list-inside space-y-4"><li><strong>Exploration:</strong> To explore areas where little is known. <br><em class="text-sm">Example: A researcher might conduct an exploratory study on the social dynamics of a newly formed online community.</em></li><li><strong>Description:</strong> To describe individuals, situations, or groups accurately. <br><em class="text-sm">Example: A census is a descriptive study that aims to accurately describe the demographic characteristics of a country's population.</em></li><li><strong>Diagnosis:</strong> To diagnose the frequency of a problem or its association with other factors. <br><em class="text-sm">Example: A health researcher might conduct a study to determine the prevalence of diabetes in a specific urban area.</em></li><li><strong>Hypothesis Testing:</strong> To test causal relationships between variables. <br><em class="text-sm">Example: An educational psychologist might test the hypothesis that a new teaching method causes an improvement in student test scores.</em></li><li><strong>Inductions and Deductions:</strong> To develop general theories from specific observations (induction) or test specific hypotheses from general theories (deduction). <br><em class="text-sm">Example (Induction): From observing that educated people often live near green spaces, a sociologist might induce a theory about a positive relationship between education and access to such spaces.</em></li></ul></div></div>
+
+                    <!-- Section 12 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">12. Scope of Research</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Research is significant across numerous domains:</p><ul class="list-disc list-inside mt-4 space-y-1"><li><strong>Decision Making:</strong> It informs decision-making, highlights risks, and identifies alternative courses of action.</li><li><strong>Resource Management:</strong> It helps in the economic use of resources and in project identification.</li><li><strong>Business and Industry:</strong> It solves problems related to investment, pricing, allocation, HR, operations, and planning.</li><li><strong>Government:</strong> It provides the basis for government policies.</li><li><strong>Social Science:</strong> It helps social scientists study social relationships and find answers to social problems.</li><li><strong>Personal and Professional Growth:</strong> It serves as a career path for students, a source of livelihood for professionals, an outlet for new ideas for thinkers, a means for creative development for literary figures, and a way to generalize new theories for analysts.</li></ul></div></div>
+
+                    <!-- Section 13 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">13. Types of Research</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><h4 class="font-bold text-lg mt-2 mb-2">Research Types According to Objectives:</h4><ol class="list-decimal list-inside ml-4 space-y-2"><li><strong>Descriptive Research:</strong> A fact-finding investigation aimed at describing the characteristics of an individual, situation, or group as it exists.</li><li><strong>Exploratory Research:</strong> A preliminary study of an unfamiliar problem about which the researcher has little knowledge.</li><li><strong>Explanatory Research:</strong> Aims to explain the underlying reasons for, causes of, and relationships between variables.</li><li><strong>Experimental Research:</strong> Designed to assess the effect of one variable on another by keeping other variables constant or controlled.</li></ol><h4 class="font-bold text-lg mt-6 mb-2">On the Basis of Outcome:</h4><ul class="list-disc list-inside ml-4 space-y-2"><li><strong>Fundamental (or Basic/Pure) Research:</strong> Undertaken for the sake of knowledge without any intention to apply it in practice.</li><li><strong>Applied (or Action) Research:</strong> Carried out to find a solution to a real-life problem requiring an action or policy decision.</li></ul><h4 class="font-bold text-lg mt-6 mb-2">On the Basis of Inquiry Mode:</h4><ul class="list-disc list-inside ml-4 space-y-2"><li><strong>Quantitative Research:</strong> Is employed for measuring the quantity or amount of a particular phenomenon by the use of statistical analysis.</li><li><strong>Qualitative Research:</strong> Is a non-quantitative type of analysis which is aimed at finding out the quality of a particular phenomenon.</li><li><strong>Mixed Methods Research:</strong> Involves collecting, analyzing, and integrating both quantitative and qualitative data in a single study.</li></ul><h4 class="font-bold text-lg mt-6 mb-2">On the Basis of Concept:</h4><ul class="list-disc list-inside ml-4 space-y-2"><li><strong>Conceptual Research:</strong> Is generally used by philosophers and thinkers to develop new concepts or to reinterpret existing ones.</li><li><strong>Empirical Research:</strong> Is a data-based research which depends on experience or observation alone.</li></ul></div></div>
+
+                    <!-- Section 14 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">14. The Research-Theory Cycle</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Research and theory exist in a cyclical relationship.</p><ol class="list-decimal list-inside ml-4 space-y-1"><li><strong>Theory:</strong> A theory is used to formulate a testable hypothesis.</li><li><strong>Hypothesis:</strong> A study is designed to test the hypothesis.</li><li><strong>Research (Observation):</strong> The research is performed, and data is gathered.</li><li><strong>Modification:</strong> The results are used to create or modify the theory, starting the cycle over again.</li></ol></div></div>
+
+                    <!-- Section 15 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">15. The Research Process</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>The research process consists of a series of sequential steps. Let's use an example research problem: Investigating the relationship between social media use and sleep quality among university students.</p><ol class="list-decimal list-inside ml-4 space-y-2"><li><strong>Define Research Problem:</strong> Identifying and formulating the problem.</li><li><strong>Review the Literature:</strong> Surveying existing concepts, theories, and previous research findings.</li><li><strong>Formulate Hypothesis:</strong> Developing a testable proposition.</li><li><strong>Design Research:</strong> Creating a plan for the study, including sample design.</li><li><strong>Collect Data:</strong> Executing the research plan and gathering data.</li><li><strong>Analyze Data:</strong> Testing the hypothesis, if any.</li><li><strong>Interpret and Report:</strong> Drawing conclusions and presenting the findings.</li></ol></div></div>
+
+                    <!-- Section 16 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">16. Step 1: Defining the Research Problem</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><h4 class="font-bold text-lg mt-2 mb-2">What is a Research Problem?</h4><p>A research problem refers to a difficulty or need that a researcher experiences in a theoretical or practical situation and for which they want to find a solution.</p><h4 class="font-bold text-lg mt-6 mb-2">Sources of Research Problems</h4><ul class="list-disc list-inside ml-4"><li>Reading</li><li>Academic and Daily Experiences</li><li>Exposure to Field Situations</li><li>Consultations and Brainstorming</li><li>Previous Research</li><li>Intuition</li></ul></div></div>
+
+                    <!-- Section 17 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">17. Step 2: Literature Review</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><h4 class="font-bold text-lg mt-2 mb-2">Definition of Literature Review</h4><p>A literature review is the documentation of a comprehensive survey of published and unpublished work from secondary sources in an area of specific interest to the researcher.</p><h4 class="font-bold text-lg mt-6 mb-2">Purpose of Literature Review</h4><ul class="list-disc list-inside ml-4 space-y-1"><li>To gain background knowledge of the research topic.</li><li>To identify key concepts, the potential relationships between them, and to formulate a researchable hypothesis.</li><li>To identify appropriate methodology, research design, methods of measuring concepts, and techniques of analysis.</li><li>To identify data sources used by other researchers.</li><li>To learn how others have structured their reports and findings.</li></ul></div></div>
+
+                    <!-- Section 18 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">18. Research Design</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Research Design refers to the plan, structure, and strategy of research—it is the blueprint that will guide the entire research process.</p><h4 class="font-bold text-lg mt-6 mb-2">Process of Designing a Research Project</h4><p>This process outlines the key questions and tasks at each stage of the research project, from introduction and literature review to methodology and conclusions.</p><h4 class="font-bold text-lg mt-6 mb-2">Research Design vs. Research Methods</h4><ul class="list-disc list-inside ml-4"><li><strong>Research Design:</strong> The overall plan to answer your research question. It is the strategic framework.</li><li><strong>Research Method:</strong> The specific strategy or tool used to implement the plan (e.g., a survey, an experiment).</li></ul></div></div>
+
+                    <!-- Section 19 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">19. Sampling Techniques & Size</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><p>Sampling is the process of selecting a smaller, representative collection of units from a population to determine truths about that population.</p><h4 class="font-bold text-lg mt-6 mb-2">Importance of Sampling</h4><ul class="list-disc list-inside ml-4"><li>Efficiency (saves time and money).</li><li>Accuracy.</li><li>Feasibility.</li></ul><h4 class="font-bold text-lg mt-6 mb-2">Important Statistical Terms</h4><ul class="list-disc list-inside ml-4"><li><strong>Population:</strong> The complete set of items of interest.</li><li><strong>Sample:</strong> A subset of the population.</li><li><strong>Target Population:</strong> The specific population for the conclusion.</li><li><strong>Sampling Unit:</strong> The basic unit to be sampled.</li><li><strong>Sampling Frame:</strong> A list of all sampling units.</li><li><strong>Sampling Scheme:</strong> The method of selecting units.</li></ul></div></div>
+
+                    <!-- Section 20 -->
+
+                    <div><h3 class="text-xl font-bold bg-gray-200 p-3 rounded-t-lg">20. Types of Sampling</h3><div class="border border-gray-300 border-t-0 p-4 rounded-b-lg"><h4 class="font-bold text-lg mt-2 mb-2">Non-Probability Sampling</h4><p>Selection is not random; it relies on the subjective judgment of the researcher. Types include Convenience, Purposive, Quota, and Snowball sampling.</p><h4 class="font-bold text-lg mt-6 mb-2">Probability Sampling</h4><p>Every unit has a known, non-zero chance of being selected. This allows for generalization. Types include:</p><ul class="list-disc list-inside ml-4"><li>Simple Random Sampling (SRS)</li><li>Systematic Sampling</li><li>Stratified Sampling</li><li>Cluster Sampling</li><li>Multistage Sampling</li></ul></div></div>
+
+                </div>
+
+                <p class="text-center font-bold text-2xl mt-12">The End</p>
+
+                <div class="mt-10 text-center">
+
+                    <a href="https://drive.google.com/file/d/1vmKCfxjsG2vDMe2kMMg4hOkk8Df4Lif-/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full md:w-auto bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Download PDF</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div> <!-- End of #app container -->
+
+
+
+<!-- =================================================================
+
+    COURSE 408 PAGES END HERE
+
+================================================================== -->
+
+    <!-- Footer -->
+
+    <footer class="fixed bottom-0 left-0 right-0 z-10 text-center py-4 bg-white border-t border-gray-200 shadow-t-lg">
+
+		<p class="text-gray-500 text-sm">
+
+		© <span id="current-year"></span> The Class Caddy. All Rights Reserved. <br>
+
+		Made by <a href="https://www.facebook.com/emammehedi17" target="_blank" class="font-bold text-indigo-600 hover:underline">Emam Mehedi</a>.
+
+		</p>
+
+</footer>
+
+		<button id="settings-btn" class="fixed bottom-5 right-5 z-20 bg-white dark:bg-gray-700 p-3 rounded-full shadow-lg border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+			</button>
+
+<div id="settings-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30 flex justify-end items-end p-5 pb-24">
+    <div id="settings-modal-content" class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-sm border dark:border-gray-700">
+        
+        <button id="close-settings-btn" class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 bg-red-500 hover:bg-red-600 text-white rounded-full h-7 w-7 flex items-center justify-center shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <h3 class="text-xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">Settings</h3>
+        
+        <div class="mb-6">
+            <p class="text-center font-semibold mb-2 text-gray-700 dark:text-gray-300">Font Size</p>
+            <div class="flex justify-center items-center gap-4">
+                <button id="font-decrease-btn" class="font-bold text-2xl bg-gray-200 dark:bg-gray-700 rounded-full h-10 w-10 hover:bg-gray-300 dark:hover:bg-gray-600">-</button>
+                <span id="font-size-preview" class="text-lg w-8 text-center">16px</span>
+                <button id="font-increase-btn" class="font-bold text-2xl bg-gray-200 dark:bg-gray-700 rounded-full h-10 w-10 hover:bg-gray-300 dark:hover:bg-gray-600">+</button>
+            </div>
+        </div>
+
+        <div>
+            <p class="text-center font-semibold mb-2 text-gray-700 dark:text-gray-300">Theme</p>
+            <div class="flex justify-center">
+                <button id="theme-toggle-btn" class="w-full bg-gray-200 dark:bg-gray-700 rounded-lg py-2 px-4 font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    Switch to <span id="theme-name">Dark</span> Mode
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // =================================================================
+        // DATA & METADATA
+        // =================================================================
+
+        // CORRECTED AND COMPLETED: The full poem data is now included here.
+        // Newly added lines are marked with 'new: true' for highlighting.
+        const poemsData = {
+            akhi: {
+                line: [
+                    { ar: "أَخِي! إِنْ ضَجَّ بَعْدَ الحَرْبِ غَرْبِيٌّ بِأَعْمَالِهِ", bn: "ভাই! কোনো পশ্চিমা যদি যুদ্ধের পর তার কর্মকাণ্ড নিয়ে উল্লাস প্রকাশ করে," },
+                    { ar: "وَقَدَّسَ ذِكْرَ مَنْ مَاتُوا وَعَظَّمَ بَطْشَ أَبْطَالِهِ", bn: "আর যারা মৃত্যুবরণ করেছে, তাদের স্মৃতিচারণকে পবিত্র মনে করে এবং তাদের বীরদের সাহসকে বড় করে দেখায়," },
+                    { ar: "فَلَا تَهْزَجْ لِمَنْ سَادُوا وَلَا تَشْمَتْ بِمَنْ دَانُوا", bn: "তাহলে যারা এ যুদ্ধে নেতৃত্ব দিয়েছে তাদের গুণগান করবে না এবং যারা পরাজয় বরণ করেছে তাদের নিয়ে আনন্দ প্রকাশ করবে না।" },
+                    { ar: "بَلِ ارْكَعْ صَامِتاً مِثْلِي بِقَلْبٍ خَاشِعٍ دَامٍ", bn: "বরং আমার মত নীরবে মাথা নত করে রাখো বিনয়ী রক্তাক্ত হৃদয় নিয়ে;" },
+                    { ar: "لِنَبْكِيَ حَظَّ مَوْتَانَا", bn: "যাতে আমরা আমাদের মৃত ব্যক্তিদের ভাগ্য নিয়ে কাঁদতে পারি।" },
+                    { ar: "أَخِي! إِنْ عَادَ بَعْدَ الحَرْبِ جُنْدِيٌّ لِأَوْطَانِهِ", bn: "ভাই! যদি যুদ্ধের পর কোনো সৈনিক নিজ দেশে/জন্মভূমিতে ফিরে আসে," },
+                    { ar: "وَأَلْقَى جِسْمَهُ المَنْهُوكَ فِي أَحْضَانِ خِلَّانِهِ", bn: "এবং তার ক্লান্ত ও জীর্ণশীর্ণ দেহ সে তার বন্ধুদের কোলে অর্পণ করে," },
+                    { ar: "فَلَا تَطْلُبْ إِذَا مَا عُدْتَ لِلْأَوْطَانِ خِلَّانَا", bn: "তাহলে তুমি তোমার জন্মভূমিতে ফিরে এলে কোনো বন্ধুর খোঁজ করবে না।" },
+                    { ar: "لِأَنَّ الجُوعَ لَمْ يَتْرُكْ لَنَا صَحْبًا نُنَاجِيهِمْ", bn: "কারণ ক্ষুধা আমাদের জন্য কোনো বন্ধু রেখে যায়নি, যাদের সাথে আমরা কানে কানে কথা বলব।" },
+                    { ar: "سِوَى أَشْبَاحِ مَوْتَانَا", bn: "শুধু রেখে গিয়েছে আমাদের মৃতদের ছায়া।" },
+                    { ar: "أَخِي! إِنْ عَادَ يَحْرُثُ أَرْضَهُ الفَلَّاحُ أَوْ يَزْرَعُ", bn: "ভাই! যদি কৃষক ফিরে এসে নিজের জমিতে চাষ করতে কিংবা শস্য বপণ করতে চায়," },
+                    { ar: "وَيَبْنِي بَعْدَ طُولِ الهَجْرِ كُوخًا هَدَّهُ المِدْفَعُ", bn: "এবং দীর্ঘ বিচ্ছেদের পর কামান ধ্বংস করে দিয়েছে এমন কুঁড়েঘর নির্মাণ করতে আসে," },
+                    { ar: "فَقَدْ جَفَّتْ سَوَاقِينَا وَهَدَّ الذُّلُّ مَأْوَانَا", bn: "(তখন দেখে) আমাদের নালাগুলো শুকিয়ে গেছে এবং লাঞ্ছনা আমাদের আশ্রয়স্থল বিধ্বস্ত করে দিয়েছে।" },
+                    { ar: "وَلَمْ يَتْرُكْ لَنَا الْأَعْدَاءُ غَرْسًا فِي أَرَاضِينَا", bn: "আমাদের শত্রুরা আমাদের ভূমিতে আমাদের মৃতদেহ ছাড়া বপণ করার মত কিছুই রাখেনি," },
+                    { ar: "سِوَى أَجْيَافِ مَوْتَانَا", bn: "শুধুই রেখে গিয়েছে আমাদের মৃতদের লাশ।" },
+                    { ar: "أَخِي! قَدْ تَمَّ مَا لَوْ لَمْ نَشَأْهُ نَحْنُ مَا تَمَّا", bn: "ভাই আমার! যা হওয়ার তা হয়ে গেছে। যদি আমরা তা না চাইতাম, তাহলে তা হত না।" },
+                    { ar: "وَقَدْ عَمَّ البَلَاءُ وَلَوْ أَرَدْنَا نَحْنُ مَا عَمَّا", bn: "বিপদ ব্যাপক হয়ে গিয়েছে, যদি আমরা চাইতাম, তাহলে ব্যাপকভাবে প্রকাশ পেত না।" },
+                    { ar: "فَلَا تَنْدُبْ فَأُذْنُ الغَيْرِ لَا تُصْغِي لِشَكْوَانَا", bn: "সুতরাং বিলাপ করো না, কারণ অন্যদের কান আমাদের অভিযোগ মন দিয়ে শুনবে না।" },
+                    { ar: "بَلِ اتَّبِعْنِي لِنَحْفِرَ خَنْدَقًا بِالرَّفْشِ وَالْمِعْوَلِ", bn: "বরং তুমি আমাকে অনুসরণ করো; যাতে আমরা কোদাল এবং বেলচা নিয়ে একটা গর্ত খনন করি" },
+                    { ar: "نُوَارِي فِيهِ مَوْتَانَا", bn: "এবং আমাদের মৃতদের সেখানে দাফন করি।" },
+                    { ar: "أَخِي! مَنْ نَحْنُ؟ لَا وَطَنٌ وَلَا أَهْلٌ وَلَا جَارُ", bn: "ভাই! আমরা কারা? আমাদের নেই জন্মভূমি, পরিবার আর প্রতিবেশী।" },
+                    { ar: "إِذَا نِمْنَا، إِذَا قُمْنَا رِدَانَا الخِزْيُ وَالعَارُ", bn: "আমরা ঘুমাই কিংবা জাগি, সর্বাবস্থায় আমাদের জড়িয়ে রাখে অপমান ও লাঞ্ছনা।" },
+                    { ar: "لَقَدْ خَمَّتْ بِنَا الدُّنْيَا كَمَا خَمَّتْ بِمَوْتَانَا", bn: "দুনিয়া যেমন আমাদের মৃতদের ধ্বংস করেছে, তেমন আমাদেরও ধ্বংস করেছে।" },
+                    { ar: "فَهَاتِ الرَّفْشَ وَاتَّبِعْنِي لِنَحْفِرَ خَنْدَقًا آخَرَ", bn: "তাই কোদাল নাও, আমাকে অনুসরণ করো; যাতে আরেকটি গর্ত খনন করতে পারি," },
+                    { ar: "نُوَارِي فِيهِ أَحْيَانَا", bn: "যেখানে জীবিতদের দাফন করব।" }
+                ],
+                word: [
+                    { ar: 'أَخِي!', bn: 'ভাই আমার!' }, { ar: 'إِنْ', bn: 'যদি' }, { ar: 'ضَجَّ', bn: 'উল্লাস করে' }, { ar: 'بَعْدَ', bn: 'পরে' }, { ar: 'الْحَرْبِ', bn: 'যুদ্ধের' }, { ar: 'غَرْبِيٌّ', bn: 'কোনো পশ্চিমা' }, { ar: 'بِأَعْمَالِهِ', bn: 'তার কর্মকাণ্ড নিয়ে' }, { ar: 'وَقَدَّسَ', bn: 'এবং পবিত্র মনে করে' }, { ar: 'ذِكْرَ', bn: 'স্মৃতিচারণকে' }, { ar: 'مَنْ', bn: 'যারা' }, { ar: 'مَاتُوا', bn: 'মৃত্যুবরণ করেছে' }, { ar: 'وَعَظَّمَ', bn: 'এবং বড় করে দেখায়' }, { ar: 'بَطْشَ', bn: 'সাহসকে/বীরত্বকে' }, { ar: 'أَبْطَالِهِ', bn: 'তাদের বীরদের' }, { ar: 'فَلَا', bn: 'তাহলে না' }, { ar: 'تَهْزَجْ', bn: 'উল্লাস করো' }, { ar: 'لِمَنْ', bn: 'তাদের জন্য যারা' }, { ar: 'سَادُوا', bn: 'নেতৃত্ব দিয়েছে' }, { ar: 'وَلَا', bn: 'এবং না' }, { ar: 'تَشْمَتْ', bn: 'আনন্দ প্রকাশ করবে' }, { ar: 'بِمَنْ', bn: 'তার জন্য যে' }, { ar: 'دَانُوا', bn: 'পরাজিত হয়েছে' }, { ar: 'بَلِ', bn: 'বরং' }, { ar: 'ارْكَعْ', bn: 'নত হও' }, { ar: 'صَامِتاً', bn: 'নীরবে' }, { ar: 'مِثْلِي', bn: 'আমার মত' }, { ar: 'بِقَلْبٍ', bn: 'হৃদয় নিয়ে' }, { ar: 'خَاشِعٍ', bn: 'বিনয়ী' }, { ar: 'دَامٍ', bn: 'রক্তাক্ত' }, { ar: 'لِنَبْكِيَ', bn: 'যাতে আমরা কাঁদতে পারি' }, { ar: 'حَظَّ', bn: 'ভাগ্য' }, { ar: 'مَوْتَانَا', bn: 'আমাদের মৃতদের' },
+                    { ar: 'أَخِي!', bn: 'ভাই আমার!' }, { ar: 'إِنْ', bn: 'যদি' }, { ar: 'عَادَ', bn: 'ফিরে আসে' }, { ar: 'بَعْدَ', bn: 'পরে' }, { ar: 'الحَرْبِ', bn: 'যুদ্ধের' }, { ar: 'جُنْدِيٌّ', bn: 'কোনো সৈনিক' }, { ar: 'لِأَوْطَانِهِ', bn: 'নিজ দেশে' }, { ar: 'وَأَلْقَى', bn: 'এবং অর্পণ করে' }, { ar: 'جِسْمَهُ', bn: 'তার দেহ' }, { ar: 'المَنْهُوكَ', bn: 'ক্লান্ত' }, { ar: 'فِي', bn: 'মধ্যে' }, { ar: 'أَحْضَانِ', bn: 'কোলে' }, { ar: 'خِلَّانِهِ', bn: 'তার বন্ধুদের' }, { ar: 'فَلَا', bn: 'তাহলে না' }, { ar: 'تَطْلُبْ', bn: 'খোঁজ করবে' }, { ar: 'إِذَا', bn: 'যখন' }, { ar: 'مَا', bn: '(অতিরিক্ত)' }, { ar: 'عُدْتَ', bn: 'তুমি ফিরে আসবে' }, { ar: 'لِلْأَوْطَانِ', bn: 'জন্মভূমিতে' }, { ar: 'خِلَّانَا', bn: 'কোনো বন্ধুর' }, { ar: 'لِأَنَّ', bn: 'কারণ' }, { ar: 'الجُوعَ', bn: 'ক্ষুধা' }, { ar: 'لَمْ', bn: 'না' }, { ar: 'يَتْرُكْ', bn: 'রেখে যায়নি' }, { ar: 'لَنَا', bn: 'আমাদের জন্য' }, { ar: 'صَحْبًا', bn: 'কোনো বন্ধু' }, { ar: "نُنَاجِيهِمْ", bn: "যাদের সাথে কথা বলব" }, { ar: "سِوَى", bn: "ছাড়া" }, { ar: "أَشْبَاحِ", bn: "ছায়া" }, { ar: "مَوْتَانَا", bn: "আমাদের মৃতদের" },
+                    { ar: "أَخِي!", bn: "ভাই!" }, { ar: "إِنْ", bn: "যদি" }, { ar: "عَادَ", bn: "ফিরে এসে" }, { ar: "يَحْرُثُ", bn: "চাষ করে" }, { ar: "أَرْضَهُ", bn: "তার জমিতে" }, { ar: "الفَلَّاحُ", bn: "কৃষক" }, { ar: "أَوْ", bn: "কিংবা" }, { ar: "يَزْرَعُ", bn: "বপণ করে" }, { ar: "وَيَبْنِي", bn: "এবং নির্মাণ করে" }, { ar: "بَعْدَ", bn: "পরে" }, { ar: "طُولِ", bn: "দীর্ঘ" }, { ar: "الهَجْرِ", bn: "বিচ্ছেদের" }, { ar: "كُوخًا", bn: "কুঁড়েঘর" }, { ar: "هَدَّهُ", bn: "যা ধ্বংস করেছে" }, { ar: "المِدْفَعُ", bn: "কামান" }, { ar: "فَقَدْ", bn: "তখন" }, { ar: "جَفَّتْ", bn: "শুকিয়ে গেছে" }, { ar: "سَوَاقِينَا", bn: "আমাদের নালাগুলো" }, { ar: "وَهَدَّ", bn: "এবং বিধ্বস্ত করেছে" }, { ar: "الذُّلُّ", bn: "লাঞ্ছনা" }, { ar: "مَأْوَانَا", bn: "আমাদের আশ্রয়স্থল" }, { ar: "وَلَمْ", bn: "এবং না" }, { ar: "يَتْرُكْ", bn: "রেখে যায়নি" }, { ar: "لَنَا", bn: "আমাদের জন্য" }, { ar: "الْأَعْدَاءُ", bn: "শত্রুরা" }, { ar: "غَرْسًا", bn: "কোনো চারাগাছ" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "أَرَاضِينَا", bn: "আমাদের ভূমিতে" }, { ar: "سِوَى", bn: "ছাড়া" }, { ar: "أَجْيَافِ", bn: "লাশ" }, { ar: "مَوْتَانَا", bn: "আমাদের মৃতদের" },
+                    { ar: "أَخِي!", bn: "ভাই আমার!" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "تَمَّ", bn: "হয়ে গেছে" }, { ar: "مَا", bn: "যা" }, { ar: "لَوْ", bn: "যদি" }, { ar: "لَمْ", bn: "না" }, { ar: "نَشَأْهُ", bn: "আমরা তা চাইতাম" }, { ar: "نَحْنُ", bn: "আমরা" }, { ar: "مَا", bn: "না" }, { ar: "تَمَّا", bn: "হত" }, { ar: "وَقَدْ", bn: "এবং" }, { ar: "عَمَّ", bn: "ব্যাপক হয়ে গিয়েছে" }, { ar: "البَلَاءُ", bn: "বিপদ" }, { ar: "وَلَوْ", bn: "এবং যদি" }, { ar: "أَرَدْنَا", bn: "আমরা চাইতাম" }, { ar: "نَحْنُ", bn: "আমরা" }, { ar: "مَا", bn: "না" }, { ar: "عَمَّا", bn: "ব্যাপক হতো" }, { ar: "فَلَا", bn: "সুতরাং না" }, { ar: "تَنْدُبْ", bn: "বিলাপ করো" }, { ar: "فَأُذْنُ", bn: "কারণ কান" }, { ar: "الغَيْرِ", bn: "অন্যদের" }, { ar: "لَا", bn: "না" }, { ar: "تُصْغِي", bn: "শোনে" }, { ar: "لِشَكْوَانَا", bn: "আমাদের অভিযোগ" }, { ar: "بَلِ", bn: "বরং" }, { ar: "اتَّبِعْنِي", bn: "আমাকে অনুসরণ করো" }, { ar: "لِنَحْفِرَ", bn: "যাতে আমরা খনন করি" }, { ar: "خَنْدَقًا", bn: "একটি গর্ত" }, { ar: "بِالرَّفْشِ", bn: "কোদাল দিয়ে" }, { ar: "وَالْمِعْوَلِ", bn: "এবং বেলচা দিয়ে" }, { ar: "نُوَارِي", bn: "দাফন করি" }, { ar: "فِيهِ", bn: "সেখানে" }, { ar: "مَوْتَانَا", bn: "আমাদের মৃতদের" },
+                    { ar: "أَخِي!", bn: "ভাই!" }, { ar: "مَنْ", bn: "কারা?" }, { ar: "نَحْنُ؟", bn: "আমরা" }, { ar: "لَا", bn: "নেই" }, { ar: "وَطَنٌ", bn: "জন্মভূমি" }, { ar: "وَلَا", bn: "আর নেই" }, { ar: "أَهْلٌ", bn: "পরিবার" }, { ar: "وَلَا", bn: "আর নেই" }, { ar: "جَارُ", bn: "প্রতিবেশী" }, { ar: "إِذَا", bn: "যখন" }, { ar: "نِمْنَا،", bn: "আমরা ঘুমাই" }, { ar: "إِذَا", bn: "যখন" }, { ar: "قُمْنَا", bn: "আমরা জাগি" }, { ar: "رِدَانَا", bn: "আমাদের পোশাক হলো" }, { ar: "الخِزْيُ", bn: "অপমান" }, { ar: "وَالعَارُ", bn: "ও লাঞ্ছনা" }, { ar: "لَقَدْ", bn: "(অব্যয়)" }, { ar: "خَمَّتْ", bn: "ধ্বংস করেছে" }, { ar: "بِنَا", bn: "আমাদের" }, { ar: "الدُّنْيَا", bn: "এই দুনিয়া" }, { ar: "كَمَا", bn: "যেমন" }, { ar: "خَمَّتْ", bn: "ধ্বংস করেছে" }, { ar: "بِمَوْتَانَا", bn: "আমাদের মৃতদের" }, { ar: "فَهَاتِ", bn: "তাই নাও" }, { ar: "الرَّفْشَ", bn: "কোদাল" }, { ar: "وَاتَّبِعْنِي", bn: "এবং আমাকে অনুসরণ করো" }, { ar: "لِنَحْفِرَ", bn: "যাতে আমরা খনন করি" }, { ar: "خَنْدَقًا", bn: "একটি গর্ত" }, { ar: "آخَرَ", bn: "আরেকটি" }, { ar: "نُوَارِي", bn: "দাফন করব" }, { ar: "فِيهِ", bn: "যেখানে" }, { ar: "أَحْيَانَا", bn: "আমাদের জীবিতদের" }
+                ]
+            },
+            nahr: {
+                line: [
+                    { ar: "يَا نَهْرُ، هَلْ نَضَبَتْ مِيَاهُكَ فَانْقَطَعْتَ عَنِ الْخَرِيرِ؟", bn: "হে নদী! তোমার জলরাশি কি শুকিয়ে গেছে যে তুমি তোমার ঢেউয়ের কলকল ধ্বনি ত্যাগ করেছ?" },
+                    { ar: "أَمْ قَدْ هَرِمْتَ وَخَارَ عَزْمُكَ فَانْثَنَيْتَ عَنِ الْمَسِيرِ؟", bn: "নাকি তুমি বৃদ্ধ হয়েছ? তোমার দৃঢ়তা নিস্তেজ হয়ে গেছে; তাই তুমি প্রবাহ থেকে বিরত থেকেছ।" },
+                    { ar: "بِالأَمْسِ كُنْتَ مُرَنَّماً بَيْنَ الْحَدَائِقِ وَالزُّهُورِ", bn: "গতকাল তুমি বাগ-বাগিচা এবং পুষ্পরাজির মাঝে মুখরিত ছিলে।" },
+                    { ar: "تَتْلُو عَلَى الدُّنْيَا وَمَا فِيْهَا أَحَادِيثَ الدُّهُورِ", bn: "এ পৃথিবী এবং তার মাঝে যা কিছু আছে সবাইকে যুগের বিভিন্ন ঘটনাবলি শোনাতে।" },
+                    { ar: "بِالْأَمْسِ كُنْتَ تَسِيرُ لَا تَخْشَى الْمَوَانِعَ فِي الطَّرِيقِ", bn: "গতকাল তুমি প্রবহমান ছিলে; চলার পথে কোনো বাধাকে ভয় করতে না।" },
+                    { ar: "وَالْيَوْمَ قَدْ هَبِطَتْ عَلَيْكَ سَكِينَةُ اللَّحْدِ العَمِيقِ", bn: "আর আজ তোমার উপর নেমে এসেছে গহীন কবরের স্তব্ধতা।" },
+                    { ar: "بِالأَمْسِ كُنْتَ إِذَا أَتَيْتُكَ بَاكِياً سَلَّيْتَنِي", bn: "গতকাল যখন আমি তোমার কাছে ক্রন্দনরত অবস্থায় আসতাম, তখন তুমি আমাকে সান্ত্বনা দিতে।" },
+                    { ar: "وَالْيَوْمَ صِرْتَ إِذَا أَتَيْتُكَ ضَاحِكَاً أَبْكَيْتَنِي", bn: "আর আজ আমি যখন তোমার কাছে আনন্দচিত্তে আসলাম, তুমি আমাকে কাঁদিয়েছ।" },
+                    { ar: "بِالْأَمْسِ كُنْتَ إِذَا سَمِعْتَ تَنَهُّدِي وَتَوَجُعِي", bn: "গতকাল তুমি আমার দীর্ঘশ্বাস ও দুঃখ-বেদনা শুনলে কাঁদতে।" },
+                    { ar: "تَبْكِي، وَهَا أَبْكِي أَنَا وَحْدِي، وَلَا تَبْكِي مَعِي!", bn: "আফসোস! এখন আমি একাই কাঁদছি, তুমি আমার সাথে কাঁদছ না।" },
+                    { ar: "مَا هَذِهِ الأَكْفَانُ؟ أَمْ هَذِي قُيُودٌ مِنْ جَلِيدٍ", bn: "এগুলো কি কাফন? নাকি বরফের বেষ্টনী?" },
+                    { ar: "قَدْ كَبَّلَتْكَ وَذَلَّلَتْكَ بِهَا يَدُ البَرْدِ الشَّدِيدِ؟", bn: "তীব্র ঠাণ্ডার হাত এগুলো দিয়ে তোমাকে বেঁধে ফেলেছে এবং লাঞ্ছিত করে রেখেছে।" },
+                    { ar: "هَا حَوْلَكَ الصَّفْصَافُ لَا وَرَقٌ عَلَيْهِ وَلَا جَمَالْ", bn: "আফসোস! তোমার চতুর্পাশের উইলো গাছে নেই কোনো পাতা, নেই কোনো সৌন্দর্য।" },
+                    { ar: "يَجْثُو كَئِيباً كُلَّمَا مَرَّتْ بِهِ رِيحُ الشِّمَالِ", bn: "যেন সেটা বিষণ্ণ অবস্থায় হাঁটু গেড়ে বসে থাকে; যখনই তাকে অতিক্রম করে উত্তুরে হাওয়া।" },
+                    { ar: "وَالحَوْرُ يَنْدُبُ فَوْقَ رَأْسِكَ نَاثِراً أَغْصَانَهُ", bn: "আর পপলার গাছ তোমার মাথার উপর ডালপালা ছড়িয়ে বিলাপ করছে।" },
+                    { ar: "لَا يَسْرَحُ الحَسُّونُ فِيْهِ مُرَدِّداً أَلْحَانَهُ", bn: "ফিঞ্চ পাখিগুলো সেখানে কিচির-মিচিরের পুনরাবৃত্তি করে উড়ে বেড়ায় না।" },
+                    { ar: "تَأْتِيهِ أَسْرَابٌ مِنْ الْغِرْبَانِ تَنْعَقُ فِي الفَضَا", bn: "এখন সেখানে আসে কাকের ঝাঁক, সেগুলো মহাশূন্যে কা কা করছে।" },
+                    { ar: "فَكَأَنَّهَا تَرْثِي شَبَاباً مِنْ حَيَاتِكَ قَدْ مَضَى", bn: "মনে হয় যেন সেগুলো তোমার জীবনের গত হওয়া যৌবনের জন্য বিলাপ করছে।" },
+                    { ar: "وَكَأَنَّهَا بِنَعِيبِهَا عِنْدَ الصَّبَاحِ وَفِي الْمَسَاءِ", bn: "আর মনে হয় যেন সকাল-সন্ধ্যার এই কা কা রব," },
+                    { ar: "جَوْقٌ يُشَيِّعُ جِسْمَكَ الصَّافِي إِلَى دَارِ البَقَاءِ", bn: "এমন একদল যারা তোমার স্বচ্ছ দেহকে চিরস্থায়ী আবাসের দিকে বিদায় জানাচ্ছে।" },
+                    { ar: "لَكِنْ سَيَنْصَرِفُ الشِّتَا، وَتَعُودُ أَيَّامُ الرَّبِيعِ", bn: "কিন্তু শীতকাল চলে যাবে, আর ফিরে আসবে বসন্তের দিনগুলো।" },
+                    { ar: "فَتَفُكُّ جِسْمَكَ مِنْ عِقَالٍ مَكَّنَتْهُ يَدُ الصَّقِيعِ", bn: "তখন তোমার দেহ সেই বন্ধন থেকে মুক্ত হবে যা তুষারের হাত শক্ত করে রেখেছিল।" },
+                    { ar: "وَتَكُرُّ مَوْجَتُكَ النَّقِيَّةُ حُرَّةً نَحْوَ البِحَارِ", bn: "তোমার স্বচ্ছ ঢেউ স্বাধীনভাবে সমুদ্রের দিকে ফিরে আসবে।" },
+                    { ar: "حُبْلَى بِأَسْرَارِ الدُّجَى، ثَمْلَى بِأَنْوَارِ النَّهَارِ", bn: "রাতের রহস্যে গর্ভবতী, দিনের আলোয় মাতাল।" },
+                    { ar: "وَتَعُودُ تَبْسَمُ إِذْ يُلَاطِفُ وَجْهَكَ الصَّافِي النَّسِيمُ", bn: "আর তুমি পুনরায় হাসবে যখন মৃদুমন্দ বাতাস তোমার স্বচ্ছ মুখ ছুঁয়ে যাবে।" },
+                    { ar: "وَتَعُودُ تَسْبَحُ فِي مِيَاهِكَ أَنْجُمُ اللَّيْلِ البَهِيمِ", bn: "আর তোমার জলে সাঁতার কাটতে ফিরে আসবে গভীর রাতের তারকারাজি।" },
+                    { ar: "وَالبَدْرُ يَبْسُطُ مِنْ سَمَاهُ عَلَيْكَ سِتْراً مِنْ لُجَيْنٍ", bn: "আর পূর্ণিমার চাঁদ তার আকাশ থেকে তোমার উপরে রূপালী চাদর বিছিয়ে দিবে।" },
+                    { ar: "وَالشَّمْسُ تَسْتُرُ بِالْأَزَاهِرِ مُنْكَبَيْكَ العَارِيَيْنِ", bn: "আর সূর্য তোমার নগ্ন কাঁধ দুটো ফুল দিয়ে ঢেকে দেবে।" },
+                    { ar: "وَالحَوْرُ يَنْسَى مَا اعْتَرَاهُ مِنَ الْمَصَائِبِ وَالْمِحَنِ", bn: "পপলার গাছ ভুলে যাবে তার উপর আপতিত বিপদ ও দুর্দশা।" },
+                    { ar: "وَيَعُودُ يَشْمَخُ أَنْفُهُ وَيَمِيسُ مُخْضَرَّ الْفَنَنِ", bn: "সে গর্বভরে ফিরে আসবে এবং সবুজ-শ্যামল ডালে দুলতে থাকবে।" },
+                    { ar: "وَتَعُودُ لِلصَّفْصَافِ بَعْدَ الشَّيْبِ أَيَّامُ الشَّبَابِ", bn: "উইলো গাছে বার্ধক্যের পর আবারও যৌবনের দিন ফিরে আসবে।" },
+                    { ar: "فَيُغَرِّدُ الحَسُّونُ فَوْقَ غُصُونِهِ بَدَلَ الغُرَابِ", bn: "ফিঞ্চ পাখি তার ডালের উপর কাকের বদলে গান গাইবে।" },
+                    { ar: "قَدْ كَانَ لِي، يَا نَهْرُ، قَلْبٌ ضَاحِكٌ مِثْلَ الْمُرُوجِ", bn: "হে নদী! আমারও ছিল তৃণভূমির মত হাস্যোজ্জ্বল হৃদয়।" },
+                    { ar: "حُرٌّ كَقَلْبِكَ فِيهِ أَهْوَاءٌ وَآمَالٌ تَمُوجُ", bn: "তোমার হৃদয়ের মত স্বাধীন, যাতে আশা-আকাঙ্ক্ষা তরঙ্গায়িত হত।" },
+                    { ar: "قَدْ كَانَ يُضْحِي غَيْرَ مَا يُمْسِي وَلَا يَشْكُو الْمَلَلْ", bn: "সকাল-সন্ধ্যা পেরিয়ে যেত; কোনো একঘেয়েমির অভিযোগ সেখানে ছিল না।" },
+                    { ar: "وَالْيَوْمَ قَدْ جَمَدَتْ كَوَجْهِكَ فِيهِ أَمْوَاجُ الْأَمَلِ", bn: "অথচ আজ তোমার চেহারার মতই তাতে আশার ঢেউ স্থবির হয়ে গিয়েছে।" },
+                    { ar: "فَتَسَاوَتِ الأَيَّامُ فِيهِ: صَبَاحُهَا وَمَسَاؤُهَا", bn: "তার মাঝে দিনগুলো সমান হয়ে গিয়েছে: তার সকাল ও সন্ধ্যা।" },
+                    { ar: "وَتَوَازَنَتْ فِيهِ الحَيَاةُ: نَعِيمُهَا وَشَقَاؤُهَا", bn: "তার মাঝে জীবন ভারসাম্যপূর্ণ হয়ে গিয়েছে: তার সুখ ও দুঃখ।" },
+                    { ar: "سِيَّانِ فِيهِ غَدَا الرَّبِيعُ مَعَ الْخَرِيفِ أَوِ الشِّتَاءِ", bn: "তার কাছে বসন্ত, শরৎ বা শীত সবই সমান।" },
+                    { ar: "سِيَّانِ نَوْحُ البَائِسِينَ، وَضِحْكُ أَبْنَاءِ الصَّفَاءِ", bn: "দুঃখীদের আর্তনাদ আর সুখী মানুষের হাসি তার কাছে সমান।" },
+                    { ar: "نَبَذَتْهُ ضَوْضَاءُ الْحَيَاةِ فَمَالَ عَنْهَا وَانْفَرَدْ", bn: "জীবনের কোলাহল তাকে ত্যাগ করেছে, তাই সে তা থেকে মুখ ফিরিয়ে নিয়ে একাকী হয়ে পড়েছে।" },
+                    { ar: "فَغَدَا جَمَاداً لَا يَحِنُّ وَلَا يَمِيلُ إِلَى أَحَدٍ", bn: "তা হয়ে পড়েছে এমন জড় পদার্থ, যা কারো প্রতি টান অনুভব করে না এবং ঝুঁকেও না।" },
+                    { ar: "وَغَدَا غَرِيباً بَيْنَ قَوْمٍ كَانَ قَبْلاً مِنْهُمُ", bn: "সে সেই মানুষদের মাঝে অপরিচিত হয়ে পড়েছে যাদের একজন সে পূর্বে ছিল।" },
+                    { ar: "وَغَدَوْتَ بَيْنَ النَّاسِ لُغْزاً فِيهِ لُغْزٌ مُبْهَمُ", bn: "আর আমি মানুষের মাঝে এক রহস্য হয়ে গেছি, যার ভেতরে আরেক দুর্বোধ্য রহস্য।" },
+                    { ar: "يَا نَهْرُ ذَا قَلْبِي، أَرَاهُ، كَمَا أَرَاكَ، مُكَبَّلاً", bn: "হে নদী, এই আমার হৃদয়, আমি তাকে দেখছি, যেমনটা তোমাকে দেখছি, শৃঙ্খলিত।" },
+                    { ar: "وَالْفَرْقُ أَنَّكَ سَوْفَ تَنْشَطُ مِنْ عِقَالِكَ، وَهُوَ... لَا", bn: "তবে পার্থক্য হলো, তুমি শীঘ্রই তোমার বন্ধন থেকে মুক্ত হবে, কিন্তু সে... না।" }
+                ],
+                word: [
+                    { ar: "يَا", bn: "হে" }, { ar: "نَهْرُ،", bn: "নদী," }, { ar: "هَلْ", bn: "কি?" }, { ar: "نَضَبَتْ", bn: "শুকিয়ে গেছে" }, { ar: "مِيَاهُكَ", bn: "তোমার জলরাশি" }, { ar: "فَانْقَطَعْتَ", bn: "যে তুমি ত্যাগ করেছ" }, { ar: "عَنِ", bn: "থেকে" }, { ar: "الْخَرِيرِ؟", bn: "কলকল ধ্বনি?" }, { ar: "أَمْ", bn: "নাকি" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "هَرِمْتَ", bn: "তুমি বৃদ্ধ হয়েছ" }, { ar: "وَخَارَ", bn: "এবং নিস্তেজ হয়ে গেছে" }, { ar: "عَزْمُكَ", bn: "তোমার দৃঢ়তা" }, { ar: "فَانْثَنَيْتَ", bn: "তাই তুমি বিরত থেকেছ" }, { ar: "عَنِ", bn: "থেকে" }, { ar: "الْمَسِيرِ؟", bn: "প্রবাহ?" }, { ar: "بِالأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "مُرَنَّماً", bn: "মুখরিত" }, { ar: "بَيْنَ", bn: "মাঝে" }, { ar: "الْحَدَائِقِ", bn: "বাগ-বাগিচার" }, { ar: "وَالزُّهُورِ", bn: "এবং পুষ্পরাজির" }, { ar: "تَتْلُو", bn: "তুমি শোনাতে" }, { ar: "عَلَى", bn: "(অব্যয়)" }, { ar: "الدُّنْيَا", bn: "পৃথিবীকে" }, { ar: "وَمَا", bn: "এবং যা" }, { ar: "فِيْهَا", bn: "তার মাঝে আছে" }, { ar: "أَحَادِيثَ", bn: "ঘটনাবলি" }, { ar: "الدُّهُورِ", bn: "যুগের" }, { ar: "بِالْأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "تَسِيرُ", bn: "প্রবহমান" }, { ar: "لَا", bn: "না" }, { ar: "تَخْشَى", bn: "ভয় করতে" }, { ar: "الْمَوَانِعَ", bn: "বাধাকে" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "الطَّرِيقِ", bn: "চলার পথে" }, { ar: "وَالْيَوْمَ", bn: "আর আজ" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "هَبِطَتْ", bn: "নেমে এসেছে" }, { ar: "عَلَيْكَ", bn: "তোমার উপর" }, { ar: "سَكِينَةُ", bn: "স্তব্ধতা" }, { ar: "اللَّحْدِ", bn: "কবরের" }, { ar: "العَمِيقِ", bn: "গহীন" }, { ar: "بِالأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "إِذَا", bn: "যখন" }, { ar: "أَتَيْتُكَ", bn: "আমি তোমার কাছে আসতাম" }, { ar: "بَاكِياً", bn: "ক্রন্দনরত অবস্থায়" }, { ar: "سَلَّيْتَنِي", bn: "তুমি আমাকে সান্ত্বনা দিতে" }, { ar: "وَالْيَوْمَ", bn: "আর আজ" }, { ar: "صِرْتَ", bn: "তুমি হয়েছ" }, { ar: "إِذَا", bn: "যখন" }, { ar: "أَتَيْتُكَ", bn: "আমি তোমার কাছে আসলাম" }, { ar: "ضَاحِكَاً", bn: "আনন্দচিত্তে" }, { ar: "أَبْكَيْتَنِي", bn: "তুমি আমাকে কাঁদিয়েছ" }, { ar: "بِالْأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "إِذَا", bn: "যখন" }, { ar: "سَمِعْتَ", bn: "তুমি শুনতে" }, { ar: "تَنَهُّدِي", bn: "আমার দীর্ঘশ্বাস" }, { ar: "وَتَوَجُعِي", bn: "ও দুঃখ-বেদনা" }, { ar: "تَبْكِي،", bn: "কাঁদতে," }, { ar: "وَهَا", bn: "আফসোস!" }, { ar: "أَبْكِي", bn: "আমি কাঁদছি" }, { ar: "أَنَا", bn: "আমি" }, { ar: "وَحْدِي،", bn: "একাই," }, { ar: "وَلَا", bn: "এবং না" }, { ar: "تَبْكِي", bn: "তুমি কাঁদছ" }, { ar: "مَعِي!", bn: "আমার সাথে!" }, { ar: "مَا", bn: "কি" }, { ar: "هَذِهِ", bn: "এগুলো?" }, { ar: "الأَكْفَانُ؟", bn: "কাফন?" }, { ar: "أَمْ", bn: "নাকি" }, { ar: "هَذِي", bn: "এগুলো" }, { ar: "قُيُودٌ", bn: "বেষ্টনী" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "جَلِيدٍ", bn: "বরফের?" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "كَبَّلَتْكَ", bn: "তোমাকে বেঁধে ফেলেছে" }, { ar: "وَذَلَّلَتْكَ", bn: "এবং লাঞ্ছিত করেছে" }, { ar: "بِهَا", bn: "তা দিয়ে" }, { ar: "يَدُ", bn: "হাত" }, { ar: "البَرْدِ", bn: "ঠাণ্ডার" }, { ar: "الشَّدِيدِ؟", bn: "তীব্র?" }, { ar: "هَا", bn: "আফসোস!" }, { ar: "حَوْلَكَ", bn: "তোমার চতুর্পাশে" }, { ar: "الصَّفْصَافُ", bn: "উইলো গাছ" }, { ar: "لَا", bn: "নেই" }, { ar: "وَرَقٌ", bn: "কোনো পাতা" }, { ar: "عَلَيْهِ", bn: "তার উপর" }, { ar: "وَلَا", bn: "আর নেই" }, { ar: "جَمَالْ", bn: "কোনো সৌন্দর্য" }, { ar: "يَجْثُو", bn: "হাঁটু গেড়ে বসে থাকে" }, { ar: "كَئِيباً", bn: "বিষণ্ণ অবস্থায়" }, { ar: "كُلَّمَا", bn: "যখনই" }, { ar: "مَرَّتْ", bn: "অতিক্রম করে" }, { ar: "بِهِ", bn: "তাকে" }, { ar: "رِيحُ", bn: "হাওয়া" }, { ar: "الشِّمَالِ", bn: "উত্তুরে" }, { ar: "وَالحَوْرُ", bn: "আর পপলার গাছ" }, { ar: "يَنْدُبُ", bn: "বিলাপ করছে" }, { ar: "فَوْقَ", bn: "উপরে" }, { ar: "رَأْسِكَ", bn: "তোমার মাথার" }, { ar: "نَاثِراً", bn: "ছড়িয়ে" }, { ar: "أَغْصَانَهُ", bn: "তার ডালপালা" }, { ar: "لَا", bn: "না" }, { ar: "يَسْرَحُ", bn: "উড়ে বেড়ায়" }, { ar: "الحَسُّونُ", bn: "ফিঞ্চ পাখিগুলো" }, { ar: "فِيْهِ", bn: "সেখানে" }, { ar: "مُرَدِّداً", bn: "পুনরাবৃত্তি করে" }, { ar: "أَلْحَانَهُ", bn: "তাদের কিচির-মিচির" }, { ar: "تَأْتِيهِ", bn: "সেখানে আসে" }, { ar: "أَسْرَابٌ", bn: "ঝাঁক" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "الْغِرْبَانِ", bn: "কাকের" }, { ar: "تَنْعَقُ", bn: "কা কা করছে" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "الفَضَا", bn: "মহাশূন্যে" }, { ar: "فَكَأَنَّهَا", bn: "মনে হয় যেন সেগুলো" }, { ar: "تَرْثِي", bn: "বিলাপ করছে" }, { ar: "شَبَاباً", bn: "যৌবনের জন্য" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "حَيَاتِكَ", bn: "তোমার জীবনের" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "مَضَى", bn: "যা গত হয়েছে" }, { ar: "وَكَأَنَّهَا", bn: "আর মনে হয় যেন" }, { ar: "بِنَعِيبِهَا", bn: "তাদের কা কা রবে" }, { ar: "عِنْدَ", bn: "সময়ে" }, { ar: "الصَّبَاحِ", bn: "সকালে" }, { ar: "وَفِي", bn: "এবং" }, { ar: "الْمَسَاءِ", bn: "সন্ধ্যায়" }, { ar: "جَوْقٌ", bn: "একদল" }, { ar: "يُشَيِّعُ", bn: "বিদায় জানাচ্ছে" }, { ar: "جِسْمَكَ", bn: "তোমার দেহকে" }, { ar: "الصَّافِي", bn: "স্বচ্ছ" }, { ar: "إِلَى", bn: "দিকে" }, { ar: "دَارِ", bn: "আবাসের" }, { ar: "البَقَاءِ", bn: "চিরস্থায়ী" },
+                    { ar: "لَكِنْ", bn: "কিন্তু" }, { ar: "سَيَنْصَرِفُ", bn: "চলে যাবে" }, { ar: "الشِّتَا،", bn: "শীতকাল," }, { ar: "وَتَعُودُ", bn: "এবং ফিরে আসবে" }, { ar: "أَيَّامُ", bn: "দিনগুলো" }, { ar: "الرَّبِيعِ", bn: "বসন্তের" }, { ar: "فَتَفُكُّ", bn: "তখন মুক্ত হবে" }, { ar: "جِسْمَكَ", bn: "তোমার দেহ" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "عِقَالٍ", bn: "বন্ধন" }, { ar: "مَكَّنَتْهُ", bn: "যা শক্ত করে রেখেছিল" }, { ar: "يَدُ", bn: "হাত" }, { ar: "الصَّقِيعِ", bn: "তুষারের" }, { ar: "وَتَكُرُّ", bn: "ফিরে আসবে" }, { ar: "مَوْجَتُكَ", bn: "তোমার ঢেউ" }, { ar: "النَّقِيَّةُ", bn: "স্বচ্ছ" }, { ar: "حُرَّةً", bn: "স্বাধীনভাবে" }, { ar: "نَحْوَ", bn: "দিকে" }, { ar: "البِحَارِ", bn: "সমুদ্রের" }, { ar: "حُبْلَى", bn: "গর্ভবতী" }, { ar: "بِأَسْرَارِ", bn: "রহস্যে" }, { ar: "الدُّجَى،", bn: "রাতের," }, { ar: "ثَمْلَى", bn: "মাতাল" }, { ar: "بِأَنْوَارِ", bn: "আলোয়" }, { ar: "النَّهَارِ", bn: "দিনের" }, { ar: "وَتَعُودُ", bn: "আর তুমি ফিরে আসবে" }, { ar: "تَبْسَمُ", bn: "হাসতে হাসতে" }, { ar: "إِذْ", bn: "যখন" }, { ar: "يُلَاطِفُ", bn: "ছুঁয়ে যাবে" }, { ar: "وَجْهَكَ", bn: "তোমার মুখ" }, { ar: "الصَّافِي", bn: "স্বচ্ছ" }, { ar: "النَّسِيمُ", bn: "মৃদুমন্দ বাতাস" }, { ar: "وَتَعُودُ", bn: "আর ফিরে আসবে" }, { ar: "تَسْبَحُ", bn: "সাঁতার কাটতে" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "مِيَاهِكَ", bn: "তোমার জলে" }, { ar: "أَنْجُمُ", bn: "তারকারাজি" }, { ar: "اللَّيْلِ", bn: "রাতের" }, { ar: "البَهِيمِ", bn: "গভীর" }, { ar: "وَالبَدْرُ", bn: "আর পূর্ণিমার চাঁদ" }, { ar: "يَبْسُطُ", bn: "বিছিয়ে দিবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "سَمَاهُ", bn: "তার আকাশ" }, { ar: "عَلَيْكَ", bn: "তোমার উপরে" }, { ar: "سِتْراً", bn: "চাদর" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "لُجَيْنٍ", bn: "রূপালী" }, { ar: "وَالشَّمْسُ", bn: "আর সূর্য" }, { ar: "تَسْتُرُ", bn: "ঢেকে দেবে" }, { ar: "بِالْأَزَاهِرِ", bn: "ফুল দিয়ে" }, { ar: "مُنْكَبَيْكَ", bn: "তোমার কাঁধ দুটো" }, { ar: "العَارِيَيْنِ", bn: "নগ্ন" }, { ar: "وَالحَوْرُ", bn: "আর পপলার গাছ" }, { ar: "يَنْسَى", bn: "ভুলে যাবে" }, { ar: "مَا", bn: "যা" }, { ar: "اعْتَرَاهُ", bn: "তার উপর আপতিত" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الْمَصَائِبِ", bn: "বিপদ" }, { ar: "وَالْمِحَنِ", bn: "ও দুর্দশা" }, { ar: "وَيَعُودُ", bn: "এবং ফিরে আসবে" }, { ar: "يَشْمَخُ", bn: "গর্বভরে" }, { ar: "أَنْفُهُ", bn: "তার নাক উঁচু করে" }, { ar: "وَيَمِيسُ", bn: "এবং দুলতে থাকবে" }, { ar: "مُخْضَرَّ", bn: "সবুজ-শ্যামল" }, { ar: "الْفَنَنِ", bn: "ডালে" }, { ar: "وَتَعُودُ", bn: "এবং ফিরে আসবে" }, { ar: "لِلصَّفْصَافِ", bn: "উইলো গাছে" }, { ar: "بَعْدَ", bn: "পরে" }, { ar: "الشَّيْبِ", bn: "বার্ধক্যের" }, { ar: "أَيَّامُ", bn: "দিন" }, { ar: "الشَّبَابِ", bn: "যৌবনের" }, { ar: "فَيُغَرِّدُ", bn: "তখন গান গাইবে" }, { ar: "الحَسُّونُ", bn: "ফিঞ্চ পাখি" }, { ar: "فَوْقَ", bn: "উপরে" }, { ar: "غُصُونِهِ", bn: "তার ডালের" }, { ar: "بَدَلَ", bn: "বদলে" }, { ar: "الغُرَابِ", bn: "কাকের" },
+                    { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "كَانَ", bn: "ছিল" }, { ar: "لِي،", bn: "আমার," }, { ar: "يَا", bn: "হে" }, { ar: "نَهْرُ،", bn: "নদী," }, { ar: "قَلْبٌ", bn: "হৃদয়" }, { ar: "ضَاحِكٌ", bn: "হাস্যোজ্জ্বল" }, { ar: "مِثْلَ", bn: "মত" }, { ar: "الْمُرُوجِ", bn: "তৃণভূমির" }, { ar: "حُرٌّ", bn: "স্বাধীন" }, { ar: "كَقَلْبِكَ", bn: "তোমার হৃদয়ের মত" }, { ar: "فِيهِ", bn: "যাতে" }, { ar: "أَهْوَاءٌ", bn: "আকাঙ্ক্ষা" }, { ar: "وَآمَالٌ", bn: "ও আশা" }, { ar: "تَمُوجُ", bn: "তরঙ্গায়িত হত" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "كَانَ", bn: "ছিল" }, { ar: "يُضْحِي", bn: "সকাল হতো" }, { ar: "غَيْرَ", bn: "ছাড়া" }, { ar: "مَا", bn: "যা" }, { ar: "يُمْسِي", bn: "সন্ধ্যা হতো" }, { ar: "وَلَا", bn: "এবং না" }, { ar: "يَشْكُو", bn: "অভিযোগ করত" }, { ar: "الْمَلَلْ", bn: "একঘেয়েমির" }, { ar: "وَالْيَوْمَ", bn: "অথচ আজ" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "جَمَدَتْ", bn: "স্থবির হয়ে গিয়েছে" }, { ar: "كَوَجْهِكَ", bn: "তোমার চেহারার মত" }, { ar: "فِيهِ", bn: "তাতে" }, { ar: "أَمْوَاجُ", bn: "ঢেউ" }, { ar: "الْأَمَلِ", bn: "আশার" }, { ar: "فَتَسَاوَتِ", bn: "তাই সমান হয়ে গিয়েছে" }, { ar: "الأَيَّامُ", bn: "দিনগুলো" }, { ar: "فِيهِ:", bn: "তার মাঝে:" }, { ar: "صَبَاحُهَا", bn: "তার সকাল" }, { ar: "وَمَسَاؤُهَا", bn: "ও সন্ধ্যা" }, { ar: "وَتَوَازَنَتْ", bn: "এবং ভারসাম্যপূর্ণ হয়ে গিয়েছে" }, { ar: "فِيهِ", bn: "তার মাঝে" }, { ar: "الحَيَاةُ:", bn: "জীবন:" }, { ar: "نَعِيمُهَا", bn: "তার সুখ" }, { ar: "وَشَقَاؤُهَا", bn: "ও দুঃখ" }, { ar: "سِيَّانِ", bn: "সমান" }, { ar: "فِيهِ", bn: "তার কাছে" }, { ar: "غَدَا", bn: "হয়ে গেছে" }, { ar: "الرَّبِيعُ", bn: "বসন্ত" }, { ar: "مَعَ", bn: "সাথে" }, { ar: "الْخَرِيفِ", bn: "শরৎ" }, { ar: "أَوِ", bn: "বা" }, { ar: "الشِّتَاءِ", bn: "শীত" }, { ar: "سِيَّانِ", bn: "সমান" }, { ar: "نَوْحُ", bn: "আর্তনাদ" }, { ar: "البَائِسِينَ،", bn: "দুঃখীদের," }, { ar: "وَضِحْكُ", bn: "এবং হাসি" }, { ar: "أَبْنَاءِ", bn: "সন্তানদের" }, { ar: "الصَّفَاءِ", bn: "সুখী" }, { ar: "نَبَذَتْهُ", bn: "তাকে ত্যাগ করেছে" }, { ar: "ضَوْضَاءُ", bn: "কোলাহল" }, { ar: "الْحَيَاةِ", bn: "জীবনের" }, { ar: "فَمَالَ", bn: "তাই সে মুখ ফিরিয়ে নিয়েছে" }, { ar: "عَنْهَا", bn: "তা থেকে" }, { ar: "وَانْفَرَدْ", bn: "এবং একাকী হয়ে পড়েছে" }, { ar: "فَغَدَا", bn: "তা হয়ে পড়েছে" }, { ar: "جَمَاداً", bn: "জড় পদার্থ" }, { ar: "لَا", bn: "না" }, { ar: "يَحِنُّ", bn: "টান অনুভব করে" }, { ar: "وَلَا", bn: "এবং না" }, { ar: "يَمِيلُ", bn: "ঝুঁকে পড়ে" }, { ar: "إِلَى", bn: "দিকে" }, { ar: "أَحَدٍ", bn: "কারো" }, { ar: "وَغَدَا", bn: "এবং হয়ে পড়েছে" }, { ar: "غَرِيباً", bn: "অপরিচিত" }, { ar: "بَيْنَ", bn: "মাঝে" }, { ar: "قَوْمٍ", bn: "মানুষদের" }, { ar: "كَانَ", bn: "ছিল" }, { ar: "قَبْلاً", bn: "পূর্বে" }, { ar: "مِنْهُمُ", bn: "তাদের একজন" }, { ar: "وَغَدَوْتَ", bn: "আর আমি হয়ে গেছি" }, { ar: "بَيْنَ", bn: "মাঝে" }, { ar: "النَّاسِ", bn: "মানুষের" }, { ar: "لُغْزاً", bn: "এক রহস্য" }, { ar: "فِيهِ", bn: "যার ভেতরে" }, { ar: "لُغْزٌ", bn: "আরেক রহস্য" }, { ar: "مُبْهَمُ", bn: "দুর্বোধ্য" },
+                    { ar: "يَا", bn: "হে" }, { ar: "نَهْرُ", bn: "নদী," }, { ar: "ذَا", bn: "এই" }, { ar: "قَلْبِي،", bn: "আমার হৃদয়," }, { ar: "أَرَاهُ،", bn: "আমি তাকে দেখছি," }, { ar: "كَمَا", bn: "যেমনটা" }, { ar: "أَرَاكَ،", bn: "তোমাকে দেখছি," }, { ar: "مُكَبَّلاً", bn: "শৃঙ্খলিত" }, { ar: "وَالْفَرْقُ", bn: "তবে পার্থক্য হলো" }, { ar: "أَنَّكَ", bn: "তুমি" }, { ar: "سَوْفَ", bn: "শীঘ্রই" }, { ar: "تَنْشَطُ", bn: "মুক্ত হবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "عِقَالِكَ،", bn: "তোমার বন্ধন," }, { ar: "وَهُوَ...", bn: "কিন্তু সে..." }, { ar: "لَا", bn: "না" }
+                ]
+            },
+            aghmid: {
+                line: [
+                    { ar: "إِذَا سَمَاؤُكَ يَوْمًا تَحَجَّبَتْ بِالغُيُومِ", bn: "যদি কোনো দিন তোমার আকাশটা মেঘমালায় ঢেকে যায়," },
+                    { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ خَلْفَ الغُيُومِ نُجُومْ", bn: "তাহলে চোখটা বন্ধ করবে; মেঘমালার পেছনে তারকারাজি দেখতে পাবে।" },
+                    { ar: "وَالأَرْضُ حَوْلَكَ إِمَّا تَوَشَّحَتْ بِالثُّلُوجِ", bn: "যখন তোমার চতুর্পাশে ভূমি বরফরাজির পোশাকে সজ্জিত/আচ্ছাদিত হয়;" },
+                    { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ تَحْتَ الثُّلُوجِ مُرُوجْ!", bn: "তখন তোমার চোখটা বন্ধ করো, দেখতে পাবে বরফরাজির নিচে রয়েছে সবুজ-শ্যামল তৃণভূমি।" },
+                    { ar: "وَإِنْ بُلِيتَ بِدَاءٍ وَقِيلَ دَاءٌ عَيَاءْ", bn: "যদি তুমি কোনো রোগে আক্রান্ত হও এবং মানুষ বলাবলি করে, “এ এক দুরারোগ্য রোগ”," },
+                    { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ فِي الدَّاءِ كُلَّ الدَّوَاءِ!", bn: "তাহলে তুমি তোমার চোখ বন্ধ করো, দেখতে পাবে সকল রোগের পেছনে ঔষধ রয়েছে।" },
+                    { ar: "وَعِنْدَمَا المَوْتُ يَدْنُو وَاللَّحْدُ يَفْغَرُ فَاهْ", bn: "যখন মৃত্যু নিকটবর্তী হয় এবং কবর তার মুখ খোলে," },
+                    { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ فِي اللَّحْدِ مَهْدَ الحَيَاةِ!", bn: "তখন তুমি তোমার চোখ বন্ধ করলে দেখতে পাবে কবরেই আছে জীবনের বিছানা।" }
+                ],
+                word: [
+                    { ar: "إِذَا", bn: "যদি" }, { ar: "سَمَاؤُكَ", bn: "তোমার আকাশ" }, { ar: "يَوْمًا", bn: "কোনো দিন" }, { ar: "تَحَجَّبَتْ", bn: "ঢেকে যায়" }, { ar: "بِالغُيُومِ", bn: "মেঘমালায়" }, { ar: "أَغْمِضْ", bn: "বন্ধ করবে" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "خَلْفَ", bn: "পেছনে" }, { ar: "الغُيُومِ", bn: "মেঘমালার" }, { ar: "نُجُومْ", bn: "তারকারাজি" },
+                    { ar: "وَالأَرْضُ", bn: "এবং ভূমি" }, { ar: "حَوْلَكَ", bn: "তোমার চতুর্পাশে" }, { ar: "إِمَّا", bn: "যখন" }, { ar: "تَوَشَّحَتْ", bn: "আচ্ছাদিত হয়" }, { ar: "بِالثُّلُوجِ", bn: "বরফরাজিতে" }, { ar: "أَغْمِضْ", bn: "বন্ধ করো" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "تَحْتَ", bn: "নিচে" }, { ar: "الثُّلُوجِ", bn: "বরফরাজির" }, { ar: "مُرُوجْ", bn: "সবুজ-শ্যামল তৃণভূমি" },
+                    { ar: "وَإِنْ", bn: "এবং যদি" }, { ar: "بُلِيتَ", bn: "তুমি আক্রান্ত হও" }, { ar: "بِدَاءٍ", bn: "কোনো রোগে" }, { ar: "وَقِيلَ", bn: "এবং বলাবলি করে" }, { ar: "دَاءٌ", bn: "এ এক রোগ" }, { ar: "عَيَاءْ", bn: "দুরারোগ্য" }, { ar: "أَغْمِضْ", bn: "বন্ধ করো" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الدَّاءِ", bn: "রোগের" }, { ar: "كُلَّ", bn: "সকল" }, { ar: "الدَّوَاءِ", bn: "ঔষধ" },
+                    { ar: "وَعِنْدَمَا", bn: "এবং যখন" }, { ar: "المَوْتُ", bn: "মৃত্যু" }, { ar: "يَدْنُو", bn: "নিকটবর্তী হয়" }, { ar: "وَاللَّحْدُ", bn: "এবং কবর" }, { ar: "يَفْغَرُ", bn: "খোলে" }, { ar: "فَاهْ", bn: "তার মুখ" }, { ar: "أَغْمِضْ", bn: "বন্ধ করলে" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "اللَّحْدِ", bn: "কবরেই" }, { ar: "مَهْدَ", bn: "বিছানা" }, { ar: "الحَيَاةِ", bn: "জীবনের" }
+                ]
+            },
+            usfur: {
+                line: [
+                    { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ قَلْبِي لَكَ بُسْتَانُ", bn: "শোন হে ফিরদাউসের পাখি, আমার হৃদয় তো তোমারই বাগান!" },
+                    { ar: "فَفِيهِ الزَّهْرُ وَالمَاءُ وَفِيهِ الغُصْنُ فَيْنَانُ", bn: "এই বাগানে ফুল আছে, পানি আছে, আছে শাখা-প্রশাখাবিশিষ্ট ডালপালা।" },
+                    { ar: "فَرَدِّدْ فِيهِ مَا شِئْتَ فَإِنَّ الحُبَّ مِرْنَانُ", bn: "যত ইচ্ছা গান করো। ভালোবাসা তো সুরেরই অনুরণন।", new: true },
+                    { ar: "وَفِيهِ مِنْكَ أَنْغَامٌ وَفِيهِ مِنْكَ أَلْحَانُ", bn: "তোমার কত গুঞ্জরণ আর সুর-লহরী এই বাগানে মিশে আছে!" },
+                    { ar: "وَلِلأَشْجَانِ أَوْتَارٌ وَنَايَاتٌ وَعِيدَانُ", bn: "(মনে হয়) বৃক্ষরাজিতে সেতার, বাঁশি ও বীণার সুর বাজছে।", new: true },
+                    { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ إِنَّ الشِّعْرَ وِجْدَانُ", bn: "ফিরদাউসের পাখি, তোমাকেই বলি- কবিতা আবেগেরই নামান্তর।" },
+                    { ar: "وَفِي شَدْوِكَ شِعْرُ النَّفْسِ لَا زُورٌ وَبُهْتَانُ", bn: "তোমার কলকাকলিতে হৃদয়ের কবিতা খুঁজে পাই। যেখানে কোনো মিথ্যে নেই, নেই কোনো রটনা।" },
+                    { ar: "فَلَا تَعْتَدَّ بِالنَّاسِ فَمَا فِي الخَلْقِ إِنْسَانُ", bn: "সুতরাং, মানুষকে গোনায় ধরো না। এই সৃষ্টিলোকে (আসল) মানুষই আর নেই।", new: true },
+                    { ar: "وَجُدْ لِي مِنْكَ بِالشِّعْرِ فَإِنَّا فِيهِ إِخْوَانُ", bn: "বরং আমার জন্যে তুমি সুন্দর সব কবিতা বানাও। আমরা উভয়েই কবিতার সতীর্থ।" },
+                    { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ قَلْبِي مِنْكَ وَلْهَانُ", bn: "ফিরদাউসের পাখি, জেনে রাখো! তোমার জন্যে আমার অন্তর বিমোহিত।" },
+                    { ar: "فَهَلْ تَأْنَفُ مِنْ رَوْضِي وَمَا فِي الرَّوْضِ ثُعْبَانُ؟", bn: "তুমি কি আমার বাগানকে তুচ্ছজ্ঞান করবে? আমার বাগানে তো কোনো সাপ নেই!" },
+                    { ar: "وَهَلْ تَفْرَقُ مِنْ جَوِّي وَمَا فِي الجَوِّ عُقْبَانُ؟", bn: "তুমি কি আমার আকাশ থেকে দূরে চলে যাবে? আমার আকাশে তো কোনো বাজপাখি নেই!", new: true },
+                    { ar: "وَهَلْ تَنْفِرُ مِنْ قَلْبِي كَأَنَّ القَلْبَ خَوَّانُ", bn: "হৃদয়কে বিশ্বাসঘাতক ভেবে নিয়ে তুমি কি আমার হৃদয় থেকে পালিয়ে যাবে?" },
+                    { ar: "فَمَا لِي مِنْكَ إِسْعَادٌ وَلَا لِي مِنْكَ لُقْيَانُ", bn: "তোমার কাছ থেকে কোনো সুখ পাওয়ার নেই। আমার ভাগ্যে নেই তোমার সাথে সাক্ষাৎ।" },
+                    { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ إِنَّ الدَّهْرَ أَلْوَانُ", bn: "ফিরদাউসের পাখি, শুনে নাও! জীবনের অনেক রং আছে।", new: true },
+                    { ar: "وَلِلأَقْدَارِ أَحْكَامٌ وَلِلْمَخْلُوقِ إِذْعَانُ", bn: "ভাগ্যের বিধি সৃষ্টিকে মানতেই হয়, ভাগ্যের লিখন না যায় খণ্ডন।" },
+                    { ar: "أَرَى الأَحْدَاثَ إِسْرَارًا سَتُمْسِي وَهِيَ إِعْلَانُ", bn: "আমি অনেক গোপন ঘটনা দেখেছি, যেগুলো শীঘ্রই প্রকাশ্যে চলে আসবে।" },
+                    { ar: "وَيَهْفُو بِكَ رَيْبُ الدَّهْرِ إِنَّ الدَّهْرَ طَعَّانُ", bn: "জীবনের সংশয় তোমাকে শূন্যে ভাসাবে। জীবন যে আঘাত করতে বড়ই পারঙ্গম!" },
+                    { ar: "فَلَا حُسْنٌ وَلَا شَدْوٌ وَلَا زَهْرٌ وَأَغْصَانُ", bn: "(এ জীবনের) নেই কোনো সৌন্দর্য, নেই কোনো গান, নেই কোনো ফুল কিংবা ডাল।" },
+                    { ar: "سَيَبْقَى لَكَ فِي قَلْبِي مَوَدَّاتٌ وَتَحْنَانُ", bn: "আমার হৃদয়ে তোমার জন্যে ভালোবাসা আর টান অটুট থাকবে।" },
+                    { ar: "فَإِنْ مَلَّكَ أَحْبَابٌ وَإِنْ عَقَّكَ إِخْوَانُ", bn: "বন্ধুরা যদি কষ্ট দেয়, কাছের মানুষেরা যদি বৈরী হয়,", new: true },
+                    { ar: "وَإِنْ رَابَكَ مِنْ عَيْشِكَ لَوْعَاتٌ وَأَحْزَانُ", bn: " যন্ত্রণা আর বিষণ্ণতা যদি তোমার জীবনে জমাট বাঁধে," },
+                    { ar: "وَإِنْ بَاعَدَكَ الحُسْنُ وَثَوْبُ الحُسْنِ خَلْقَانُ", bn: "সৌন্দর্য যদি দূরে চলে যায় তোমা হতে, ইতোমধ্যেই সৌন্দর্যের পোশাক জীর্ণ হয়েই পড়েছে।", new: true },
+                    { ar: "فَجَرِّبْ عِنْدَهَا قَلْبِي فَقَلْبِي مِنْكَ مَلآنُ", bn: "ওই মুহূর্তে আমার হৃদয়টা পরখ করে নিও। দেখবে, আমার হৃদয় তোমাকে দিয়েই পরিপূর্ণ।" },
+                    { ar: "إِذَنْ تَعْرِفُ أَنَّ القَلْبَ مِنْ حُبِّكَ نَشْوَانُ", bn: "এখন তো তুমি বুঝে নিতে পারো, এই হৃদয় তোমার প্রেমে নেশাতুর।", new: true },
+                    { ar: "فَعَشِّشْ فِيهِ فِي أَمْنٍ فَقَلْبِي بِكَ جَذْلَانُ", bn: "সুতরাং, তুমি নির্ভয়ে নীড় গড়ো এখানে। আমার হৃদয় তোমাকে পেয়েই প্রফুল্ল হবে।", new: true },
+                    { ar: "وَأَسْمِعْنِي مِنَ الشِّعْرِ فَإِنَّا فِيهِ خِلَّانُ", bn: "তুমি আর আমি কবিতা-বন্ধু; তোমার কিছু কবিতা শোনাও না!" },
+                    { ar: "وَهَلْ تَفْهَمُ مَا أَعْنِي وَهَلْ لِلطَّيْرِ أَذْهَانُ؟", bn: "আচ্ছা, আমার কথা কি তুমি বুঝতে পারছো? বোঝার মতো মনন কি পাখির আছে?" }
+                ],
+                word: [
+                    { ar: "أَلَا", bn: "শোন" }, { ar: "يَا", bn: "হে" }, { ar: "طَائِرَ", bn: "পাখি" }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের" }, { ar: "قَلْبِي", bn: "আমার হৃদয়" }, { ar: "لَكَ", bn: "তোমারই" }, { ar: "بُسْتَانُ", bn: "বাগান" }, { ar: "فَفِيهِ", bn: "এই বাগানে" }, { ar: "الزَّهْرُ", bn: "ফুল আছে" }, { ar: "وَالمَاءُ", bn: "এবং পানি আছে" }, { ar: "وَفِيهِ", bn: "এবং আছে" }, { ar: "الغُصْنُ", bn: "ডালপালা" }, { ar: "فَيْنَانُ", bn: "শাখা-প্রশাখাবিশিষ্ট" }, { ar: "فَرَدِّدْ", bn: "গান করো", new: true }, { ar: "فِيهِ", bn: "এতে", new: true }, { ar: "مَا", bn: "যা", new: true }, { ar: "شِئْتَ", bn: "ইচ্ছা", new: true }, { ar: "فَإِنَّ", bn: "কেননা", new: true }, { ar: "الحُبَّ", bn: "ভালোবাসা", new: true }, { ar: "مِرْنَانُ", bn: "সুরেরই অনুরণন", new: true }, { ar: "وَفِيهِ", bn: "এবং এতে আছে" }, { ar: "مِنْكَ", bn: "তোমার" }, { ar: "أَنْغَامٌ", bn: "গুঞ্জরণ" }, { ar: "وَفِيهِ", bn: "এবং এতে আছে" }, { ar: "مِنْكَ", bn: "তোমার" }, { ar: "أَلْحَانُ", bn: "সুর-লহরী" }, { ar: "وَلِلأَشْجَانِ", bn: "এবং বৃক্ষরাজির জন্য", new: true }, { ar: "أَوْتَارٌ", bn: "আছে সেতার", new: true }, { ar: "وَنَايَاتٌ", bn: "এবং বাঁশি", new: true }, { ar: "وَعِيدَانُ", bn: "ও বীণা", new: true }, { ar: "أَلَا", bn: "শোন" }, { ar: "يَا", bn: "হে" }, { ar: "طَائِرَ", bn: "পাখি" }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের" }, { ar: "إِنَّ", bn: "নিশ্চয়ই" }, { ar: "الشِّعْرَ", bn: "কবিতা" }, { ar: "وِجْدَانُ", bn: "আবেগেরই নামান্তর" }, { ar: "وَفِي", bn: "এবং এর মধ্যে" }, { ar: "شَدْوِكَ", bn: "তোমার কলকাকলিতে" }, { ar: "شِعْرُ", bn: "কবিতা" }, { ar: "النَّفْسِ", bn: "হৃদয়ের" }, { ar: "لَا", bn: "নেই" }, { ar: "زُورٌ", bn: "কোনো মিথ্যে" }, { ar: "وَبُهْتَانُ", bn: "ও কোনো রটনা" }, { ar: "فَلَا", bn: "সুতরাং" }, { ar: "تَعْتَدَّ", bn: "গোনায় ধরো না", new: true }, { ar: "بِالنَّاسِ", bn: "মানুষকে", new: true }, { ar: "فَمَا", bn: "কেননা নেই" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الخَلْقِ", bn: "এই সৃষ্টিলোকে" }, { ar: "إِنْسَانُ", bn: "একটা মানুষও" }, { ar: "وَجُدْ", bn: "এবং বানাও" }, { ar: "لِي", bn: "আমার জন্যে" }, { ar: "مِنْكَ", bn: "তুমি" }, { ar: "بِالشِّعْرِ", bn: "কবিতা" }, { ar: "فَإِنَّا", bn: "কেননা আমরা" }, { ar: "فِيهِ", bn: "এতে" }, { ar: "إِخْوَانُ", bn: "সতীর্থ" }, { ar: "أَلَا", bn: "জেনে রাখো" }, { ar: "يَا", bn: "হে" }, { ar: "طَائِرَ", bn: "পাখি" }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের" }, { ar: "قَلْبِي", bn: "আমার অন্তর" }, { ar: "مِنْكَ", bn: "তোমার জন্যে" }, { ar: "وَلْهَانُ", bn: "বিমোহিত" }, { ar: "فَهَلْ", bn: "তুমি কি" }, { ar: "تَأْنَفُ", bn: "তুচ্ছজ্ঞান করবে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "رَوْضِي", bn: "আমার বাগানকে" }, { ar: "وَمَا", bn: "অথচ নেই" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الرَّوْضِ", bn: "বাগানে" }, { ar: "ثُعْبَانُ؟", bn: "কোনো সাপ?" }, { ar: "وَهَلْ", bn: "এবং তুমি কি" }, { ar: "تَفْرَقُ", bn: "দূরে চলে যাবে", new: true }, { ar: "مِنْ", bn: "থেকে" }, { ar: "جَوِّي", bn: "আমার আকাশ" }, { ar: "وَمَا", bn: "অথচ নেই" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الجَوِّ", bn: "আকাশে", new: true }, { ar: "عُقْبَانُ؟", bn: "কোনো বাজপাখি?", new: true }, { ar: "وَهَلْ", bn: "এবং তুমি কি" }, { ar: "تَنْفِرُ", bn: "পালিয়ে যাবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়" }, { ar: "كَأَنَّ", bn: "ভেবে" }, { ar: "القَلْبَ", bn: "হৃদয়কে" }, { ar: "خَوَّانُ", bn: "বিশ্বাসঘাতক?" }, { ar: "فَمَا", bn: "কেননা নেই" }, { ar: "لِي", bn: "আমার" }, { ar: "مِنْكَ", bn: "তোমার কাছ থেকে" }, { ar: "إِسْعَادٌ", bn: "কোনো সুখ পাওয়ার" }, { ar: "وَلَا", bn: "এবং নেই" }, { ar: "لِي", bn: "আমার ভাগ্যে" }, { ar: "مِنْكَ", bn: "তোমার সাথে" }, { ar: "لُقْيَانُ", bn: "সাক্ষাৎ" }, { ar: "أَلَا", bn: "শোন", new: true }, { ar: "يَا", bn: "হে", new: true }, { ar: "طَائِرَ", bn: "পাখি", new: true }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের", new: true }, { ar: "إِنَّ", bn: "নিশ্চয়ই", new: true }, { ar: "الدَّهْرَ", bn: "জীবন", new: true }, { ar: "أَلْوَانُ", bn: "অনেক রঙের", new: true },
+                    { ar: "وَلِلأَقْدَارِ", bn: "এবং ভাগ্যের" }, { ar: "أَحْكَامٌ", bn: "আছে বিধি" }, { ar: "وَلِلْمَخْلُوقِ", bn: "এবং সৃষ্টিকে" }, { ar: "إِذْعَانُ", bn: "মানতেই হয়" }, { ar: "أَرَى", bn: "আমি দেখি" }, { ar: "الأَحْدَاثَ", bn: "ঘটনা" }, { ar: "إِسْرَارًا", bn: "গোপন" }, { ar: "سَتُمْسِي", bn: "যা শীঘ্রই" }, { ar: "وَهِيَ", bn: "(অব্যয়)" }, { ar: "إِعْلَانُ", bn: "প্রকাশ্যে চলে আসবে" }, { ar: "وَيَهْفُو", bn: "এবং ভাসাবে" }, { ar: "بِكَ", bn: "তোমাকে" }, { ar: "رَيْبُ", bn: "সংশয়" }, { ar: "الدَّهْرِ", bn: "জীবনের" }, { ar: "إِنَّ", bn: "নিশ্চয়ই" }, { ar: "الدَّهْرَ", bn: "জীবন" }, { ar: "طَعَّانُ", bn: "আঘাত করতে পারঙ্গম" }, { ar: "فَلَا", bn: "সুতরাং নেই" }, { ar: "حُسْنٌ", bn: "কোনো সৌন্দর্য" }, { ar: "وَلَا", bn: "এবং নেই" }, { ar: "شَدْوٌ", bn: "কোনো গান" }, { ar: "وَلَا", bn: "এবং নেই" }, { ar: "زَهْرٌ", bn: "কোনো ফুল" }, { ar: "وَأَغْصَانُ", bn: "কিংবা ডাল" }, { ar: "سَيَبْقَى", bn: "অটুট থাকবে" }, { ar: "لَكَ", bn: "তোমার জন্যে" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়ে" }, { ar: "مَوَدَّاتٌ", bn: "ভালোবাসা" }, { ar: "وَتَحْنَانُ", bn: "আর টান" }, { ar: "فَإِنْ", bn: "যদি" }, { ar: "مَلَّكَ", bn: "কষ্ট দেয়", new: true }, { ar: "أَحْبَابٌ", bn: "বন্ধুরা", new: true }, { ar: "وَإِنْ", bn: "এবং যদি" }, { ar: "عَقَّكَ", bn: "বৈরী হয়", new: true }, { ar: "إِخْوَانُ", bn: "কাছের মানুষেরা", new: true }, { ar: "وَإِنْ", bn: "এবং যদি" }, { ar: "رَابَكَ", bn: "জমাট বাঁধে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "عَيْشِكَ", bn: "তোমার জীবনে" }, { ar: "لَوْعَاتٌ", bn: "যন্ত্রণা" }, { ar: "وَأَحْزَانُ", bn: "আর বিষণ্ণতা" }, { ar: "وَإِنْ", bn: "এবং যদি", new: true }, { ar: "بَاعَدَكَ", bn: "দূরে চলে যায়", new: true }, { ar: "الحُسْنُ", bn: "সৌন্দর্য", new: true }, { ar: "وَثَوْبُ", bn: "এবং পোশাক", new: true }, { ar: "الحُسْنِ", bn: "সৌন্দর্যের", new: true }, { ar: "خَلْقَانُ", bn: "জীর্ণ হয়ে পড়ে", new: true }, { ar: "فَجَرِّبْ", bn: "পরখ করে নিও" }, { ar: "عِنْدَهَا", bn: "ওই মুহূর্তে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فَقَلْبِي", bn: "কেননা আমার হৃদয়" }, { ar: "مِنْكَ", bn: "তোমাকে দিয়েই" }, { ar: "مَلآنُ" },
+                    { ar: "إِذَنْ", bn: "এখন তো", new: true }, { ar: "تَعْرِفُ", bn: "তুমি বুঝে নিতে পারো", new: true }, { ar: "أَنَّ", bn: "যে", new: true }, { ar: "القَلْبَ", bn: "এই হৃদয়", new: true }, { ar: "مِنْ", bn: "তোমার", new: true }, { ar: "حُبِّكَ", bn: "প্রেমে", new: true }, { ar: "نَشْوَانُ", bn: "নেশাতুর", new: true },
+                    { ar: "فَعَشِّشْ", bn: "সুতরাং, নীড় গড়ো", new: true }, { ar: "فِيهِ", bn: "এখানে", new: true }, { ar: "فِي", bn: "এর মধ্যে", new: true }, { ar: "أَمْنٍ", bn: "নির্ভয়ে", new: true }, { ar: "فَقَلْبِي", bn: "কেননা আমার হৃদয়", new: true }, { ar: "بِكَ", bn: "তোমাকে পেয়েই", new: true }, { ar: "جَذْلَانُ", bn: "প্রফুল্ল হবে", new: true },
+                    { ar: "وَأَسْمِعْنِي", bn: "এবং শোনাও না" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الشِّعْرِ", bn: "কবিতা" }, { ar: "فَإِنَّا", bn: "কেননা আমরা" }, { ar: "فِيهِ", bn: "এতে" }, { ar: "خِلَّانُ", bn: "বন্ধু" },
+                    { ar: "وَهَلْ", bn: "আচ্ছা," }, { ar: "تَفْهَمُ", bn: "তুমি কি বুঝতে পারছো" }, { ar: "مَا", bn: "যা" }, { ar: "أَعْنِي", bn: "আমার কথা" }, { ar: "وَهَلْ", bn: "এবং আছে কি" }, { ar: "لِلطَّيْرِ", bn: "পাখির" }, { ar: "أَذْهَانُ؟", bn: "বোঝার মতো মনন?" }
+                ]
+            },
+           anqa: {
+                line: [
+                    { ar: "أَنَا لَسْتُ بِالحَسْنَاءِ أَوَّلَ مُولَعِ", bn: "এই সুন্দরীর প্রতি আমি প্রথম অনুরাগী নই।" },
+                    { ar: "هِيَ مَطْمَعُ الدُّنْيَا كَمَا هِيَ مَطْمَعِي", bn: "সে দুনিয়ার বাসনার বস্তু, যেমন সে আমারও বাসনার বস্তু।" },
+                    { ar: "فَاقْصُصْ عَلَيَّ إِذَا عَرَفْتَ حَدِيثَهَا", bn: "অতএব যখন তুমি তার কথা জানতে পারবে তখন আমাকে বলো" },
+                    { ar: "وَاسْكُنْ إِذَا حَدَّثْتَ عَنْهَا وَاخْشَعِ", bn: "এবং যখন তার সম্পর্কে কথা বলবে তখন শান্ত ও বিনীত থেকো।" },
+                    { ar: "أَلَمَحْتَهَا فِي صُورَةٍ أَشَهِدْتَهَا", bn: "তুমি তাকে কোন আকৃতিতে দেখেছো কি?" },
+                    { ar: "فِي حَالَةٍ أَرَأَيْتَهَا فِي مَوْضِعِ", bn: "কোন অবস্থায় কিংবা কোন জায়গায় দেখেছো কি?" },
+                    { ar: "إِنِّي لَذُو نَفْسٍ تَهِيمُ وَإِنَّهَا", bn: "আমার মন তৃষ্ণার্ত। আর নিশ্চয়ই সে" },
+                    { ar: "لَجَمِيلَةٌ فَوقَ الجَمَالِ الأَبْدَعِ", bn: "অপূর্বতম সৌন্দর্যের ওপরে সুন্দরী।" },
+                    { ar: "وَيَزِيدُ فِي شَوْقِي إِلَيْهَا أَنَّهَا", bn: "এ ব্যাপারটি তার প্রতি আমার আগ্রহ বাড়িয়ে দেয় যে," },
+                    { ar: "كَالصَّوْتِ لَمْ يُسْفِرْ وَلَمْ يَتَقَنَّعِ", bn: "সে হল সেই আওয়াজের মত যা (কখনো নিজের) চেহারা দেখায়নি, আবার আড়ালেও থাকেনি।" },
+                    { ar: "فَتَّشْتُ جَيْبَ الفَجْرِ عَنْهَا وَالدُّجَى", bn: "আমি তাকে প্রভাতের পকেটে ও অন্ধকারে খুঁজেছি।" },
+                    { ar: "وَمَدَدْتُ حَتَّى لِلكَوَاكِبِ إِصْبَعِي", bn: "এমনকি তারকাদের দিকেও আমার আঙ্গুল বাড়িয়েছি।" },
+                    { ar: "فَإِذَا هُمَا مُتَحَيِّرَانِ كِلَاهُمَا", bn: "দেখা গেল, তারা উভয়ও (অন্ধকার ও তারকারাজি) দিশেহারা" },
+                    { ar: "فِي عَاشِقٍ مُتَحَيِّرٍ مُتَضَعْضِعِ", bn: "একজন দিশেহারা ব্যর্থ প্রেমিকের ব্যাপারে।" },
+                    { ar: "وَإِذَا النُّجُومُ لِعِلْمِهَا أَوْ جَهْلِهَا", bn: "আরো দেখা গেল, তারকারা তার কথা জানার কিংবা না জানার কারণে" },
+                    { ar: "مُتَرَجْرِجَاتٌ فِي الفَضَاءِ الأَوْسَعِ", bn: "বিশাল শূন্যলোকে অস্থির হয়ে কাঁপছে (মিটমিট করে জ্বলছে)।" },
+                    { ar: "رَقَصَتْ أَشِعَّتُهَا عَلَى سَطْحِ الدُّجَى", bn: "অন্ধকারের উপরিভাগে তার কিরণ নৃত্য করেছে" },
+                    { ar: "وَعَلَى رَجَاءٍ فِيَّ غَيْرَ مُشَعْشَعِ", bn: "এবং আমার মনের অনুজ্জ্বল প্রত্যাশার ওপরে।" },
+                    { ar: "وَالبَحْرُ كَمْ سَاءَلْتُهُ فَتَضَاحَكَتْ", bn: "সমুদ্রের কাছে আমি কত জিজ্ঞেস করেছি! তখন হাসাহাসি করেছে" },
+                    { ar: "أَمْوَاجُهُ مِنْ صَوْتِيَ المُتَقَطِّعِ", bn: "তার ঢেউগুলো আমার ভাঙ্গা-ভাঙ্গা আওয়াজ শুনে।" },
+                    { ar: "فَرَجَعْتُ مُرْتَعِشَ الخَوَاطِرِ وَالمُنَى", bn: "আমি তখন কম্পিত মন ও আশা নিয়ে ফিরে এসেছি" },
+                    { ar: "كَحَمَامَةٍ مَحْمُولَةٍ فِي زَعْزَعِ", bn: "ঝড়ের মধ্যে বহনকৃত একটি কবুতরের ন্যায়।" },
+                    { ar: "وَكَأَنَّ أَشْبَاحَ الدُّهُورِ تَأَلَّبَتْ", bn: "(মনে হচ্ছিল) যেন যুগযুগের ভূতগুলো সংঘবদ্ধ হয়েছে", new: true },
+                    { ar: "فِي الشَّطِّ تَضْحَكُ كُلُّهَا مِنْ مَرْجِعِي", bn: "এবং (সমুদ্রের) উপকূলে তারা প্রত্যেকেই আমাকে ফিরে আসতে দেখে হাসছে।", new: true },
+                    { ar: "وَلَكَمْ دَخَلْتُ إِلَى القُصُورِ مُفَتِّشًا", bn: "তার তালাশে কতবার আমি বিভিন্ন প্রাসাদে প্রবেশ করেছি" },
+                    { ar: "عَنْهَا وَعُجْتُ بِدَارِسَاتِ الأَرْبُعِ", bn: "এবং সেখানকার বসতঘরগুলোর মুছে-যাওয়া নিদর্শনসমূহের প্রতি আকৃষ্ট হয়েছি!" },
+                    { ar: "إِنْ لَاحَ طَيْفٌ قُلْتُ يَا عَيْنُ انْظُرِي", bn: "কোন ছায়ামূতি দেখা গেলে বলেছি, হে চোখ! তাকাও।" },
+                    { ar: "أَوْ رَنَّ صَوْتٌ قُلْتُ يَا أُذُنُ اسْمَعِي", bn: "কোন আওয়াজ ধ্বনিত হলে বলেছি, হে কান! শোন।" },
+                    { ar: "فَإِذَا الَّذِي فِي القَصْرِ مِثْلِي حَائِرٌ", bn: "দেখা গিয়েছে, প্রাসাদে যে আছে সেও আমার মতই দিশেহারা।" },
+                    { ar: "وَإِذَا الَّذِي فِي القَصْرِ مِثْلِي لَا يَعِي", bn: "আবার দেখা গিয়েছে, প্রাসাদে যে আছে সেও আমার মতই (কিছু) জানে না।", new: true },
+                    { ar: "قَالُوا تَوَرَّعْ إِنَّهَا مَحْجُوبَةٌ", bn: "লোকেরা আমাকে বলেছে, তুমি পরহেজগার হও। (তুমি যাকে খুঁজছ) সে তো" },
+                    { ar: "إِلَّا عَنِ المُتَزَهِّدِ المُتَوَرِّعِ", bn: "তাপস পরহেজগার ছাড়া কাউকে চেহারা দেখায় না।" },
+                    { ar: "فَوَأَدْتُ أَفْرَاحِي وَطَلَّقْتُ المُنَى", bn: "তখন থেকে আমি আমার আনন্দসমূহ কবর দিয়েছি, আকাংক্ষাসমূহ পরিত্যাগ করেছি" },
+                    { ar: "وَنَسَخْتُ آيَاتِ الهَوَى مِنْ أَضْلُعِي", bn: "এবং পাঁজর (বুক) থেকে কামনার চিহ্নগুলো মুছে দিয়েছি।" },
+                    { ar: "وَحَطَّمْتُ أَقْدَاحِي وَلَمَّا أَرْتَوِ", bn: "তৃষ্ণা না মিটিয়েই পানপাত্রগুলো ভেঙ্গে ফেলেছি" },
+                    { ar: "وَعَفَفْتُ عَنْ زَادِي وَلَمَّا أَشْبَعِ", bn: "এবং তৃপ্ত না হয়েই খাদ্যগ্রহণ থেকে বিরত থেকেছি।" },
+                    { ar: "وَحَسِبْتُنِي أَدْنُو إِلَيْهَا مُسْرِعًا", bn: "(এভাবে) মনে করেছিলাম, আমি দ্রুত তার কাছে আসছি;" },
+                    { ar: "فَوَجَدْتُ أَنِّي قَدْ دَنَوْتُ لِمَصْرَعِي", bn: "কিন্তু দেখলাম, আসলে আমি আমার মৃত্যুর কাছে এসে গিয়েছি।" },
+                    { ar: "مَا كَانَ أَجْهَلَ نُصَّحِي وَأَضَلَّنِي", bn: "আমার পরামর্শদাতারা কতই না মূর্খ ছিল আর আমিও কতই না বিভ্রান্ত,", new: true },
+                    { ar: "لَمَّا أَطَعْتُهُمُ وَلَمْ أَتَمَنَّعِ", bn: "যখন আমি নিজের সুরক্ষার ব্যবস্থা না নিয়ে তাদের কথামতো কাজ করেছিলাম!", new: true },
+                    { ar: "إِنِّي صَرَفْتُ عَنِ الطَّمَاعَةِ وَالهَوَى", bn: "আমি আমার মনকে কামনা-বাসনা থেকে বিরত রেখেছি।", new: true },
+                    { ar: "قَلْبِي وَلَا ظَفَرٌ لِمَنْ لَمْ يَطْمَعِ", bn: "অথচ যার কামনা নেই তার সাফল্যেরও কোন সম্ভাবনা থাকে না।", new: true },
+                    { ar: "فَكَأَنَّنِي البُسْتَانُ جَرَّدَ نَفْسَهُ", bn: "তাই আমি যেন এমন একটি বাগান, যে নিজেকে খালি করেছে", new: true },
+                    { ar: "مِنْ زَهْرِهِ المُتَنَوِّعِ المُتَضَوِّعِ", bn: "তার নানারকম ছড়ানো ফুল থেকে", new: true },
+                    { ar: "لِيُحِسَّ نُورَ الشَّمْسِ فِي ذَرَّاتِهِ", bn: "নিজের অণুতে অণুতে সূর্যালোকের পরশ অনুভব করতে", new: true },
+                    { ar: "وَيُقَابِلَ النَّسَمَاتِ غَيْرَ مُقَنَّعِ", bn: "এবং অনাবৃত অবস্থায় বাতাস সেবন করতে।", new: true },
+                    { ar: "فَمَشَى عَلَيْهِ مِنَ الخَرِيفِ سُرَادِقٌ", bn: "অতঃপর তার ওপর শরতের একখানা শামিয়ানা (ঢাকনা) চলে এল,", new: true },
+                    { ar: "كَاللَّيْلِ خَيَّمَ فِي المَكَانِ البَلْقَعِ", bn: "ঠিক যেন এক জনশূন্য স্থানে রাত এসে শিবির স্থাপন করল।", new: true },
+                    { ar: "وَكَأَنَّنِي العُصْفُورُ عَرَّى جِسْمَهُ", bn: "এবং আমি যেন এমন একটি চড়ইপাখি, যে তার দেহকে নগ্ন করেছে", new: true },
+                    { ar: "مِنْ رِيشِهِ المُتَنَاسِقِ المُتَلَمِّعِ", bn: "তার সুবিন্যস্ত চকচকে পালকগুলো ফেলে দিয়ে", new: true },
+                    { ar: "لِيَخِفَّ مَحْمَلُهُ فَخَرَّ إِلَى الثَّرَى", bn: "যাতে তার ডানা হালকা হয়; তারপর সে মাটিতে পড়ে যায়,", new: true },
+                    { ar: "وَسَطَا عَلَيْهِ النَّمْلُ غَيْرَ مُرَوَّعِ", bn: "অমনি পিপড়াকুল তার ওপর ঝাপিয়ে পড়ে, এমন অবস্থায় যে, সে তাদেরকে ভীতিপ্রদর্শনও করতে পারে না।", new: true },
+                    { ar: "وَهَجَعْتُ أَحْسَبُ أَنَّهَا بِنْتُ الكَرَى", bn: "আমি ঘুমিয়ে পড়েছিলাম। ভাবছিলাম, সে হয়তো স্বপ্নকন্যা হবে (স্বপ্নে তার দেখা পাওয়া যেতে পারে)।", new: true },
+                    { ar: "فَصَحَوْتُ أَسْخَرُ بِالنِّيَامِ الهُجَّعِ", bn: "কিন্তু ঘুম থেকে জাগার পর আমি ঘুমন্ত লোকদেরকেই বিদ্রূপ করতে লাগলাম।", new: true },
+                    { ar: "لَيْسَتْ حُبُورًا كُلُّهَا دُنْيَا الكَرَى", bn: "নিদ্রাজগৎ সবটাই আনন্দ নয়।", new: true },
+                    { ar: "كَمْ مُؤْلِمٍ فِيهَا بِجَانِبِ مُفْزِعِ", bn: "সেখানে ভীতিজনক বস্তুর পাশাপাশি কত কষ্টদায়ক বস্তুও আছে!", new: true },
+                    { ar: "تُخْفِي أَمَانِيَ الفَتَى وَهُمُومَهُ", bn: "ঘুম মানুষের আশা-আকাংক্ষা ও দুঃখ-দুশ্চিন্তাকে লুকিয়ে রাখে", new: true },
+                    { ar: "عَنْهُ وَتَحْجُبُ ذَاتَهُ فِي بُرْقُعِ", bn: "এবং তার নিজের সত্তাকে এক অবগুণ্ঠনে ঢেকে দেয়।", new: true },
+                    { ar: "وَلَرُبَّمَا الْتَبَسَتْ حَوَادِثُ يَوْمِهِ", bn: "এই ঘুম মানুষের আজকের ঘটনাবলীকে মিশিয়ে ফেলে", new: true },
+                    { ar: "بِالغَابِرِ المَاضِي وَبِالمُتَوَقَّعِ", bn: "বিগত অতীত আর প্রত্যাশিত ভবিষ্যতের সাথে।", new: true },
+                    { ar: "يَا حَبَّذَا شَطَطُ الخَيَالِ وَإِنَّمَا", bn: "কল্পনার অসংযত মিথ্যা কত চমৎকার!", new: true },
+                    { ar: "تُمْحَى مَشَاهِدُهُ كَأَنْ لَمْ تُطْبَعِ", bn: "(স্বপ্নে) মানুষের নিজের দেখা জিনিসগুলো (এমনভাবে) মুছে দেওয়া হয়, যেন তার কোন ছাপই আর রাখা হয় না।", new: true },
+                    { ar: "لَمَّا حَلُمْتُ بِهَا حَلُمْتُ بِزَهْرَةٍ", bn: "যখন আমি তাকে নিয়ে স্বপ্ন দেখেছি তখন স্বপ্ন দেখেছি একটি ফুল নিয়ে", new: true },
+                    { ar: "لَا تُجْتَنَى وَبِنَجْمَةٍ لَمْ تَطْلُعِ", bn: "যা তোলা হয়নি এবং একটি তারকা নিয়ে যা উদিত হয়নি।", new: true },
+                    { ar: "ثُمَّ انْتَبَهْتُ فَلَمْ أَجِدْ فِي مَخْدَعِي", bn: "তারপর আমি (ঘুম থেকে) জেগেছি। কিন্তু তখন আমার কক্ষে", new: true },
+                    { ar: "إِلَّا ضَلَالِي وَالفِرَاشَ وَمَضْجَعِي", bn: "নিজের ভ্রান্তি, বিছানা আর ধোঁকা ছাড়া আর কিছুই দেখতে পাইনি।", new: true },
+                    { ar: "مَنْ كَانَ يَشْرَبُ مِنْ جَدَاوِلِ وَهْمِهِ", bn: "যে তার কল্পনার নদী থেকে পানি পান করে", new: true },
+                    { ar: "قَطَعَ الحَيَاةَ بِغُلَّةٍ لَمْ تُنْقَعِ", bn: "সে এক তীব্র তৃষ্ণা নিয়েই জীবন কাটিয়ে দেয় যা আর নিবারণ করা হয় না।", new: true },
+                    { ar: "ذَهَبَ الرَّبِيعُ فَلَمْ تَكُنْ فِي الجَدْوَلِ", bn: "বসন্ত চলে গেল; কিন্তু সে ছিল না নদীতে", new: true },
+                    { ar: "الشَّادِي وَلَا الرَّوْضِ الأَغَنِّ المُمْرِعِ", bn: "কিংবা সঙ্গীতমুখর গাছপালা ও তৃণলতায় ভরা বাগানে।", new: true },
+                    { ar: "وَأَتَى الشِّتَاءُ فَلَمْ تَكُنْ فِي غَيْمِهِ", bn: "তারপর শীত এল। তবে তার ক্রন্দনরত মেঘে সে ছিল না", new: true },
+                    { ar: "البَاكِي وَلَا فِي رَعْدِهِ المُتَفَجِّعِ", bn: "কিংবা তার বেদনাবিধুর বজ্রনিনাদেও।", new: true },
+                    { ar: "وَلَمَحْتُ وَامِضَةَ البُرُوقِ فَخِلْتُهَا", bn: "আমি চমকিত বিদ্যুৎ দেখেছি। তখন তার মধ্যেও তাকে কল্পনা করেছি।", new: true },
+                    { ar: "فِيهَا فَلَمْ تَكُ فِي البُرُوقِ اللُّمَّعِ", bn: "কিন্তু চমকানো বিদ্যুতের মধ্যেও সে ছিল না।", new: true },
+                    { ar: "صَفِرَتْ يَدِي مِنْهَا وَبِي طَيْشُ الفَتَى", bn: "আমার মধ্যে যখন যুবকের অস্থিরতা, তখন আমার হাত তার থেকে শূন্য থাকে।", new: true },
+                    { ar: "وَأَضَلَّنِي عَنْهَا ذَكَاءُ الأَلْمَعِي", bn: "আর বুদ্ধিমানের বুদ্ধি তার ব্যাপারে আমাকে বিভ্রান্ত করে।", new: true },
+                    { ar: "حَتَّى إِذَا نَشَرَ القُنُوطُ ضَبَابَهُ", bn: "অবশেষে হতাশা যখন আমার ওপর তার কুয়াশা ছড়িয়ে দেয়", new: true },
+                    { ar: "فَوْقِي فَغَيَّبَنِي وَغَيَّبَ مَوْضِعِي", bn: "এবং আমাকে ও আমার স্থানটিকে অদৃশ্য করে রাখে,", new: true },
+                    { ar: "وَتَقَطَّعَتْ أَمْرَاسُ آمَالِي بِهَا", bn: "আর তার ব্যাপারে আমার সকল আশার রশি ছিন্ন হয়ে যায়", new: true },
+                    { ar: "وَهِيَ الَّتِي مِنْ قَبْلُ لَمْ تَتَقَطَّعِ", bn: "—যা এর আগ পর্যন্ত ছিন্ন হয়নি—,", new: true },
+                    { ar: "عَصَرَ الأَسَى رُوحِي فَسَالَتْ أَدْمُعًا", bn: "তখন দুঃখ আমার প্রাণটি নিংড়িয়ে নেয় এবং অশ্রু হয়ে তা গড়িয়ে পড়ে।" },
+                    { ar: "فَلَمَحْتُهَا وَلَمَسْتُهَا فِي أَدْمُعِي", bn: "তখন আমি তাকে আমার অশ্রুর মাঝে দেখতে পাই এবং তাকে স্পর্শ করি।" },
+                    { ar: "وَعَلِمْتُ حِينَ العِلْمُ لَا يُجْدِي الفَتَى", bn: "আর আমি জানতে পারি, যখন এই জানা যুবকের কোনই উপকারে আসবে না" },
+                    { ar: "أَنَّ الَّتِي ضَيَّعْتُهَا كَانَتْ مَعِي", bn: "যে, আমি যাকে হারিয়েছিলাম আসলে সে তো আমার সঙ্গেই ছিল।" }
+                ],
+                word: [
+                    { ar: "أَنَا", bn: "আমি" }, { ar: "لَسْتُ", bn: "নই" }, { ar: "بِالحَسْنَاءِ", bn: "এই সুন্দরীর প্রতি" }, { ar: "أَوَّلَ", bn: "প্রথম" }, { ar: "مُولَعِ", bn: "অনুরাগী" }, { ar: "هِيَ", bn: "সে" }, { ar: "مَطْمَعُ", bn: "বাসনার বস্তু" }, { ar: "الدُّنْيَا", bn: "দুনিয়ার" }, { ar: "كَمَا", bn: "যেমন" }, { ar: "هِيَ", bn: "সে" }, { ar: "مَطْمَعِي", bn: "আমারও বাসনার বস্তু" }, { ar: "فَاقْصُصْ", bn: "অতএব বলো" }, { ar: "عَلَيَّ", bn: "আমাকে" }, { ar: "إِذَا", bn: "যখন" }, { ar: "عَرَفْتَ", bn: "তুমি জানতে পারবে" }, { ar: "حَدِيثَهَا", bn: "তার কথা" }, { ar: "وَاسْكُنْ", bn: "এবং শান্ত থেকো" }, { ar: "إِذَا", bn: "যখন" }, { ar: "حَدَّثْتَ", bn: "তুমি কথা বলবে" }, { ar: "عَنْهَا", bn: "তার সম্পর্কে" }, { ar: "وَاخْشَعِ", bn: "ও বিনীত থেকো" }, { ar: "أَلَمَحْتَهَا", bn: "তুমি কি তাকে দেখেছো" }, { ar: "فِي", bn: "কোন" }, { ar: "صُورَةٍ", bn: "আকৃতিতে" }, { ar: "أَشَهِدْتَهَا", bn: "তুমি কি তাকে দেখেছো" }, { ar: "فِي", bn: "কোন" }, { ar: "حَالَةٍ", bn: "অবস্থায়" }, { ar: "أَرَأَيْتَهَا", bn: "তুমি কি তাকে দেখেছো" }, { ar: "فِي", bn: "কোন" }, { ar: "مَوْضِعِ", bn: "জায়গায়" }, { ar: "إِنِّي", bn: "নিশ্চয়ই আমি" }, { ar: "لَذُو", bn: "এমন একজন" }, { ar: "نَفْسٍ", bn: "যার মন" }, { ar: "تَهِيمُ", bn: "তৃষ্ণার্ত" }, { ar: "وَإِنَّهَا", bn: "আর নিশ্চয়ই সে" }, { ar: "لَجَمِيلَةٌ", bn: "সুন্দরী" }, { ar: "فَوْقَ", bn: "ওপরে" }, { ar: "الجَمَالِ", bn: "সৌন্দর্যের" }, { ar: "الأَبْدَعِ", bn: "অপূর্বতম" }, { ar: "وَيَزِيدُ", bn: "এবং বাড়িয়ে দেয়" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "شَوْقِي", bn: "আমার আগ্রহ" }, { ar: "إِلَيْهَا", bn: "তার প্রতি" }, { ar: "أَنَّهَا", bn: "এ ব্যাপারটি যে সে" }, { ar: "كَالصَّوْتِ", bn: "সেই আওয়াজের মত" }, { ar: "لَمْ", bn: "না" }, { ar: "يُسْفِرْ", bn: "(কখনো) চেহারা দেখায়নি" }, { ar: "وَلَمْ", bn: "এবং না" }, { ar: "يَتَقَنَّعِ", bn: "আড়ালেও থাকেনি" }, { ar: "فَتَّشْتُ", bn: "আমি খুঁজেছি" }, { ar: "جَيْبَ", bn: "পকেটে" }, { ar: "الفَجْرِ", bn: "প্রভাতের" }, { ar: "عَنْهَا", bn: "তাকে" }, { ar: "وَالدُّجَى", bn: "ও অন্ধকারে" }, { ar: "وَمَدَدْتُ", bn: "এবং বাড়িয়েছি" }, { ar: "حَتَّى", bn: "এমনকি" }, { ar: "لِلكَوَاكِبِ", bn: "তারকাদের দিকেও" }, { ar: "إِصْبَعِي", bn: "আমার আঙ্গুল" }, { ar: "فَإِذَا", bn: "দেখা গেল" }, { ar: "هُمَا", bn: "তারা উভয়ও" }, { ar: "مُتَحَيِّرَانِ", bn: "দিশেহারা" }, { ar: "كِلَاهُمَا", bn: "তারা উভয়ও" }, { ar: "فِي", bn: "ব্যাপারে" }, { ar: "عَاشِقٍ", bn: "একজন প্রেমিকের" }, { ar: "مُتَحَيِّرٍ", bn: "দিশেহারা" }, { ar: "مُتَضَعْضِعِ", bn: "ব্যর্থ" }, { ar: "وَإِذَا", bn: "আরো দেখা গেল" }, { ar: "النُّجُومُ", bn: "তারকারা" }, { ar: "لِعِلْمِهَا", bn: "তার কথা জানার" }, { ar: "أَوْ", bn: "কিংবা" }, { ar: "جَهْلِهَا", bn: "না জানার কারণে" }, { ar: "مُتَرَجْرِجَاتٌ", bn: "অস্থির হয়ে কাঁপছে" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "الفَضَاءِ", bn: "শূন্যলোকে" }, { ar: "الأَوْسَعِ", bn: "বিশাল" }, { ar: "رَقَصَتْ", bn: "নৃত্য করেছে" }, { ar: "أَشِعَّتُهَا", bn: "তার কিরণ" }, { ar: "عَلَى", bn: "ওপরে" }, { ar: "سَطْحِ", bn: "উপরিভাগে" }, { ar: "الدُّجَى", bn: "অন্ধকারের" }, { ar: "وَعَلَى", bn: "এবং ওপরে" }, { ar: "رَجَاءٍ", bn: "প্রত্যাশার" }, { ar: "فِيَّ", bn: "আমার মনের" }, { ar: "غَيْرَ", bn: "(যা ছিল)" }, { ar: "مُشَعْشَعِ", bn: "অনুজ্জ্বল" }, { ar: "وَالبَحْرُ", bn: "এবং সমুদ্রের কাছে" }, { ar: "كَمْ", bn: "কত" }, { ar: "سَاءَلْتُهُ", bn: "আমি জিজ্ঞেস করেছি" }, { ar: "فَتَضَاحَكَتْ", bn: "তখন হাসাহাসি করেছে" }, { ar: "أَمْوَاجُهُ", bn: "তার ঢেউগুলো" }, { ar: "مِنْ", bn: "শুনে" }, { ar: "صَوْتِيَ", bn: "আমার আওয়াজ" }, { ar: "المُتَقَطِّعِ", bn: "ভাঙ্গা-ভাঙ্গা" }, { ar: "فَرَجَعْتُ", bn: "আমি তখন ফিরে এসেছি" }, { ar: "مُرْتَعِشَ", bn: "কম্পিত" }, { ar: "الخَوَاطِرِ", bn: "মন" }, { ar: "وَالمُنَى", bn: "ও আশা নিয়ে" }, { ar: "كَحَمَامَةٍ", bn: "একটি কবুতরের ন্যায়" }, { ar: "مَحْمُولَةٍ", bn: "বহনকৃত" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "زَعْزَعِ", bn: "ঝড়ের" }, { ar: "وَكَأَنَّ", bn: "এবং যেন", new: true }, { ar: "أَشْبَاحَ", bn: "ভূতগুলো", new: true }, { ar: "الدُّهُورِ", bn: "যুগযুগের", new: true }, { ar: "تَأَلَّبَتْ", bn: "সংঘবদ্ধ হয়েছে", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "الشَّطِّ", bn: "উপকূলে", new: true }, { ar: "تَضْحَكُ", bn: "হাসছে", new: true }, { ar: "كُلُّهَا", bn: "তারা প্রত্যেকেই", new: true }, { ar: "مِنْ", bn: "দেখে", new: true }, { ar: "مَرْجِعِي", bn: "আমাকে ফিরে আসতে", new: true }, { ar: "وَلَكَمْ", bn: "এবং কতবার" }, { ar: "دَخَلْتُ", bn: "আমি প্রবেশ করেছি" }, { ar: "إِلَى", bn: "(অব্যয়)" }, { ar: "القُصُورِ", bn: "বিভিন্ন প্রাসাদে" }, { ar: "مُفَتِّشًا", bn: "তালাশ করতে" }, { ar: "عَنْهَا", bn: "তার" }, { ar: "وَعُجْتُ", bn: "এবং আকৃষ্ট হয়েছি" }, { ar: "بِدَارِسَاتِ", bn: "মুছে-যাওয়া নিদর্শনের প্রতি" }, { ar: "الأَرْبُعِ", bn: "বসতঘরগুলোর" }, { ar: "إِنْ", bn: "যদি" }, { ar: "لَاحَ", bn: "দেখা যেত" }, { ar: "طَيْفٌ", bn: "কোন ছায়ামূতি" }, { ar: "قُلْتُ", bn: "আমি বলতাম" }, { ar: "يَا", bn: "হে" }, { ar: "عَيْنُ", bn: "চোখ" }, { ar: "انْظُرِي", bn: "তাকাও" }, { ar: "أَوْ", bn: "অথবা" }, { ar: "رَنَّ", bn: "ধ্বনিত হলে" }, { ar: "صَوْتٌ", bn: "কোন আওয়াজ" }, { ar: "قُلْتُ", bn: "আমি বলতাম" }, { ar: "يَا", bn: "হে" }, { ar: "أُذُنُ", bn: "কান" }, { ar: "اسْمَعِي", bn: "শোন" }, { ar: "فَإِذَا", bn: "দেখা গিয়েছে" }, { ar: "الَّذِي", bn: "যে" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "القَصْرِ", bn: "প্রাসাদে আছে" }, { ar: "مِثْلِي", bn: "সেও আমার মতই" }, { ar: "حَائِرٌ", bn: "দিশেহারা" }, { ar: "وَإِذَا", bn: "আবার দেখা গিয়েছে" }, { ar: "الَّذِي", bn: "যে" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "القَصْرِ", bn: "প্রাসাদে আছে", new: true }, { ar: "مِثْلِي", bn: "সেও আমার মতই", new: true }, { ar: "لَا", bn: "না", new: true }, { ar: "يَعِي", bn: "(কিছু) জানে", new: true }, { ar: "قَالُوا", bn: "লোকেরা আমাকে বলেছে" }, { ar: "تَوَرَّعْ", bn: "তুমি পরহেজগার হও" }, { ar: "إِنَّهَا", bn: "নিশ্চয়ই সে" }, { ar: "مَحْجُوبَةٌ", bn: "পর্দানশীন" }, { ar: "إِلَّا", bn: "ছাড়া" }, { ar: "عَنِ", bn: "(অব্যয়)" }, { ar: "المُتَزَهِّدِ", bn: "তাপস" }, { ar: "المُتَوَرِّعِ", bn: "পরহেজগার" }, { ar: "فَوَأَدْتُ", bn: "তখন থেকে আমি কবর দিয়েছি" }, { ar: "أَفْرَاحِي", bn: "আমার আনন্দসমূহ" }, { ar: "وَطَلَّقْتُ", bn: "এবং পরিত্যাগ করেছি" }, { ar: "المُنَى", bn: "আকাঙ্ক্ষাসমূহ" }, { ar: "وَنَسَخْتُ", bn: "এবং মুছে দিয়েছি" }, { ar: "آيَاتِ", bn: "চিহ্নগুলো" }, { ar: "الهَوَى", bn: "কামনার" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "أَضْلُعِي", bn: "পাঁজর (বুক)" }, { ar: "وَحَطَّمْتُ", bn: "এবং ভেঙ্গে ফেলেছি" }, { ar: "أَقْدَاحِي", bn: "পানপাত্রগুলো" }, { ar: "وَلَمَّا", bn: "অথচ" }, { ar: "أَرْتَوِ", bn: "তৃষ্ণা মেটেনি" }, { ar: "وَعَفَفْتُ", bn: "এবং বিরত থেকেছি" }, { ar: "عَنْ", bn: "থেকে" }, { ar: "زَادِي", bn: "খাদ্যগ্রহণ" }, { ar: "وَلَمَّا", bn: "অথচ" }, { ar: "أَشْبَعِ", bn: "তৃপ্ত হইনি" }, { ar: "وَحَسِبْتُنِي", bn: "এবং মনে করেছিলাম" }, { ar: "أَدْنُو", bn: "আমি কাছে আসছি" }, { ar: "إِلَيْهَا", bn: "তার" }, { ar: "مُسْرِعًا", bn: "দ্রুত" }, { ar: "فَوَجَدْتُ", bn: "কিন্তু দেখলাম" }, { ar: "أَنِّي", bn: "আসলে আমি" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "دَنَوْتُ", bn: "কাছে এসে গিয়েছি" }, { ar: "لِمَصْرَعِي", bn: "আমার মৃত্যুর" }, { ar: "مَا", bn: "কতই না", new: true }, { ar: "كَانَ", bn: "ছিল", new: true }, { ar: "أَجْهَلَ", bn: "মূর্খ", new: true }, { ar: "نُصَّحِي", bn: "আমার পরামর্শদাতারা", new: true }, { ar: "وَأَضَلَّنِي", bn: "আর আমিও কতই না বিভ্রান্ত", new: true }, { ar: "لَمَّا", bn: "যখন", new: true }, { ar: "أَطَعْتُهُمُ", bn: "আমি তাদের কথামতো কাজ করেছিলাম", new: true }, { ar: "وَلَمْ", bn: "এবং না", new: true }, { ar: "أَتَمَنَّعِ", bn: "নিজের সুরক্ষার ব্যবস্থা নিয়েছিলাম", new: true }, { ar: "إِنِّي", bn: "নিশ্চয়ই আমি", new: true }, { ar: "صَرَفْتُ", bn: "বিরত রেখেছি", new: true }, { ar: "عَنِ", bn: "থেকে", new: true }, { ar: "الطَّمَاعَةِ", bn: "কামনা-বাসনা", new: true }, { ar: "وَالهَوَى", bn: "এবং কামনা-বাসনা", new: true }, { ar: "قَلْبِي", bn: "আমার মনকে", new: true }, { ar: "وَلَا", bn: "এবং না", new: true }, { ar: "ظَفَرٌ", bn: "সাফল্য", new: true }, { ar: "لِمَنْ", bn: "তার জন্য", new: true }, { ar: "لَمْ", bn: "নেই", new: true }, { ar: "يَطْمَعِ", bn: "কামনা", new: true }, { ar: "فَكَأَنَّنِي", bn: "তাই আমি যেন", new: true }, { ar: "البُسْتَانُ", bn: "এমন একটি বাগান", new: true }, { ar: "جَرَّدَ", bn: "যে খালি করেছে", new: true }, { ar: "نَفْسَهُ", bn: "নিজেকে", new: true }, { ar: "مِنْ", bn: "থেকে", new: true }, { ar: "زَهْرِهِ", bn: "তার ফুল", new: true }, { ar: "المُتَنَوِّعِ", bn: "নানারকম", new: true }, { ar: "المُتَضَوِّعِ", bn: "ছড়ানো", new: true }, { ar: "لِيُحِسَّ", bn: "অনুভব করতে", new: true }, { ar: "نُورَ", bn: "আলোর পরশ", new: true }, { ar: "الشَّمْسِ", bn: "সূর্যালোকের", new: true }, { ar: "فِي", bn: "এর মধ্যে", new: true }, { ar: "ذَرَّاتِهِ", bn: "নিজের অণুতে অণুতে", new: true }, { ar: "وَيُقَابِلَ", bn: "এবং সেবন করতে", new: true }, { ar: "النَّسَمَاتِ", bn: "বাতাস", new: true }, { ar: "غَيْرَ", bn: "ছাড়া", new: true }, { ar: "مُقَنَّعِ", bn: "অনাবৃত অবস্থায়", new: true }, { ar: "فَمَشَى", bn: "অতঃপর চলে এল", new: true }, { ar: "عَلَيْهِ", bn: "তার ওপর", new: true }, { ar: "مِنَ", bn: "(অব্যয়)", new: true }, { ar: "الخَرِيفِ", bn: "শরতের", new: true }, { ar: "سُرَادِقٌ", bn: "একখানা শামিয়ানা", new: true }, { ar: "كَاللَّيْلِ", bn: "ঠিক যেন রাত", new: true }, { ar: "خَيَّمَ", bn: "শিবির স্থাপন করল", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "المَكَانِ", bn: "স্থানে", new: true }, { ar: "البَلْقَعِ", bn: "জনশূন্য", new: true }, { ar: "وَكَأَنَّنِي", bn: "এবং আমি যেন", new: true }, { ar: "العُصْفُورُ", bn: "এমন একটি চড়ইপাখি", new: true }, { ar: "عَرَّى", bn: "যে নগ্ন করেছে", new: true }, { ar: "جِسْمَهُ", bn: "তার দেহকে", new: true }, { ar: "مِنْ", bn: "থেকে", new: true }, { ar: "رِيشِهِ", bn: "তার পালকগুলো", new: true }, { ar: "المُتَنَاسِقِ", bn: "সুবিন্যস্ত", new: true }, { ar: "المُتَلَمِّعِ", bn: "চকচকে", new: true }, { ar: "لِيَخِفَّ", bn: "যাতে হালকা হয়", new: true }, { ar: "مَحْمَلُهُ", bn: "তার ডানা", new: true }, { ar: "فَخَرَّ", bn: "তারপর সে পড়ে যায়", new: true }, { ar: "إِلَى", bn: "(অব্যয়)", new: true }, { ar: "الثَّرَى", bn: "মাটিতে", new: true }, { ar: "وَسَطَا", bn: "এবং ঝাপিয়ে পড়ে", new: true }, { ar: "عَلَيْهِ", bn: "তার ওপর", new: true }, { ar: "النَّمْلُ", bn: "পিপড়াকুল", new: true }, { ar: "غَيْرَ", bn: "এমন অবস্থায় যে, সে", new: true }, { ar: "مُرَوَّعِ", bn: "ভীতিপ্রদর্শনও করতে পারে না", new: true }, { ar: "وَهَجَعْتُ", bn: "আমি ঘুমিয়ে পড়েছিলাম", new: true }, { ar: "أَحْسَبُ", bn: "ভাবছিলাম", new: true }, { ar: "أَنَّهَا", bn: "সে হয়তো", new: true }, { ar: "بِنْتُ", bn: "কন্যা হবে", new: true }, { ar: "الكَرَى", bn: "স্বপ্ন", new: true }, { ar: "فَصَحَوْتُ", bn: "কিন্তু ঘুম থেকে জাগার পর", new: true }, { ar: "أَسْخَرُ", bn: "আমি বিদ্রূপ করতে লাগলাম", new: true }, { ar: "بِالنِّيَامِ", bn: "ঘুমন্ত লোকদেরকে", new: true }, { ar: "الهُجَّعِ", bn: "ঘুমন্ত", new: true }, { ar: "لَيْسَتْ", bn: "নয়", new: true }, { ar: "حُبُورًا", bn: "আনন্দ", new: true }, { ar: "كُلُّهَا", bn: "সবটাই", new: true }, { ar: "دُنْيَا", bn: "জগৎ", new: true }, { ar: "الكَرَى", bn: "নিদ্রা", new: true }, { ar: "كَمْ", bn: "কত", new: true }, { ar: "مُؤْلِمٍ", bn: "কষ্টদায়ক বস্তু", new: true }, { ar: "فِيهَا", bn: "সেখানে", new: true }, { ar: "بِجَانِبِ", bn: "পাশাপাশি", new: true }, { ar: "مُفْزِعِ", bn: "ভীতিজনক বস্তুর", new: true }, { ar: "تُخْفِي", bn: "লুকিয়ে রাখে", new: true }, { ar: "أَمَانِيَ", bn: "আশা-আকাংক্ষা", new: true }, { ar: "الفَتَى", bn: "মানুষের", new: true }, { ar: "وَهُمُومَهُ", bn: "এবং দুঃখ-দুশ্চিন্তাকে", new: true }, { ar: "عَنْهُ", bn: "তার থেকে", new: true }, { ar: "وَتَحْجُبُ", bn: "এবং ঢেকে দেয়", new: true }, { ar: "ذَاتَهُ", bn: "তার নিজের সত্তাকে", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "بُرْقُعِ", bn: "এক অবগুণ্ঠনে", new: true }, { ar: "وَلَرُبَّمَا", bn: "এবং হয়তো", new: true }, { ar: "الْتَبَسَتْ", bn: "মিশিয়ে ফেলে", new: true }, { ar: "حَوَادِثُ", bn: "ঘটনাবলী", new: true }, { ar: "يَوْمِهِ", bn: "আজকের", new: true }, { ar: "بِالغَابِرِ", bn: "বিগত", new: true }, { ar: "المَاضِي", bn: "অতীতের সাথে", new: true }, { ar: "وَبِالمُتَوَقَّعِ", bn: "এবং প্রত্যাশিত ভবিষ্যতের সাথে", new: true }, { ar: "يَا", bn: "হে", new: true }, { ar: "حَبَّذَا", bn: "কত চমৎকার", new: true }, { ar: "شَطَطُ", bn: "অসংযত মিথ্যা", new: true }, { ar: "الخَيَالِ", bn: "কল্পনার", new: true }, { ar: "وَإِنَّمَا", bn: "এবং", new: true }, { ar: "تُمْحَى", bn: "মুছে দেওয়া হয়", new: true }, { ar: "مَشَاهِدُهُ", bn: "তার দেখা জিনিসগুলো", new: true }, { ar: "كَأَنْ", bn: "যেন", new: true }, { ar: "لَمْ", bn: "না", new: true }, { ar: "تُطْبَعِ", bn: "তার কোন ছাপই রাখা হয়", new: true }, { ar: "لَمَّا", bn: "যখন", new: true }, { ar: "حَلُمْتُ", bn: "আমি স্বপ্ন দেখেছি", new: true }, { ar: "بِهَا", bn: "তাকে নিয়ে", new: true }, { ar: "حَلُمْتُ", bn: "তখন স্বপ্ন দেখেছি", new: true }, { ar: "بِزَهْرَةٍ", bn: "একটি ফুল নিয়ে", new: true }, { ar: "لَا", bn: "না", new: true }, { ar: "تُجْتَنَى", bn: "তোলা হয়নি", new: true }, { ar: "وَبِنَجْمَةٍ", bn: "এবং একটি তারকা নিয়ে", new: true }, { ar: "لَمْ", bn: "না", new: true }, { ar: "تَطْلُعِ", bn: "উদিত হয়নি", new: true }, { ar: "ثُمَّ", bn: "তারপর", new: true }, { ar: "انْتَبَهْتُ", bn: "আমি জেগেছি", new: true }, { ar: "فَلَمْ", bn: "কিন্তু তখন", new: true }, { ar: "أَجِدْ", bn: "আমি দেখতে পাইনি", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "مَخْدَعِي", bn: "আমার কক্ষে", new: true }, { ar: "إِلَّا", bn: "ছাড়া", new: true }, { ar: "ضَلَالِي", bn: "আমার ভ্রান্তি", new: true }, { ar: "وَالفِرَاشَ", bn: "বিছানা", new: true }, { ar: "وَمَضْجَعِي", bn: "আর ধোঁকা", new: true }, { ar: "مَنْ", bn: "যে", new: true }, { ar: "كَانَ", bn: "ছিল", new: true }, { ar: "يَشْرَبُ", bn: "পানি পান করে", new: true }, { ar: "مِنْ", bn: "থেকে", new: true }, { ar: "جَدَاوِلِ", bn: "নদী", new: true }, { ar: "وَهْمِهِ", bn: "তার কল্পনার", new: true }, { ar: "قَطَعَ", bn: "সে কাটিয়ে দেয়", new: true }, { ar: "الحَيَاةَ", bn: "জীবন", new: true }, { ar: "بِغُلَّةٍ", bn: "এক তীব্র তৃষ্ণা নিয়ে", new: true }, { ar: "لَمْ", bn: "না", new: true }, { ar: "تُنْقَعِ", bn: "নিবারণ করা হয়", new: true }, { ar: "ذَهَبَ", bn: "চলে গেল", new: true }, { ar: "الرَّبِيعُ", bn: "বসন্ত", new: true }, { ar: "فَلَمْ", bn: "কিন্তু", new: true }, { ar: "تَكُنْ", bn: "সে ছিল না", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "الجَدْوَلِ", bn: "নদীতে", new: true }, { ar: "الشَّادِي", bn: "সঙ্গীতমুখর", new: true }, { ar: "وَلَا", bn: "এবং না", new: true }, { ar: "الرَّوْضِ", bn: "বাগানে", new: true }, { ar: "الأَغَنِّ", bn: "গাছপালা ও তৃণলতায় ভরা", new: true }, { ar: "المُمْرِعِ", bn: "সবুজ", new: true }, { ar: "وَأَتَى", bn: "এবং এল", new: true }, { ar: "الشِّتَاءُ", bn: "শীত", new: true }, { ar: "فَلَمْ", bn: "তবে", new: true }, { ar: "تَكُنْ", bn: "সে ছিল না", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "غَيْمِهِ", bn: "তার মেঘে", new: true }, { ar: "البَاكِي", bn: "ক্রন্দনরত", new: true }, { ar: "وَلَا", bn: "এবং না", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "رَعْدِهِ", bn: "তার বজ্রনিনাদে", new: true }, { ar: "المُتَفَجِّعِ", bn: "বেদনাবিধুর", new: true }, { ar: "وَلَمَحْتُ", bn: "আমি দেখেছি", new: true }, { ar: "وَامِضَةَ", bn: "চমকিত", new: true }, { ar: "البُرُوقِ", bn: "বিদ্যুৎ", new: true }, { ar: "فَخِلْتُهَا", bn: "তখন তাকে কল্পনা করেছি", new: true }, { ar: "فِيهَا", bn: "তার মধ্যেও", new: true }, { ar: "فَلَمْ", bn: "কিন্তু", new: true }, { ar: "تَكُ", bn: "সে ছিল না", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "البُرُوقِ", bn: "বিদ্যুতের মধ্যে", new: true }, { ar: "اللُّمَّعِ", bn: "চমকানো", new: true }, { ar: "صَفِرَتْ", bn: "শূন্য থাকে", new: true }, { ar: "يَدِي", bn: "আমার হাত", new: true }, { ar: "مِنْهَا", bn: "তার থেকে", new: true }, { ar: "وَبِي", bn: "এবং আমার মধ্যে", new: true }, { ar: "طَيْشُ", bn: "অস্থিরতা", new: true }, { ar: "الفَتَى", bn: "যুবকের", new: true }, { ar: "وَأَضَلَّنِي", bn: "এবং আমাকে বিভ্রান্ত করে", new: true }, { ar: "عَنْهَا", bn: "তার ব্যাপারে", new: true }, { ar: "ذَكَاءُ", bn: "বুদ্ধি", new: true }, { ar: "الأَلْمَعِي", bn: "বুদ্ধিমানের", new: true }, { ar: "حَتَّى", bn: "অবশেষে", new: true }, { ar: "إِذَا", bn: "যখন", new: true }, { ar: "نَشَرَ", bn: "ছড়িয়ে দেয়", new: true }, { ar: "القُنُوطُ", bn: "হতাশা", new: true }, { ar: "ضَبَابَهُ", bn: "তার কুয়াশা", new: true }, { ar: "فَوْقِي", bn: "আমার ওপর", new: true }, { ar: "فَغَيَّبَنِي", bn: "এবং অদৃশ্য করে রাখে", new: true }, { ar: "وَغَيَّبَ", bn: "এবং অদৃশ্য করে রাখে", new: true }, { ar: "مَوْضِعِي", bn: "আমার স্থানটিকে", new: true }, { ar: "وَتَقَطَّعَتْ", bn: "আর ছিন্ন হয়ে যায়", new: true }, { ar: "أَمْرَاسُ", bn: "রশি", new: true }, { ar: "آمَالِي", bn: "আমার সকল আশার", new: true }, { ar: "بِهَا", bn: "তার ব্যাপারে", new: true }, { ar: "وَهِيَ", bn: "যা", new: true }, { ar: "الَّتِي", bn: "(অব্যয়)", new: true }, { ar: "مِنْ", bn: "থেকে", new: true }, { ar: "قَبْلُ", bn: "এর আগ পর্যন্ত", new: true }, { ar: "لَمْ", bn: "না", new: true }, { ar: "تَتَقَطَّعِ", bn: "ছিন্ন হয়নি", new: true }, { ar: "عَصَرَ", bn: "নিংড়িয়ে নেয়" }, { ar: "الأَسَى", bn: "দুঃখ" }, { ar: "رُوحِي", bn: "আমার প্রাণটি" }, { ar: "فَسَالَتْ", bn: "এবং তা গড়িয়ে পড়ে" }, { ar: "أَدْمُعًا", bn: "অশ্রু হয়ে" }, { ar: "فَلَمَحْتُهَا", bn: "তখন আমি তাকে দেখতে পাই" }, { ar: "وَلَمَسْتُهَا", bn: "এবং তাকে স্পর্শ করি" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "أَدْمُعِي", bn: "আমার অশ্রুর মাঝে" }, { ar: "وَعَلِمْتُ", bn: "আর আমি জানতে পারি" }, { ar: "حِينَ", bn: "যখন" }, { ar: "العِلْمُ", bn: "এই জানা" }, { ar: "لَا", bn: "না" }, { ar: "يُجْدِي", bn: "উপকারে আসবে" }, { ar: "الفَتَى", bn: "যুবকের কোনই" }, { ar: "أَنَّ", bn: "যে" }, { ar: "الَّتِي", bn: "যাকে" }, { ar: "ضَيَّعْتُهَا", bn: "আমি হারিয়েছিলাম" }, { ar: "كَانَتْ", bn: "আসলে সে তো ছিল" }, { ar: "مَعِي", bn: "আমার সঙ্গেই" }
+                ]
+            },
+            ina: {
+                line: [
+                    { ar: "عَصَرْتُ فُؤَادِي فِي إِناءٍ مِنَ الهَوَى", bn: "আমি আমার হৃদয়টা অনুরাগের একটি পাত্রে নিংড়ালাম।" },
+                    { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الفُقَرَاءِ", bn: "তারপর (সেখান থেকে পান করার জন্য) পাত্রটি গরীবদের ঠোঁটের কাছে নিলাম।" },
+                    { ar: "فَقَالُوا خُمُورٌ مَا تُبَرِّدُ غُلَّةً", bn: "তারা বলল, \"শরাব তৃষ্ণা মেটাবে না।\"" },
+                    { ar: "فَتَمْتَمْتُ وَاهًا أَكْبُدَ الشُّعَرَاءِ", bn: "আমি তখন বিড়বিড় করে বললাম, \"হায়রে কবিদের অন্তর!\"" },
+                    { ar: "أَيُنْكَرُ حَتَّى البُؤْسُ مَا فِيكِ مِنْ غِنًى", bn: "তবে কি দারিদ্র্যও তোমাদের ঐশ্বর্য প্রত্যাখ্যান করছে?" },
+                    { ar: "وَأَيَّ غِذَاءٍ أَنْتِ لِلبُؤَسَاءِ", bn: "আর তোমরাই বা হতদরিদ্রদের জন্য কোন্ প্রকারের খাবার?" },
+                    { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                    { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الرُّؤَسَاءِ", bn: "তারপর সেটি বড়লোকদের ঠোঁটের কাছে নিলাম।" },
+                    { ar: "وَقُلْتُ لَهُمْ هَذَا هُوَ العَدْلُ فَاشْرَبُوا", bn: "তাদেরকে বললাম, \"এটাই ন্যায়বিচার; তাই আপনারা পান করুন।" },
+                    { ar: "لَعَلَّكُمْ تُصْغُونَ لِلضُّعَفَاءِ", bn: "তাহলে আশা করা যায়, আপনারা দুর্বলদের প্রতি মনোযোগী হতে পারবেন।\"" },
+                    { ar: "فَمَالُوا جَمِيعًا عَنْ إِنَائِي وَغَمْغَمُوا", bn: "কিন্তু তারা সবাই আমার পাত্রটি থেকে মুখ ফিরিয়ে নেয় আর বিড়বিড় করে বলে," },
+                    { ar: "إِنَاؤُكَ مَحْظُورٌ عَلَى الزُّعَمَاءِ", bn: "\"তোমার এই পাত্র নেতাদের জন্য নিষিদ্ধ।”" },
+                    { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আবার আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                    { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ السُّجَنَاءِ", bn: "তারপর সেটি কারাবন্দীদের ঠোঁটের কাছে নিলাম।" },
+                    { ar: "وَقُلْتُ لَهُمْ هَذَا عَزَاءُ قُلُوبِكُمْ", bn: "তাদেরকে বললাম, \"এটা তোমাদের অন্তরের সান্ত্বনা।" },
+                    { ar: "فَلِلأَبْرِيَاءِ التَّاعِسِينَ دِمَائِي", bn: "কেননা, আমার রক্ত তো নিরপরাধ অভাগা মানুষগুলোর জন্য।”" },
+                    { ar: "فَقَالُوا دِمَاءٌ مَا تَحِلُّ قُيُودَنَا", bn: "তখন তারা বলল, \"(তোমার) রক্ত আমাদের বন্ধন খুলবে না।\"" },
+                    { ar: "فَهَاتِ قَوَانِينًا لِغَيْرِ قَضَاءِ", bn: "তাই (পারলে) তুমি বিনা বিচারের কিছু আইন নিয়ে এসো।" },
+                    { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আবার আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                    { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الحُكَمَاءِ", bn: "তারপর সেটি বিজ্ঞজনদের ঠোঁটের কাছে নিলাম।" },
+                    { ar: "وَقُلْتُ لَهُمْ هَذَا هُوَ النُّورُ فَاشْرَبُوا", bn: "তাদেরকে বললাম, \"এটাই আলো; আপনারা পান করুন।" },
+                    { ar: "فَآرَاؤُكُمْ فِي حَاجَةٍ لِضِيَاءِ", bn: "কারণ, আপনাদের চিন্তায় আলোর প্রয়োজন রয়েছে।\"" },
+                    { ar: "فَقَالُوا وَقَدْ هَزُّوا الرُّؤُوسَ شَمَاتَةً", bn: "তখন তাঁরা বিদ্বেষবশত মাথা নাড়িয়ে বললেন," },
+                    { ar: "ضِيَاؤُكَ هَذَا خِدْعَةُ الجُهَلَاءِ", bn: "\"তোমার এই আলো তো মূর্খদের প্রতারণা।\"" },
+                    { ar: "وَذَوَّبْتُ قَلْبِي فِي إِنَاءٍ مِنَ الْهَوَى", bn: "আবার আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।", new: true },
+                    { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الْأُمَرَاءِ", bn: "তারপর সেটি প্রভাবশালী ব্যক্তিদের ঠোঁটের কাছে নিলাম।", new: true },
+                    { ar: "وَقُلْتُ لَهُمْ هَذَا هُوَ النُّبْلُ فَاشْرَبُوا", bn: "তাঁদেরকে বললাম, “এটাই মহত্ত্ব; আপনারা নিজেরা পান করুন", new: true },
+                    { ar: "وَطُوفُوا بِأَقْدَاحِي عَلَى النُّبَلَاءِ", bn: "এবং আমার পাত্রগুলো মহৎ লোকদেরকে পরিবেশন করুন।\"", new: true },
+                    { ar: "فَقَالُوا أَتَحْقِيرٌ لِطَعْرَاءِ جَدِّنَا", bn: "তারা বলল, “এটা কি আমাদের পূর্বপুরুষের নামচিহ্নের হেয়করণ?”", new: true },
+                    { ar: "وَمَا تَنَسَّلُ الْأَصْلَابُ مِنْ شُرَفَاءِ", bn: "আর সম্ভ্রান্ত ব্যক্তিবর্গের বংশধরদের?", new: true },
+                    { ar: "وَذَوَّبْتُ قَلْبِي فِي إِنَاءٍ مِنَ الْهَوَى", bn: "আমি আবার আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।", new: true },
+                    { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الشُّعَرَاءِ", bn: "তারপর সেটি কবিদের ঠোঁটের কাছে নিলাম।", new: true },
+                    { ar: "وَقُلْتُ لَهُمْ هَذَا هُوَ الْحُبُّ فَاشْرَبُوا", bn: "তাঁদেরকে বললাম, “এটাই প্রেম; আপনারা পান করুন।", new: true },
+                    { ar: "فَأَرْيَاؤُكُمْ مَرْهُونَةٌ لِفَنَاءٍ", bn: "কারণ, আপনাদের বেশ-ভূষা ধ্বংসের জন্য দায়বদ্ধ।\"", new: true },
+                    { ar: "إِذَا الْحُبُّ لَمْ يَضْرِمْ لَهِيبَ قُلُوبِكُمْ", bn: "প্রেম যখন আপনাদের অন্তরের অগ্নিশিখা প্রজ্বলিত করেনি", new: true },
+                    { ar: "بَشِعْتُمْ وَلَوْ جِئْتُمْ بِأَلْفِ رِدَاءٍ", bn: "তখন হাজারটা চাদর নিয়ে এলেও আপনারা কদাকার হয়ে গিয়েছেন।", new: true },
+                    { ar: "وَمَا زِلْتُ فِي الدُّنْيَا أَطُوفُ بِخَمْرَتِي", bn: "(এভাবে) আমি আমার শরাব নিয়ে পৃথিবীতে অবিরাম ঘুরে বেড়িয়েছি;" },
+                    { ar: "وَحَوْلِيَ شَعْبٌ هَازِئٌ بِوَفَائِي", bn: "তখন আমার চারপাশের মানুষকে আমার দায়বোধ নিয়ে বিদ্রূপ করতে দেখেছি।" },
+                    { ar: "إِلَى أَنْ دَهَانِي اليَأْسُ فَاخْتَرْتُ عُزْلَةً", bn: "এক পর্যায়ে হতাশা আমাকে গ্রাস করে; তখন আমি একাকীত্ব বরণ করে" },
+                    { ar: "أُفَتِّشُ فِيهَا عَنْ حُطَامِ رَجَائِي", bn: "নিজ আশার খড়কুটা সন্ধান করেছি।" },
+                    { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আমি আমার কান্নার সাথে মিশিয়ে নিজে পান করার জন্য আমার অন্তর" },
+                    { ar: "لِأَشْرَبَهَا مَمْزُوجَةً بِبُكَائِي", bn: "গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                    { ar: "فَشَاهَدْتُ قَلْبِي فِي إِنَائِيَ ضَاحِكًا", bn: "তখন দেখতে পেলাম, আমার সেই পাত্রে আমার অন্তরটি হাসছে" },
+                    { ar: "بِهِ دَعَةٌ عَذْرَاءُ فِي خُيَلَاءِ", bn: "এবং অহঙ্কারের মাঝে তাতে নিশ্ছিদ্র প্রশান্তি বিরাজ করছে।" },
+                    { ar: "فَأَدْنَيْتُهُ مِنْ مِرْشَفِي وَشَرِبْتُهُ", bn: "তখনি আমি পাত্রটি আমার ঠোঁটের কাছে নিয়ে পান করলাম।" },
+                    { ar: "وَمَا زَالَ مَاءُ الحُبِّ مِلْءَ إِنَائِي", bn: "আমার সেই পাত্র (এখনো) ভালবাসার পানিতে ভরাই আছে।" }
+                ],
+                word: [
+                    { ar: "عَصَرْتُ", bn: "আমি নিংড়ালাম" }, { ar: "فُؤَادِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" }, { ar: "وَأَدْنَيْتُهُ", bn: "এবং কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "الفُقَرَاءِ", bn: "গরীবদের" }, { ar: "فَقَالُوا", bn: "তারা বলল" }, { ar: "خُمُورٌ", bn: "শরাব" }, { ar: "مَا", bn: "(যা) না" }, { ar: "تُبَرِّدُ", bn: "তৃষ্ণা মেটাবে" }, { ar: "غُلَّةً", bn: "প্রবল তৃষ্ণা" }, { ar: "فَتَمْتَمْتُ", bn: "আমি তখন বিড়বিড় করে বললাম" }, { ar: "وَاهًا", bn: "হায়রে" }, { ar: "أَكْبُدَ", bn: "অন্তর" }, { ar: "الشُّعَرَاءِ", bn: "কবিদের!" }, { ar: "أَيُنْكَرُ", bn: "তবে কি প্রত্যাখ্যান করছে?" }, { ar: "حَتَّى", bn: "এমনকি" }, { ar: "البُؤْسُ", bn: "দারিদ্র্যও" }, { ar: "مَا", bn: "যা" }, { ar: "فِيكِ", bn: "তোমার মধ্যে আছে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "غِنًى", bn: "ঐশ্বর্য" }, { ar: "وَأَيَّ", bn: "এবং কোন্ প্রকারের" }, { ar: "غِذَاءٍ", bn: "খাবার" }, { ar: "أَنْتِ", bn: "তোমরাই বা" }, { ar: "لِلبُؤَسَاءِ", bn: "হতদরিদ্রদের জন্য?" }, { ar: "وَذَوَّبْتُ", bn: "এবং আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" }, { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "الرُّؤَسَاءِ", bn: "বড়লোকদের" }, { ar: "وَقُلْتُ", bn: "এবং বললাম" }, { ar: "لَهُمْ", bn: "তাদেরকে" }, { ar: "هَذَا", bn: "এটাই" }, { ar: "هُوَ", bn: "(অব্যয়)" }, { ar: "العَدْلُ", bn: "ন্যায়বিচার" }, { ar: "فَاشْرَبُوا", bn: "তাই আপনারা পান করুন" }, { ar: "لَعَلَّكُمْ", bn: "তাহলে আশা করা যায়, আপনারা" }, { ar: "تُصْغُونَ", bn: "মনোযোগী হতে পারবেন" }, { ar: "لِلضُّعَفَاءِ", bn: "দুর্বলদের প্রতি" }, { ar: "فَمَالُوا", bn: "কিন্তু তারা মুখ ফিরিয়ে নেয়" }, { ar: "جَمِيعًا", bn: "সবাই" }, { ar: "عَنْ", bn: "থেকে" }, { ar: "إِنَائِي", bn: "আমার পাত্রটি" }, { ar: "وَغَمْغَمُوا", bn: "আর বিড়বিড় করে বলে" }, { ar: "إِنَاؤُكَ", bn: "তোমার এই পাত্র" }, { ar: "مَحْظُورٌ", bn: "নিষিদ্ধ" }, { ar: "عَلَى", bn: "জন্য" }, { ar: "الزُّعَمَاءِ", bn: "নেতাদের" }, { ar: "وَذَوَّبْتُ", bn: "আবার আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" }, { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "السُّجَنَاءِ", bn: "কারাবন্দীদের" }, { ar: "وَقُلْتُ", bn: "এবং বললাম" }, { ar: "لَهُمْ", bn: "তাদেরকে" }, { ar: "هَذَا", bn: "এটা" }, { ar: "عَزَاءُ", bn: "সান্ত্বনা" }, { ar: "قُلُوبِكُمْ", bn: "তোমাদের অন্তরের" }, { ar: "فَلِلأَبْرِيَاءِ", bn: "কেননা নিরপরাধ" }, { ar: "التَّاعِسِينَ", bn: "অভাগা মানুষগুলোর জন্য" }, { ar: "دِمَائِي", bn: "আমার রক্ত" }, { ar: "فَقَالُوا", bn: "তখন তারা বলল" }, { ar: "دِمَاءٌ", bn: "(তোমার) রক্ত" }, { ar: "مَا", bn: "(যা) না" }, { ar: "تَحِلُّ", bn: "খুলবে" }, { ar: "قُيُودَنَا", bn: "আমাদের বন্ধন" }, { ar: "فَهَاتِ", bn: "তাই নিয়ে এসো" }, { ar: "قَوَانِينًا", bn: "কিছু আইন" }, { ar: "لِغَيْرِ", bn: "ছাড়া" }, { ar: "قَضَاءِ", bn: "বিচারের" }, { ar: "وَذَوَّبْتُ", bn: "আবার আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" }, { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "الحُكَمَاءِ", bn: "বিজ্ঞজনদের" }, { ar: "وَقُلْتُ", bn: "এবং বললাম" }, { ar: "لَهُمْ", bn: "তাদেরকে" }, { ar: "هَذَا", bn: "এটাই" }, { ar: "هُوَ", bn: "(অব্যয়)" }, { ar: "النُّورُ", bn: "আলো" }, { ar: "فَاشْرَبُوا", bn: "তাই আপনারা পান করুন" }, { ar: "فَآرَاؤُكُمْ", bn: "কারণ, আপনাদের চিন্তায়" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "حَاجَةٍ", bn: "প্রয়োজন" }, { ar: "لِضِيَاءِ", bn: "আলোর" }, { ar: "فَقَالُوا", bn: "তখন তাঁরা বললেন" }, { ar: "وَقَدْ", bn: "এবং" }, { ar: "هَزُّوا", bn: "তাঁরা নাড়িয়ে" }, { ar: "الرُّؤُوسَ", bn: "মাথা" }, { ar: "شَمَاتَةً", bn: "বিদ্বেষবশত" }, { ar: "ضِيَاؤُكَ", bn: "তোমার এই আলো" }, { ar: "هَذَا", bn: "(অব্যয়)" }, { ar: "خِدْعَةُ", bn: "প্রতারণা" }, { ar: "الجُهَلَاءِ", bn: "মূর্খদের" },
+                    { ar: "وَذَوَّبْتُ", bn: "আবার আমি গলিয়ে", new: true }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "إِنَاءٍ", bn: "একটি পাত্রে", new: true }, { ar: "مِنَ", bn: "(অব্যয়)", new: true }, { ar: "الْهَوَى", bn: "অনুরাগের", new: true }, { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম", new: true }, { ar: "مِنْ", bn: "(অব্যয়)", new: true }, { ar: "مِرْشَفِ", bn: "ঠোঁটের", new: true }, { ar: "الْأُمَرَاءِ", bn: "প্রভাবশালী ব্যক্তিদের", new: true }, { ar: "وَقُلْتُ", bn: "এবং বললাম", new: true }, { ar: "لَهُمْ", bn: "তাঁদেরকে", new: true }, { ar: "هَذَا", bn: "এটাই", new: true }, { ar: "هُوَ", bn: "(অব্যয়)", new: true }, { ar: "النُّبْلُ", bn: "মহত্ত্ব", new: true }, { ar: "فَاشْرَبُوا", bn: "তাই আপনারা পান করুন", new: true }, { ar: "وَطُوفُوا", bn: "এবং পরিবেশন করুন", new: true }, { ar: "بِأَقْدَاحِي", bn: "আমার পাত্রগুলো", new: true }, { ar: "عَلَى", bn: "কাছে", new: true }, { ar: "النُّبَلَاءِ", bn: "মহৎ লোকদের", new: true }, { ar: "فَقَالُوا", bn: "তারা বলল", new: true }, { ar: "أَتَحْقِيرٌ", bn: "এটা কি হেয়করণ?", new: true }, { ar: "لِطَعْرَاءِ", bn: "নামচিহ্নের", new: true }, { ar: "جَدِّنَا", bn: "আমাদের পূর্বপুরুষের", new: true }, { ar: "وَمَا", bn: "আর", new: true }, { ar: "تَنَسَّلُ", bn: "বংশধরদের", new: true }, { ar: "الْأَصْلَابُ", bn: "সঘ্রান্ত", new: true }, { ar: "مِنْ", bn: "(অব্যয়)", new: true }, { ar: "شُرَفَاءِ", bn: "ব্যক্তিবর্গের", new: true }, { ar: "وَذَوَّبْتُ", bn: "আবার আমি গলিয়ে", new: true }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা", new: true }, { ar: "فِي", bn: "(অব্যয়)", new: true }, { ar: "إِنَاءٍ", bn: "একটি পাত্রে", new: true }, { ar: "مِنَ", bn: "(অব্যয়)", new: true }, { ar: "الْهَوَى", bn: "অনুরাগের", new: true }, { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম", new: true }, { ar: "مِنْ", bn: "(অব্যয়)", new: true }, { ar: "مِرْشَفِ", bn: "ঠোঁটের", new: true }, { ar: "الشُّعَرَاءِ", bn: "কবিদের", new: true }, { ar: "وَقُلْتُ", bn: "এবং বললাম", new: true }, { ar: "لَهُمْ", bn: "তাঁদেরকে", new: true }, { ar: "هَذَا", bn: "এটাই", new: true }, { ar: "هُوَ", bn: "(অব্যয়)", new: true }, { ar: "الْحُبُّ", bn: "প্রেম", new: true }, { ar: "فَاشْرَبُوا", bn: "তাই আপনারা পান করুন", new: true }, { ar: "فَأَرْيَاؤُكُمْ", bn: "কারণ, আপনাদের বেশ-ভূষা", new: true }, { ar: "مَرْهُونَةٌ", bn: "দায়বদ্ধ", new: true }, { ar: "لِفَنَاءٍ", bn: "ধ্বংসের জন্য", new: true }, { ar: "إِذَا", bn: "যখন", new: true }, { ar: "الْحُبُّ", bn: "প্রেম", new: true }, { ar: "لَمْ", bn: "না", new: true }, { ar: "يَضْرِمْ", bn: "প্রজ্বলিত করে", new: true }, { ar: "لَهِيبَ", bn: "অগ্নিশিখা", new: true }, { ar: "قُلُوبِكُمْ", bn: "আপনাদের অন্তরের", new: true }, { ar: "بَشِعْتُمْ", bn: "আপনারা কদাকার হয়ে গিয়েছেন", new: true }, { ar: "وَلَوْ", bn: "যদিও", new: true }, { ar: "جِئْتُمْ", bn: "আপনারা নিয়ে এলেও", new: true }, { ar: "بِأَلْفِ", bn: "হাজারটা", new: true }, { ar: "رِدَاءٍ", bn: "চাদর", new: true },
+                    { ar: "وَمَا", bn: "এবং" }, { ar: "زِلْتُ", bn: "আমি অবিরাম" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "الدُّنْيَا", bn: "পৃথিবীতে" }, { ar: "أَطُوفُ", bn: "ঘুরে বেড়িয়েছি" }, { ar: "بِخَمْرَتِي", bn: "আমার শরাব নিয়ে" }, { ar: "وَحَوْلِيَ", bn: "এবং আমার চারপাশে" }, { ar: "شَعْبٌ", bn: "মানুষকে" }, { ar: "هَازِئٌ", bn: "বিদ্রূপ করতে দেখেছি" }, { ar: "بِوَفَائِي", bn: "আমার দায়বোধ নিয়ে" }, { ar: "إِلَى", bn: "(অব্যয়)" }, { ar: "أَنْ", bn: "এক পর্যায়ে" }, { ar: "دَهَانِي", bn: "আমাকে গ্রাস করে" }, { ar: "اليَأْسُ", bn: "হতাশা" }, { ar: "فَاخْتَرْتُ", bn: "তখন আমি বরণ করে" }, { ar: "عُزْلَةً", bn: "একাকীত্ব" }, { ar: "أُفَتِّشُ", bn: "আমি সন্ধান করেছি" }, { ar: "فِيهَا", bn: "তাতে" }, { ar: "عَنْ", bn: "(অব্যয়)" }, { ar: "حُطَامِ", bn: "খড়কুটা" }, { ar: "رَجَائِي", bn: "নিজ আশার" }, { ar: "وَذَوَّبْتُ", bn: "এবং আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার অন্তর" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" }, { ar: "لِأَشْرَبَهَا", bn: "নিজে পান করার জন্য" }, { ar: "مَمْزُوجَةً", bn: "মিশিয়ে" }, { ar: "بِبُكَائِي", bn: "আমার কান্নার সাথে" }, { ar: "فَشَاهَدْتُ", bn: "তখন দেখতে পেলাম" }, { ar: "قَلْبِي", bn: "আমার অন্তরটি" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِنَائِيَ", bn: "আমার সেই পাত্রে" }, { ar: "ضَاحِكًا", bn: "হাসছে" }, { ar: "بِهِ", bn: "তাতে" }, { ar: "دَعَةٌ", bn: "প্রশান্তি" }, { ar: "عَذْرَاءُ", bn: "নিশ্ছিদ্র" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "خُيَلَاءِ", bn: "অহঙ্কারের মাঝে" }, { ar: "فَأَدْنَيْتُهُ", bn: "তখনি আমি কাছে নিয়ে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِي", bn: "আমার ঠোঁটের" }, { ar: "وَشَرِبْتُهُ", bn: "এবং পান করলাম" }, { ar: "وَمَا", bn: "এবং এখনো" }, { ar: "زَالَ", bn: "আছে" }, { ar: "مَاءُ", bn: "পানি" }, { ar: "الحُبِّ", bn: "ভালবাসার" }, { ar: "مِلْءَ", bn: "ভরাই" }, { ar: "إِنَائِي", bn: "আমার সেই পাত্র" }
+                ]
+            }
+        };
+
+        const poemTitles = {
+            akhi: { ar: "أخي", bn: "আমার ভাই" },
+            nahr: { ar: "النهر المتجمد", bn: "জমাট বাঁধা নদী" },
+            aghmid: { ar: "أغمض جفونك تبصر", bn: "চোখ বন্ধ করো, দেখতে পাবে" },
+            usfur: { ar: "عصفور الجنة", bn: "স্বর্গের চড়ুই" },
+            anqa: { ar: "العنقاء", bn: "আল-'আনক্বা'" },
+            ina: { ar: "إِناءٌ", bn: "আল-ইনা'" }
+        };
+
+        const pageMetadata = {
+            'page-main': { title: 'Home', parent: null },
+            'page-course-405': { title: 'Course-405', parent: 'page-main' },
+            'page-course-406': { title: 'Course-406', parent: 'page-main' },
+            'page-course-407': { title: 'Course-407', parent: 'page-main' },
+            'page-course-408': { title: 'Course-408', parent: 'page-main' },
+            'page-sir-ruhul': { title: 'Ruhul Amin Sir', parent: 'page-course-405' },
+            'page-sir-fozlur': { title: 'Fozlur Rahman Sir', parent: 'page-course-405' },
+            'page-imran-sir': { title: 'Imran Sir', parent: 'page-course-407' },
+            'page-naimul-sir': { title: 'Naimul Islam Sir', parent: 'page-course-407' },
+            'page-poem-akhi': { title: `Poem: ${poemTitles.akhi.ar}`, parent: 'page-sir-ruhul' },
+            'page-poem-nahr': { title: `Poem: ${poemTitles.nahr.ar}`, parent: 'page-sir-ruhul' },
+            'page-poem-aghmid': { title: `Poem: ${poemTitles.aghmid.ar}`, parent: 'page-sir-ruhul' },
+            'page-poem-usfur': { title: `Poem: ${poemTitles.usfur.ar}`, parent: 'page-sir-ruhul' },
+            'page-poem-anqa': { title: `Poem: ${poemTitles.anqa.ar}`, parent: 'page-sir-fozlur' },
+            'page-poem-ina': { title: `Poem: ${poemTitles.ina.ar}`, parent: 'page-sir-fozlur' },
+            'page-408-outline': { title: 'Outline', parent: 'page-course-408' },
+            'page-408-contents': { title: 'Contents', parent: 'page-course-408' },
+        };
+
+        let currentPage = 1;
+        let itemsPerPage = 15;
+        let currentPoemData = [];
+        let currentPoemType = '';
+
+        function generateBreadcrumbs(pageId, dynamicInfo = null) {
+            let trail = [];
+            let currentId = pageId;
+            while (currentId) {
+                let metadata = pageMetadata[currentId];
+                if (currentId === pageId && dynamicInfo) {
+                    trail.unshift({ id: currentId, title: dynamicInfo.title });
+                    currentId = dynamicInfo.parent;
+                } else if (metadata) {
+                    trail.unshift({ id: currentId, title: metadata.title });
+                    currentId = metadata.parent;
+                } else {
+                    currentId = null;
+                }
+            }
+            return trail.map((crumb, index) => {
+                if (index === trail.length - 1) {
+                    return `<span class="font-semibold text-gray-700">${crumb.title}</span>`;
+                } else {
+                    return `<a href="#" class="nav-btn text-indigo-600 hover:underline" data-target="${crumb.id}">${crumb.title}</a> <span class="mx-1 text-gray-400">></span>`;
+                }
+            }).join('');
+        }
+
+        function showPage(pageId, options = {}) {
+            const { isFromPopState = false, dynamicBreadcrumbInfo = null } = options;
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                const breadcrumbContainer = targetPage.querySelector('.breadcrumb-container');
+                if (breadcrumbContainer) {
+                    breadcrumbContainer.innerHTML = generateBreadcrumbs(pageId, dynamicBreadcrumbInfo);
+                }
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+                if (!isFromPopState) {
+                    history.pushState({ pageId: pageId, dynamicBreadcrumbInfo: dynamicBreadcrumbInfo }, '', '#' + pageId);
+                }
+            }
+        }
+        
+        function renderTable(direction) {
+            window.scrollTo(0, 0);
+            const tableBody = document.getElementById('trans-body');
+            if (!tableBody) return;
+            tableBody.className = '';
+            tableBody.innerHTML = '';
+            const totalItems = currentPoemData.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const pageInfoTop = document.getElementById('page-info-top');
+            const pageInfoBottom = document.getElementById('page-info-bottom');
+            const pageText = `Page ${currentPage} of ${totalPages}`;
+            if (pageInfoTop) pageInfoTop.textContent = pageText;
+            if (pageInfoBottom) pageInfoBottom.textContent = pageText;
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedItems = currentPoemData.slice(start, end);
+            paginatedItems.forEach(item => {
+                const row = document.createElement('tr');
+                // Highlight newly added lines
+                if (item.new) {
+                    row.classList.add('bg-yellow-100');
+                }
+                row.innerHTML = `<td class="p-3 ${currentPoemType === 'word' ? 'word-by-word-arabic' : 'line-by-line-arabic'}"><strong>${item.ar}</strong></td><td class="p-3 bengali-text">${item.bn}</td>`;
+                tableBody.appendChild(row);
+            });
+            void tableBody.offsetWidth;
+            if (direction === 'next') tableBody.classList.add('peel-in-next');
+            else if (direction === 'prev') tableBody.classList.add('peel-in-prev');
+        }
+
+        document.getElementById('app').addEventListener('click', (e) => {
+            const navButton = e.target.closest('.nav-btn');
+            if (navButton) {
+                e.preventDefault();
+                const targetPageId = navButton.getAttribute('data-target');
+                if (targetPageId) {
+                    showPage(targetPageId);
+                }
+            }
+        });
+
+        const coursesMenuButton = document.getElementById('courses-menu-button');
+        const coursesMenu = document.getElementById('courses-menu');
+        coursesMenuButton.addEventListener('click', (e) => { e.stopPropagation(); coursesMenu.classList.toggle('hidden'); });
+        window.addEventListener('click', () => { if (!coursesMenu.classList.contains('hidden')) { coursesMenu.classList.add('hidden'); } });
+        document.querySelectorAll('.course-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPageId = link.getAttribute('data-target');
+                showPage(targetPageId);
+                coursesMenu.classList.add('hidden');
+            });
+        });
+
+        document.querySelectorAll('.translation-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const poemId = button.getAttribute('data-poem');
+                const type = button.getAttribute('data-type');
+                currentPoemData = poemsData[poemId][type];
+                currentPoemType = type;
+                currentPage = 1;
+                const titleAr = document.getElementById('trans-title-ar');
+                const titleBn = document.getElementById('trans-title-bn');
+                titleAr.textContent = poemTitles[poemId].ar;
+                titleBn.textContent = `${poemTitles[poemId].bn} (${type === 'word' ? 'শব্দে শব্দে' : 'লাইনে লাইনে'})`;
+                document.querySelector('#page-translation .back-btn').setAttribute('data-target', `page-poem-${poemId}`);
+                renderTable();
+                const dynamicInfo = {
+                    parent: `page-poem-${poemId}`,
+                    title: 'Translation'
+                };
+                showPage('page-translation', { dynamicBreadcrumbInfo: dynamicInfo });
+            });
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentPage > 1) {
+                document.getElementById('trans-body').classList.add('peel-out-prev');
+                setTimeout(() => { currentPage--; renderTable('prev'); }, 500);
+            }
+        });
+        document.getElementById('next-btn').addEventListener('click', () => {
+            const totalItems = currentPoemData.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            if (currentPage < totalPages) {
+                document.getElementById('trans-body').classList.add('peel-out-next');
+                setTimeout(() => { currentPage++; renderTable('next'); }, 500);
+            }
+        });
+
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.pageId) {
+                showPage(event.state.pageId, { isFromPopState: true, dynamicBreadcrumbInfo: event.state.dynamicBreadcrumbInfo });
+            } else {
+                showPage('page-main', { isFromPopState: true });
+            }
+        });
+
+        const globalHeader = document.getElementById('global-header');
+        const duLogo = document.getElementById('du-logo');
+        const profilePic = document.getElementById('profile-picture');
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                globalHeader.classList.add('header-hidden');
+                duLogo.classList.add('header-hidden');
+                profilePic.classList.add('header-hidden');
+            } else {
+                globalHeader.classList.remove('header-hidden');
+                duLogo.classList.remove('header-hidden');
+                profilePic.classList.remove('header-hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+		
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const initialPageId = window.location.hash ? window.location.hash.substring(1) : 'page-main';
+        showPage(initialPageId, { isFromPopState: true });
+        history.replaceState({ pageId: initialPageId }, '', '#' + initialPageId);
+	// --- Start of new code block ---
+
+// This listener handles the state change for all download buttons
+document.getElementById('app').addEventListener('click', function(event) {
+    // Find the link that was clicked, but only if it has a 'download' attribute
+    const downloadButton = event.target.closest('a[download]');
+
+    // If a download button was clicked and it hasn't been disabled yet
+    if (downloadButton && !downloadButton.dataset.clicked) {
+        
+        // Mark the button as clicked to prevent this from running again
+        downloadButton.dataset.clicked = 'true';
+
+        // 1. Remove the colorful and interactive classes
+        downloadButton.classList.remove(
+            'bg-gradient-to-r', 
+            'from-gray-500', 
+            'to-gray-700', 
+            'from-indigo-500', 
+            'to-purple-600', 
+            'hover:shadow-xl', 
+            'transform', 
+            'hover:scale-105'
+        );
+
+        // 2. Add classes to make it grayscale and unclickable
+        downloadButton.classList.add(
+            'bg-gray-400', 
+            'cursor-not-allowed', 
+            'pointer-events-none'
+        );
+
+        // 3. Change the button's text to "Downloading..."
+        // This targets the text node which is the last element inside the <a> tag
+        if (downloadButton.lastChild.nodeType === Node.TEXT_NODE) {
+            downloadButton.lastChild.textContent = ' Downloading...';
+        }
+    }
+});
+
+// --- End of new code block ---
+
+
+// REPLACE your previous settings script with this complete version
+// --- Start of new settings code block ---
+const settingsBtn = document.getElementById('settings-btn');
+const settingsPanel = document.getElementById('settings-panel');
+const settingsModalContent = document.getElementById('settings-modal-content');
+const closeSettingsBtn = document.getElementById('close-settings-btn');
+const fontIncreaseBtn = document.getElementById('font-increase-btn');
+const fontDecreaseBtn = document.getElementById('font-decrease-btn');
+const fontSizePreview = document.getElementById('font-size-preview');
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
+const themeNameSpan = document.getElementById('theme-name');
+const root = document.documentElement;
+
+// --- A centralized function to open the panel ---
+function openSettingsPanel() {
+    settingsPanel.classList.remove('hidden');
+    // Add a hash to the URL to create a history entry
+    window.location.hash = 'settings';
+}
+
+// --- A centralized function to close the panel ---
+function closeSettingsPanel() {
+    settingsPanel.classList.add('hidden');
+    // If the hash is still '#settings', go back to remove it from history
+    if (window.location.hash === '#settings') {
+        history.back();
+    }
+}
+
+// --- FONT SIZE LOGIC ---
+let currentFontSize = parseInt(localStorage.getItem('fontSize')) || 16;
+function applyFontSize() {
+    root.style.setProperty('--base-font-size', `${currentFontSize}px`);
+    fontSizePreview.textContent = `${currentFontSize}px`;
+    localStorage.setItem('fontSize', currentFontSize);
+}
+fontIncreaseBtn.addEventListener('click', () => {
+    if (currentFontSize < 24) {
+        currentFontSize++;
+        applyFontSize();
+    }
+});
+fontDecreaseBtn.addEventListener('click', () => {
+    if (currentFontSize > 12) {
+        currentFontSize--;
+        applyFontSize();
+    }
+});
+
+// --- THEME TOGGLE LOGIC ---
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        root.classList.add('dark');
+        themeNameSpan.textContent = 'Light';
+    } else {
+        root.classList.remove('dark');
+        themeNameSpan.textContent = 'Dark';
+    }
+    localStorage.setItem('theme', theme);
+}
+themeToggleBtn.addEventListener('click', () => {
+    const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
+    applyTheme(newTheme);
+});
+
+// --- EVENT LISTENERS FOR OPENING AND CLOSING ---
+settingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openSettingsPanel();
+});
+
+closeSettingsBtn.addEventListener('click', closeSettingsPanel);
+
+settingsPanel.addEventListener('click', (e) => {
+    // Closes the panel ONLY if user clicks on the dark overlay background
+    if (e.target === settingsPanel) {
+        closeSettingsPanel();
+    }
+});
+
+// --- Listen for the back button press ---
+window.addEventListener('hashchange', () => {
+    // If the hash is removed (by the back button), ensure the panel is closed
+    if (window.location.hash !== '#settings') {
+        settingsPanel.classList.add('hidden');
+    }
+});
+
+
+// --- LOAD SAVED SETTINGS ON PAGE LOAD ---
+function loadSettings() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+    applyFontSize();
+}
+
+loadSettings();
+// --- End of new settings code block ---
+
+
+
+// --- Add this block for AI Search Functionality ---
+const searchInput = document.getElementById('ai-search-input');
+const searchBtn = document.getElementById('ai-search-btn');
+const answerBox = document.getElementById('ai-answer-box');
+
+searchBtn.addEventListener('click', async () => {
+    const userQuery = searchInput.value;
+    if (!userQuery) {
+        return; // Do nothing if input is empty
+    }
+
+    // Show loading state
+    answerBox.classList.remove('hidden');
+    answerBox.textContent = 'Thinking...';
+    searchBtn.disabled = true;
+
+    try {
+        // Call your serverless function
+        const response = await fetch('/.netlify/functions/ai-search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ query: userQuery }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Something went wrong. Please try again.');
+        }
+
+        const data = await response.json();
+        answerBox.textContent = data.answer;
+
+    } catch (error) {
+        answerBox.textContent = error.message;
+    } finally {
+        // Restore button
+        searchBtn.disabled = false;
+    }
+});
+    });
+</script>
+</body>
+</html>
+
