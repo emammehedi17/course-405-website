@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Study for Midterm [Course-405]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', 'Kalpurush', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .arabic-text, .arabic-title {
+			font-family: 'Times New Roman', serif;
+									}
+        .bengali-text, .bengali-title {
+            font-family: 'Kalpurush', sans-serif;
+        }
+        .eng-btn {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .word-by-word-arabic {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+	text-align: right;
+	}
+	.line-by-line-arabic {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.25rem;
+    line-height: 2rem;
+	text-align: right;
+}
+        }
+        table {
+            border-collapse: collapse;
+        }
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+        tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+	<!-- Top Left Profile Image -->
+
+	<div class="fixed top-4 left-4 z-10">
+
+		<a href="https://www.facebook.com/emammehedi17"><img src="https://scontent.fdac24-5.fna.fbcdn.net/v/t39.30808-6/515472996_2338185433242213_3000687231462222459_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=3ARiZHZ7zYUQ7kNvwF3Dvur&_nc_oc=AdlvyH5CDuWpAQSDf9QOM4TCWE6Fm-GPqIECHU6rWfwFYx5hrQ8EgbmdtxCOEWekY1Q&_nc_zt=23&_nc_ht=scontent.fdac24-5.fna&_nc_gid=t_UQlsN7MxWwAFGqWM4d_A&oh=00_AfMUbl4onSUIkgGn_zpQElDQM-q8fjM2zx2RUA4pbIez5A&oe=686D6365" 
+
+			 alt="Emam Mehedi" 
+
+			 class="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-lg">
+		</a>
+	</div>
+	
+    <!-- Dhaka University Logo -->
+	<div class="absolute top-4 right-4 z-10">
+		<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNBAHKuj1sO6IJF6tmiRnrF-W9C2gKbWs9EUZ1bhH8o9AIC1O4JlI9sIBmT22TJPbaSH93pyXcSIvMCL2pztom6QD7XbB6JpjvzVFLXW2BjMgzzTDKJeQnMRECM_VYjIcC-UmfiaVVH7G5/s1600/dhaka-university.jpg" 
+			 alt="Dhaka University Logo" 
+			 class="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-lg">
+	</div>
+    <div id="app" class="container mx-auto p-4 pt-40 md:pt-44 min-h-screen">
+
+        <!-- =================================================================
+        PAGE 1: MAIN MENU
+        ================================================================== -->
+        <div id="page-main" class="page active">
+            <header class="text-center mb-12">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-800">Complete study for midterm</h1>
+                <p class="text-2xl md:text-4xl text-indigo-600 font-semibold mt-2">[Course-405]</p>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <button data-target="page-sir-ruhul" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-white rounded-2xl shadow-lg border border-gray-200">
+                    Ruhul Amin Sir
+                </button>
+                <button data-target="page-sir-fozlur" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-white rounded-2xl shadow-lg border border-gray-200">
+                    Fozlur Rahman Sir
+                </button>
+            </div>
+        </div>
+
+        <!-- =================================================================
+        PAGE 2: RUHUL AMIN SIR'S POEMS
+        ================================================================== -->
+        <div id="page-sir-ruhul" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-main">&larr; Back</button>
+            <h2 class="text-4xl font-bold text-center mb-10">Ruhul Amin Sir's Poems</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <button data-target="page-poem-akhi" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">أخي</button>
+                <button data-target="page-poem-nahr" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">النهر المتجمد</button>
+                <button data-target="page-poem-aghmid" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">أغمض جفونك</button>
+                <button data-target="page-poem-usfur" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">عصفور الجنة</button>
+            </div>
+        </div>
+
+        <!-- =================================================================
+        PAGE 3: FOZLUR RAHMAN SIR'S POEMS
+        ================================================================== -->
+        <div id="page-sir-fozlur" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-main">&larr; Back</button>
+            <h2 class="text-4xl font-bold text-center mb-10">Fozlur Rahman Sir's Poems</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <button data-target="page-poem-anqa" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">العنقاء</button>
+                <button data-target="page-poem-ina" class="nav-btn poem-menu-btn card-hover text-xl font-bold p-8 bg-white rounded-2xl shadow-md border border-gray-200 arabic-text">إِناءٌ</button>
+            </div>
+        </div>
+
+        <!-- =================================================================
+        POEM LANDING PAGES (6 total)
+        ================================================================== -->
+        <!-- Poem 1: Akhi -->
+        <div id="page-poem-akhi" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-sir-ruhul">&larr; Back</button>
+            <header class="text-center mb-12">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9cNidYIcyiPjcbQtT-d8nrpyB69EnxJkAw&s" alt="Mikhail Nuaimah" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">أخي</h3>
+                <p class="text-lg text-gray-500 arabic-text mt-1">ميخائيل نعيمة</p>
+            </header>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <button data-poem="akhi" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+                <button data-poem="akhi" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+            </div>
+        </div>
+        
+        <!-- Poem 2: Nahr -->
+        <div id="page-poem-nahr" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-sir-ruhul">&larr; Back</button>
+            <header class="text-center mb-12">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9cNidYIcyiPjcbQtT-d8nrpyB69EnxJkAw&s" alt="Mikhail Nuaimah" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">النهر المتجمد</h3>
+                <p class="text-lg text-gray-500 arabic-text mt-1">ميخائيل نعيمة</p>
+            </header>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <button data-poem="nahr" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+                <button data-poem="nahr" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+            </div>
+        </div>
+
+        <!-- Poem 3: Aghmid -->
+        <div id="page-poem-aghmid" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-sir-ruhul">&larr; Back</button>
+            <header class="text-center mb-12">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9cNidYIcyiPjcbQtT-d8nrpyB69EnxJkAw&s" alt="Mikhail Nuaimah" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">أغمض جفونك تبصر</h3>
+                <p class="text-lg text-gray-500 arabic-text mt-1">ميخائيل نعيمة</p>
+            </header>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <button data-poem="aghmid" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+                <button data-poem="aghmid" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+            </div>
+        </div>
+
+        <!-- Poem 4: Usfur -->
+        <div id="page-poem-usfur" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-sir-ruhul">&larr; Back</button>
+            <header class="text-center mb-12">
+                <img src="https://arab-ency.com.sy/img/res/0/7017/1.jpg" alt="Abdur Rahman Shukri" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">عصفور الجنة</h3>
+                <p class="text-lg text-gray-500 arabic-text mt-1">عبد الرحمن شكري</p>
+            </header>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <button data-poem="usfur" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+                <button data-poem="usfur" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+            </div>
+        </div>
+
+        <!-- Poem 5: Anqa -->
+        <div id="page-poem-anqa" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-sir-fozlur">&larr; Back</button>
+            <header class="text-center mb-12">
+                <img src="https://upload.wikimedia.org/wikipedia/ar/c/ce/Elia_Au_Madi.jpg" alt="Iliya Abu Madi" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">العنقاء</h3>
+                <p class="text-lg text-gray-500 arabic-text mt-1">إيليا ابو ماضي</p>
+            </header>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <button data-poem="anqa" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+                <button data-poem="anqa" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+            </div>
+        </div>
+
+        <!-- Poem 6: Ina -->
+        <div id="page-poem-ina" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn" data-target="page-sir-fozlur">&larr; Back</button>
+            <header class="text-center mb-12">
+                <img src="https://upload.wikimedia.org/wikipedia/ar/2/2a/AbuChabkeh.jpg" alt="Elias Abu Shabaki" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h3 class="text-4xl font-bold text-gray-700 arabic-text">إِناءٌ</h3>
+                <p class="text-lg text-gray-500 arabic-text mt-1">إلياس أبو شبكة</p>
+            </header>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <button data-poem="ina" data-type="word" class="translation-btn w-full md:w-auto bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Word by Word</button>
+                <button data-poem="ina" data-type="line" class="translation-btn w-full md:w-auto bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg eng-btn">Line by Line</button>
+            </div>
+        </div>
+
+        <!-- =================================================================
+        TRANSLATION PAGE TEMPLATE
+        ================================================================== -->
+        <div id="page-translation" class="page">
+            <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-8 eng-btn">&larr; Back</button>
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden p-6">
+                <h3 id="trans-title-ar" class="text-3xl font-bold text-center mb-2 arabic-text"></h3>
+                <p id="trans-title-bn" class="text-center text-xl mb-6 bengali-text"></p>
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-100"><tr><th class="p-3 text-right bengali-text">আরবী</th><th class="p-3 text-left bengali-text">বাংলা অর্থ</th></tr></thead>
+                    <tbody id="trans-body"></tbody>
+                </table>
+                <div id="pagination-controls" class="flex justify-between items-center mt-6">
+                    <button id="prev-btn" class="pagination-btn bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 disabled:opacity-50 eng-btn">Previous</button>
+                    <span id="page-info" class="text-gray-600 eng-btn"></span>
+                    <button id="next-btn" class="pagination-btn bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 disabled:opacity-50 eng-btn">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 mt-12 border-t border-gray-300 bg-white">
+        <p class="text-gray-600">
+            Made by 
+            <a href="https://www.facebook.com/emammehedi17" target="_blank" class="font-bold text-indigo-600 hover:underline">
+                Emam Mehedi
+            </a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const poemsData = {
+                akhi: {
+                    line: [
+                        { ar: "أَخِي! إِنْ ضَجَّ بَعْدَ الحَرْبِ غَرْبِيٌّ بِأَعْمَالِهِ", bn: "ভাই! কোনো পশ্চিমা যদি যুদ্ধের পর তার কর্মকাণ্ড নিয়ে উল্লাস প্রকাশ করে," },
+                        { ar: "وَقَدَّسَ ذِكْرَ مَنْ مَاتُوا وَعَظَّمَ بَطْشَ أَبْطَالِهِ", bn: "আর যারা মৃত্যুবরণ করেছে, তাদের স্মৃতিচারণকে পবিত্র মনে করে এবং তাদের বীরদের সাহসকে বড় করে দেখায়," },
+                        { ar: "فَلَا تَهْزَجْ لِمَنْ سَادُوا وَلَا تَشْمَتْ بِمَنْ دَانُوا", bn: "তাহলে যারা এ যুদ্ধে নেতৃত্ব দিয়েছে তাদের গুণগান করবে না এবং যারা পরাজয় বরণ করেছে তাদের নিয়ে আনন্দ প্রকাশ করবে না।" },
+                        { ar: "بَلِ ارْكَعْ صَامِتاً مِثْلِي بِقَلْبٍ خَاشِعٍ دَامٍ", bn: "বরং আমার মত নীরবে মাথা নত করে রাখো বিনয়ী রক্তাক্ত হৃদয় নিয়ে;" },
+                        { ar: "لِنَبْكِيَ حَظَّ مَوْتَانَا", bn: "যাতে আমরা আমাদের মৃত ব্যক্তিদের ভাগ্য নিয়ে কাঁদতে পারি।" },
+                        { ar: "أَخِي! إِنْ عَادَ بَعْدَ الحَرْبِ جُنْدِيٌّ لِأَوْطَانِهِ", bn: "ভাই! যদি যুদ্ধের পর কোনো সৈনিক নিজ দেশে/জন্মভূমিতে ফিরে আসে," },
+                        { ar: "وَأَلْقَى جِسْمَهُ المَنْهُوكَ فِي أَحْضَانِ خِلَّانِهِ", bn: "এবং তার ক্লান্ত ও জীর্ণশীর্ণ দেহ সে তার বন্ধুদের কোলে অর্পণ করে," },
+                        { ar: "فَلَا تَطْلُبْ إِذَا مَا عُدْتَ لِلْأَوْطَانِ خِلَّانَا", bn: "তাহলে তুমি তোমার জন্মভূমিতে ফিরে এলে কোনো বন্ধুর খোঁজ করবে না।" },
+                        { ar: "لِأَنَّ الجُوعَ لَمْ يَتْرُكْ لَنَا صَحْبًا نُنَاجِيهِمْ", bn: "কারণ ক্ষুধা আমাদের জন্য কোনো বন্ধু রেখে যায়নি, যাদের সাথে আমরা কানে কানে কথা বলব।" },
+                        { ar: "سِوَى أَشْبَاحِ مَوْتَانَا", bn: "শুধু রেখে গিয়েছে আমাদের মৃতদের ছায়া।" },
+                        { ar: "أَخِي! إِنْ عَادَ يَحْرُثُ أَرْضَهُ الفَلَّاحُ أَوْ يَزْرَعُ", bn: "ভাই! যদি কৃষক ফিরে এসে নিজের জমিতে চাষ করতে কিংবা শস্য বপণ করতে চায়," },
+                        { ar: "وَيَبْنِي بَعْدَ طُولِ الهَجْرِ كُوخًا هَدَّهُ المِدْفَعُ", bn: "এবং দীর্ঘ বিচ্ছেদের পর কামান ধ্বংস করে দিয়েছে এমন কুঁড়েঘর নির্মাণ করতে আসে," },
+                        { ar: "فَقَدْ جَفَّتْ سَوَاقِينَا وَهَدَّ الذُّلُّ مَأْوَانَا", bn: "(তখন দেখে) আমাদের নালাগুলো শুকিয়ে গেছে এবং লাঞ্ছনা আমাদের আশ্রয়স্থল বিধ্বস্ত করে দিয়েছে।" },
+                        { ar: "وَلَمْ يَتْرُكْ لَنَا الْأَعْدَاءُ غَرْسًا فِي أَرَاضِينَا", bn: "আমাদের শত্রুরা আমাদের ভূমিতে আমাদের মৃতদেহ ছাড়া বপণ করার মত কিছুই রাখেনি," },
+                        { ar: "سِوَى أَجْيَافِ مَوْتَانَا", bn: "শুধুই রেখে গিয়েছে আমাদের মৃতদের লাশ।" },
+                        { ar: "أَخِي! قَدْ تَمَّ مَا لَوْ لَمْ نَشَأْهُ نَحْنُ مَا تَمَّا", bn: "ভাই আমার! যা হওয়ার তা হয়ে গেছে। যদি আমরা তা না চাইতাম, তাহলে তা হত না।" },
+                        { ar: "وَقَدْ عَمَّ البَلَاءُ وَلَوْ أَرَدْنَا نَحْنُ مَا عَمَّا", bn: "বিপদ ব্যাপক হয়ে গিয়েছে, যদি আমরা চাইতাম, তাহলে ব্যাপকভাবে প্রকাশ পেত না।" },
+                        { ar: "فَلَا تَنْدُبْ فَأُذْنُ الغَيْرِ لَا تُصْغِي لِشَكْوَانَا", bn: "সুতরাং বিলাপ করো না, কারণ অন্যদের কান আমাদের অভিযোগ মন দিয়ে শুনবে না।" },
+                        { ar: "بَلِ اتَّبِعْنِي لِنَحْفِرَ خَنْدَقًا بِالرَّفْشِ وَالْمِعْوَلِ", bn: "বরং তুমি আমাকে অনুসরণ করো; যাতে আমরা কোদাল এবং বেলচা নিয়ে একটা গর্ত খনন করি" },
+                        { ar: "نُوَارِي فِيهِ مَوْتَانَا", bn: "এবং আমাদের মৃতদের সেখানে দাফন করি।" },
+                        { ar: "أَخِي! مَنْ نَحْنُ؟ لَا وَطَنٌ وَلَا أَهْلٌ وَلَا جَارُ", bn: "ভাই! আমরা কারা? আমাদের নেই জন্মভূমি, পরিবার আর প্রতিবেশী।" },
+                        { ar: "إِذَا نِمْنَا، إِذَا قُمْنَا رِدَانَا الخِزْيُ وَالعَارُ", bn: "আমরা ঘুমাই কিংবা জাগি, সর্বাবস্থায় আমাদের জড়িয়ে রাখে অপমান ও লাঞ্ছনা।" },
+                        { ar: "لَقَدْ خَمَّتْ بِنَا الدُّنْيَا كَمَا خَمَّتْ بِمَوْتَانَا", bn: "দুনিয়া যেমন আমাদের মৃতদের ধ্বংস করেছে, তেমন আমাদেরও ধ্বংস করেছে।" },
+                        { ar: "فَهَاتِ الرَّفْشَ وَاتَّبِعْنِي لِنَحْفِرَ خَنْدَقًا آخَرَ", bn: "তাই কোদাল নাও, আমাকে অনুসরণ করো; যাতে আরেকটি গর্ত খনন করতে পারি," },
+                        { ar: "نُوَارِي فِيهِ أَحْيَانَا", bn: "যেখানে জীবিতদের দাফন করব।" }
+                    ],
+                    word: [
+                        { ar: 'أَخِي!', bn: 'ভাই আমার!' }, { ar: 'إِنْ', bn: 'যদি' }, { ar: 'ضَجَّ', bn: 'উল্লাস করে' }, { ar: 'بَعْدَ', bn: 'পরে' }, { ar: 'الْحَرْبِ', bn: 'যুদ্ধের' }, { ar: 'غَرْبِيٌّ', bn: 'কোনো পশ্চিমা' }, { ar: 'بِأَعْمَالِهِ', bn: 'তার কর্মকাণ্ড নিয়ে' }, { ar: 'وَقَدَّسَ', bn: 'এবং পবিত্র মনে করে' }, { ar: 'ذِكْرَ', bn: 'স্মৃতিচারণকে' }, { ar: 'مَنْ', bn: 'যারা' }, { ar: 'مَاتُوا', bn: 'মৃত্যুবরণ করেছে' }, { ar: 'وَعَظَّمَ', bn: 'এবং বড় করে দেখায়' }, { ar: 'بَطْشَ', bn: 'সাহসকে/বীরত্বকে' }, { ar: 'أَبْطَالِهِ', bn: 'তাদের বীরদের' }, { ar: 'فَلَا', bn: 'তাহলে না' }, { ar: 'تَهْزَجْ', bn: 'উল্লাস করো' }, { ar: 'لِمَنْ', bn: 'তাদের জন্য যারা' }, { ar: 'سَادُوا', bn: 'নেতৃত্ব দিয়েছে' }, { ar: 'وَلَا', bn: 'এবং না' }, { ar: 'تَشْمَتْ', bn: 'আনন্দ প্রকাশ করবে' }, { ar: 'بِمَنْ', bn: 'তার জন্য যে' }, { ar: 'دَانُوا', bn: 'পরাজিত হয়েছে' }, { ar: 'بَلِ', bn: 'বরং' }, { ar: 'ارْكَعْ', bn: 'নত হও' }, { ar: 'صَامِتاً', bn: 'নীরবে' }, { ar: 'مِثْلِي', bn: 'আমার মত' }, { ar: 'بِقَلْبٍ', bn: 'হৃদয় নিয়ে' }, { ar: 'خَاشِعٍ', bn: 'বিনয়ী' }, { ar: 'دَامٍ', bn: 'রক্তাক্ত' }, { ar: 'لِنَبْكِيَ', bn: 'যাতে আমরা কাঁদতে পারি' }, { ar: 'حَظَّ', bn: 'ভাগ্য' }, { ar: 'مَوْتَانَا', bn: 'আমাদের মৃতদের' },
+                        { ar: 'أَخِي!', bn: 'ভাই আমার!' }, { ar: 'إِنْ', bn: 'যদি' }, { ar: 'عَادَ', bn: 'ফিরে আসে' }, { ar: 'بَعْدَ', bn: 'পরে' }, { ar: 'الحَرْبِ', bn: 'যুদ্ধের' }, { ar: 'جُنْدِيٌّ', bn: 'কোনো সৈনিক' }, { ar: 'لِأَوْطَانِهِ', bn: 'নিজ দেশে' }, { ar: 'وَأَلْقَى', bn: 'এবং অর্পণ করে' }, { ar: 'جِسْمَهُ', bn: 'তার দেহ' }, { ar: 'المَنْهُوكَ', bn: 'ক্লান্ত' }, { ar: 'فِي', bn: 'মধ্যে' }, { ar: 'أَحْضَانِ', bn: 'কোলে' }, { ar: 'خِلَّانِهِ', bn: 'তার বন্ধুদের' }, { ar: 'فَلَا', bn: 'তাহলে না' }, { ar: 'تَطْلُبْ', bn: 'খোঁজ করবে' }, { ar: 'إِذَا', bn: 'যখন' }, { ar: 'مَا', bn: '(অতিরিক্ত)' }, { ar: 'عُدْتَ', bn: 'তুমি ফিরে আসবে' }, { ar: 'لِلْأَوْطَانِ', bn: 'জন্মভূমিতে' }, { ar: 'خِلَّانَا', bn: 'কোনো বন্ধুর' }, { ar: 'لِأَنَّ', bn: 'কারণ' }, { ar: 'الجُوعَ', bn: 'ক্ষুধা' }, { ar: 'لَمْ', bn: 'না' }, { ar: 'يَتْرُكْ', bn: 'রেখে যায়নি' }, { ar: 'لَنَا', bn: 'আমাদের জন্য' }, { ar: 'صَحْبًا', bn: 'কোনো বন্ধু' }, { ar: "نُنَاجِيهِمْ", bn: "যাদের সাথে কথা বলব" }, { ar: "سِوَى", bn: "ছাড়া" }, { ar: "أَشْبَاحِ", bn: "ছায়া" }, { ar: "مَوْتَانَا", bn: "আমাদের মৃতদের" },
+                        { ar: "أَخِي!", bn: "ভাই!" }, { ar: "إِنْ", bn: "যদি" }, { ar: "عَادَ", bn: "ফিরে এসে" }, { ar: "يَحْرُثُ", bn: "চাষ করে" }, { ar: "أَرْضَهُ", bn: "তার জমিতে" }, { ar: "الفَلَّاحُ", bn: "কৃষক" }, { ar: "أَوْ", bn: "কিংবা" }, { ar: "يَزْرَعُ", bn: "বপণ করে" }, { ar: "وَيَبْنِي", bn: "এবং নির্মাণ করে" }, { ar: "بَعْدَ", bn: "পরে" }, { ar: "طُولِ", bn: "দীর্ঘ" }, { ar: "الهَجْرِ", bn: "বিচ্ছেদের" }, { ar: "كُوخًا", bn: "কুঁড়েঘর" }, { ar: "هَدَّهُ", bn: "যা ধ্বংস করেছে" }, { ar: "المِدْفَعُ", bn: "কামান" }, { ar: "فَقَدْ", bn: "তখন" }, { ar: "جَفَّتْ", bn: "শুকিয়ে গেছে" }, { ar: "سَوَاقِينَا", bn: "আমাদের নালাগুলো" }, { ar: "وَهَدَّ", bn: "এবং বিধ্বস্ত করেছে" }, { ar: "الذُّلُّ", bn: "লাঞ্ছনা" }, { ar: "مَأْوَانَا", bn: "আমাদের আশ্রয়স্থল" }, { ar: "وَلَمْ", bn: "এবং না" }, { ar: "يَتْرُكْ", bn: "রেখে যায়নি" }, { ar: "لَنَا", bn: "আমাদের জন্য" }, { ar: "الْأَعْدَاءُ", bn: "শত্রুরা" }, { ar: "غَرْسًا", bn: "কোনো চারাগাছ" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "أَرَاضِينَا", bn: "আমাদের ভূমিতে" }, { ar: "سِوَى", bn: "ছাড়া" }, { ar: "أَجْيَافِ", bn: "লাশ" }, { ar: "مَوْتَانَا", bn: "আমাদের মৃতদের" },
+                        { ar: "أَخِي!", bn: "ভাই আমার!" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "تَمَّ", bn: "হয়ে গেছে" }, { ar: "مَا", bn: "যা" }, { ar: "لَوْ", bn: "যদি" }, { ar: "لَمْ", bn: "না" }, { ar: "نَشَأْهُ", bn: "আমরা তা চাইতাম" }, { ar: "نَحْنُ", bn: "আমরা" }, { ar: "مَا", bn: "না" }, { ar: "تَمَّا", bn: "হত" }, { ar: "وَقَدْ", bn: "এবং" }, { ar: "عَمَّ", bn: "ব্যাপক হয়ে গিয়েছে" }, { ar: "البَلَاءُ", bn: "বিপদ" }, { ar: "وَلَوْ", bn: "এবং যদি" }, { ar: "أَرَدْنَا", bn: "আমরা চাইতাম" }, { ar: "نَحْنُ", bn: "আমরা" }, { ar: "مَا", bn: "না" }, { ar: "عَمَّا", bn: "ব্যাপক হতো" }, { ar: "فَلَا", bn: "সুতরাং না" }, { ar: "تَنْدُبْ", bn: "বিলাপ করো" }, { ar: "فَأُذْنُ", bn: "কারণ কান" }, { ar: "الغَيْرِ", bn: "অন্যদের" }, { ar: "لَا", bn: "না" }, { ar: "تُصْغِي", bn: "শোনে" }, { ar: "لِشَكْوَانَا", bn: "আমাদের অভিযোগ" }, { ar: "بَلِ", bn: "বরং" }, { ar: "اتَّبِعْنِي", bn: "আমাকে অনুসরণ করো" }, { ar: "لِنَحْفِرَ", bn: "যাতে আমরা খনন করি" }, { ar: "خَنْدَقًا", bn: "একটি গর্ত" }, { ar: "بِالرَّفْشِ", bn: "কোদাল দিয়ে" }, { ar: "وَالْمِعْوَلِ", bn: "এবং বেলচা দিয়ে" }, { ar: "نُوَارِي", bn: "দাফন করি" }, { ar: "فِيهِ", bn: "সেখানে" }, { ar: "مَوْتَانَا", bn: "আমাদের মৃতদের" },
+                        { ar: "أَخِي!", bn: "ভাই!" }, { ar: "مَنْ", bn: "কারা?" }, { ar: "نَحْنُ؟", bn: "আমরা" }, { ar: "لَا", bn: "নেই" }, { ar: "وَطَنٌ", bn: "জন্মভূমি" }, { ar: "وَلَا", bn: "আর নেই" }, { ar: "أَهْلٌ", bn: "পরিবার" }, { ar: "وَلَا", bn: "আর নেই" }, { ar: "جَارُ", bn: "প্রতিবেশী" }, { ar: "إِذَا", bn: "যখন" }, { ar: "نِمْنَا،", bn: "আমরা ঘুমাই" }, { ar: "إِذَا", bn: "যখন" }, { ar: "قُمْنَا", bn: "আমরা জাগি" }, { ar: "رِدَانَا", bn: "আমাদের পোশাক হলো" }, { ar: "الخِزْيُ", bn: "অপমান" }, { ar: "وَالعَارُ", bn: "ও লাঞ্ছনা" }, { ar: "لَقَدْ", bn: "(অব্যয়)" }, { ar: "خَمَّتْ", bn: "ধ্বংস করেছে" }, { ar: "بِنَا", bn: "আমাদের" }, { ar: "الدُّنْيَا", bn: "এই দুনিয়া" }, { ar: "كَمَا", bn: "যেমন" }, { ar: "خَمَّتْ", bn: "ধ্বংস করেছে" }, { ar: "بِمَوْتَانَا", bn: "আমাদের মৃতদের" }, { ar: "فَهَاتِ", bn: "তাই নাও" }, { ar: "الرَّفْشَ", bn: "কোদাল" }, { ar: "وَاتَّبِعْنِي", bn: "এবং আমাকে অনুসরণ করো" }, { ar: "لِنَحْفِرَ", bn: "যাতে আমরা খনন করি" }, { ar: "خَنْدَقًا", bn: "একটি গর্ত" }, { ar: "آخَرَ", bn: "আরেকটি" }, { ar: "نُوَارِي", bn: "দাফন করব" }, { ar: "فِيهِ", bn: "যেখানে" }, { ar: "أَحْيَانَا", bn: "আমাদের জীবিতদের" }
+                    ]
+                },
+                nahr: {
+                    line: [
+                        { ar: "يَا نَهْرُ، هَلْ نَضَبَتْ مِيَاهُكَ فَانْقَطَعْتَ عَنِ الْخَرِيرِ؟", bn: "হে নদী! তোমার জলরাশি কি শুকিয়ে গেছে যে তুমি তোমার ঢেউয়ের কলকল ধ্বনি ত্যাগ করেছ?" },
+                        { ar: "أَمْ قَدْ هَرِمْتَ وَخَارَ عَزْمُكَ فَانْثَنَيْتَ عَنِ الْمَسِيرِ؟", bn: "নাকি তুমি বৃদ্ধ হয়েছ? তোমার দৃঢ়তা নিস্তেজ হয়ে গেছে; তাই তুমি প্রবাহ থেকে বিরত থেকেছ।" },
+                        { ar: "بِالأَمْسِ كُنْتَ مُرَنَّماً بَيْنَ الْحَدَائِقِ وَالزُّهُورِ", bn: "গতকাল তুমি বাগ-বাগিচা এবং পুষ্পরাজির মাঝে মুখরিত ছিলে।" },
+                        { ar: "تَتْلُو عَلَى الدُّنْيَا وَمَا فِيْهَا أَحَادِيثَ الدُّهُورِ", bn: "এ পৃথিবী এবং তার মাঝে যা কিছু আছে সবাইকে যুগের বিভিন্ন ঘটনাবলি শোনাতে।" },
+                        { ar: "بِالْأَمْسِ كُنْتَ تَسِيرُ لَا تَخْشَى الْمَوَانِعَ فِي الطَّرِيقِ", bn: "গতকাল তুমি প্রবহমান ছিলে; চলার পথে কোনো বাধাকে ভয় করতে না।" },
+                        { ar: "وَالْيَوْمَ قَدْ هَبِطَتْ عَلَيْكَ سَكِينَةُ اللَّحْدِ العَمِيقِ", bn: "আর আজ তোমার উপর নেমে এসেছে গহীন কবরের স্তব্ধতা।" },
+                        { ar: "بِالأَمْسِ كُنْتَ إِذَا أَتَيْتُكَ بَاكِياً سَلَّيْتَنِي", bn: "গতকাল যখন আমি তোমার কাছে ক্রন্দনরত অবস্থায় আসতাম, তখন তুমি আমাকে সান্ত্বনা দিতে।" },
+                        { ar: "وَالْيَوْمَ صِرْتَ إِذَا أَتَيْتُكَ ضَاحِكَاً أَبْكَيْتَنِي", bn: "আর আজ আমি যখন তোমার কাছে আনন্দচিত্তে আসলাম, তুমি আমাকে কাঁদিয়েছ।" },
+                        { ar: "بِالْأَمْسِ كُنْتَ إِذَا سَمِعْتَ تَنَهُّدِي وَتَوَجُعِي", bn: "গতকাল তুমি আমার দীর্ঘশ্বাস ও দুঃখ-বেদনা শুনলে কাঁদতে।" },
+                        { ar: "تَبْكِي، وَهَا أَبْكِي أَنَا وَحْدِي، وَلَا تَبْكِي مَعِي!", bn: "আফসোস! এখন আমি একাই কাঁদছি, তুমি আমার সাথে কাঁদছ না।" },
+                        { ar: "مَا هَذِهِ الأَكْفَانُ؟ أَمْ هَذِي قُيُودٌ مِنْ جَلِيدٍ", bn: "এগুলো কি কাফন? নাকি বরফের বেষ্টনী?" },
+                        { ar: "قَدْ كَبَّلَتْكَ وَذَلَّلَتْكَ بِهَا يَدُ البَرْدِ الشَّدِيدِ؟", bn: "তীব্র ঠাণ্ডার হাত এগুলো দিয়ে তোমাকে বেঁধে ফেলেছে এবং লাঞ্ছিত করে রেখেছে।" },
+                        { ar: "هَا حَوْلَكَ الصَّفْصَافُ لَا وَرَقٌ عَلَيْهِ وَلَا جَمَالْ", bn: "আফসোস! তোমার চতুর্পাশের উইলো গাছে নেই কোনো পাতা, নেই কোনো সৌন্দর্য।" },
+                        { ar: "يَجْثُو كَئِيباً كُلَّمَا مَرَّتْ بِهِ رِيحُ الشِّمَالِ", bn: "যেন সেটা বিষণ্ণ অবস্থায় হাঁটু গেড়ে বসে থাকে; যখনই তাকে অতিক্রম করে উত্তুরে হাওয়া।" },
+                        { ar: "وَالحَوْرُ يَنْدُبُ فَوْقَ رَأْسِكَ نَاثِراً أَغْصَانَهُ", bn: "আর পপলার গাছ তোমার মাথার উপর ডালপালা ছড়িয়ে বিলাপ করছে।" },
+                        { ar: "لَا يَسْرَحُ الحَسُّونُ فِيْهِ مُرَدِّداً أَلْحَانَهُ", bn: "ফিঞ্চ পাখিগুলো সেখানে কিচির-মিচিরের পুনরাবৃত্তি করে উড়ে বেড়ায় না।" },
+                        { ar: "تَأْتِيهِ أَسْرَابٌ مِنْ الْغِرْبَانِ تَنْعَقُ فِي الفَضَا", bn: "এখন সেখানে আসে কাকের ঝাঁক, সেগুলো মহাশূন্যে কা কা করছে।" },
+                        { ar: "فَكَأَنَّهَا تَرْثِي شَبَاباً مِنْ حَيَاتِكَ قَدْ مَضَى", bn: "মনে হয় যেন সেগুলো তোমার জীবনের গত হওয়া যৌবনের জন্য বিলাপ করছে।" },
+                        { ar: "وَكَأَنَّهَا بِنَعِيبِهَا عِنْدَ الصَّبَاحِ وَفِي الْمَسَاءِ", bn: "আর মনে হয় যেন সকাল-সন্ধ্যার এই কা কা রব," },
+                        { ar: "جَوْقٌ يُشَيِّعُ جِسْمَكَ الصَّافِي إِلَى دَارِ البَقَاءِ", bn: "এমন একদল যারা তোমার স্বচ্ছ দেহকে চিরস্থায়ী আবাসের দিকে বিদায় জানাচ্ছে।" },
+                        { ar: "لَكِنْ سَيَنْصَرِفُ الشِّتَا، وَتَعُودُ أَيَّامُ الرَّبِيعِ", bn: "কিন্তু শীতকাল চলে যাবে, আর ফিরে আসবে বসন্তের দিনগুলো।" },
+                        { ar: "فَتَفُكُّ جِسْمَكَ مِنْ عِقَالٍ مَكَّنَتْهُ يَدُ الصَّقِيعِ", bn: "তখন তোমার দেহ সেই বন্ধন থেকে মুক্ত হবে যা তুষারের হাত শক্ত করে রেখেছিল।" },
+                        { ar: "وَتَكُرُّ مَوْجَتُكَ النَّقِيَّةُ حُرَّةً نَحْوَ البِحَارِ", bn: "তোমার স্বচ্ছ ঢেউ স্বাধীনভাবে সমুদ্রের দিকে ফিরে আসবে।" },
+                        { ar: "حُبْلَى بِأَسْرَارِ الدُّجَى، ثَمْلَى بِأَنْوَارِ النَّهَارِ", bn: "রাতের রহস্যে গর্ভবতী, দিনের আলোয় মাতাল।" },
+                        { ar: "وَتَعُودُ تَبْسَمُ إِذْ يُلَاطِفُ وَجْهَكَ الصَّافِي النَّسِيمُ", bn: "আর তুমি পুনরায় হাসবে যখন মৃদুমন্দ বাতাস তোমার স্বচ্ছ মুখ ছুঁয়ে যাবে।" },
+                        { ar: "وَتَعُودُ تَسْبَحُ فِي مِيَاهِكَ أَنْجُمُ اللَّيْلِ البَهِيمِ", bn: "আর তোমার জলে সাঁতার কাটতে ফিরে আসবে গভীর রাতের তারকারাজি।" },
+                        { ar: "وَالبَدْرُ يَبْسُطُ مِنْ سَمَاهُ عَلَيْكَ سِتْراً مِنْ لُجَيْنٍ", bn: "আর পূর্ণিমার চাঁদ তার আকাশ থেকে তোমার উপরে রূপালী চাদর বিছিয়ে দিবে।" },
+                        { ar: "وَالشَّمْسُ تَسْتُرُ بِالْأَزَاهِرِ مُنْكَبَيْكَ العَارِيَيْنِ", bn: "আর সূর্য তোমার নগ্ন কাঁধ দুটো ফুল দিয়ে ঢেকে দেবে।" },
+                        { ar: "وَالحَوْرُ يَنْسَى مَا اعْتَرَاهُ مِنَ الْمَصَائِبِ وَالْمِحَنِ", bn: "পপলার গাছ ভুলে যাবে তার উপর আপতিত বিপদ ও দুর্দশা।" },
+                        { ar: "وَيَعُودُ يَشْمَخُ أَنْفُهُ وَيَمِيسُ مُخْضَرَّ الْفَنَنِ", bn: "সে গর্বভরে ফিরে আসবে এবং সবুজ-শ্যামল ডালে দুলতে থাকবে।" },
+                        { ar: "وَتَعُودُ لِلصَّفْصَافِ بَعْدَ الشَّيْبِ أَيَّامُ الشَّبَابِ", bn: "উইলো গাছে বার্ধক্যের পর আবারও যৌবনের দিন ফিরে আসবে।" },
+                        { ar: "فَيُغَرِّدُ الحَسُّونُ فَوْقَ غُصُونِهِ بَدَلَ الغُرَابِ", bn: "ফিঞ্চ পাখি তার ডালের উপর কাকের বদলে গান গাইবে।" },
+                        { ar: "قَدْ كَانَ لِي، يَا نَهْرُ، قَلْبٌ ضَاحِكٌ مِثْلَ الْمُرُوجِ", bn: "হে নদী! আমারও ছিল তৃণভূমির মত হাস্যোজ্জ্বল হৃদয়।" },
+                        { ar: "حُرٌّ كَقَلْبِكَ فِيهِ أَهْوَاءٌ وَآمَالٌ تَمُوجُ", bn: "তোমার হৃদয়ের মত স্বাধীন, যাতে আশা-আকাঙ্ক্ষা তরঙ্গায়িত হত।" },
+                        { ar: "قَدْ كَانَ يُضْحِي غَيْرَ مَا يُمْسِي وَلَا يَشْكُو الْمَلَلْ", bn: "সকাল-সন্ধ্যা পেরিয়ে যেত; কোনো একঘেয়েমির অভিযোগ সেখানে ছিল না।" },
+                        { ar: "وَالْيَوْمَ قَدْ جَمَدَتْ كَوَجْهِكَ فِيهِ أَمْوَاجُ الْأَمَلِ", bn: "অথচ আজ তোমার চেহারার মতই তাতে আশার ঢেউ স্থবির হয়ে গিয়েছে।" },
+                        { ar: "فَتَسَاوَتِ الأَيَّامُ فِيهِ: صَبَاحُهَا وَمَسَاؤُهَا", bn: "তার মাঝে দিনগুলো সমান হয়ে গিয়েছে: তার সকাল ও সন্ধ্যা।" },
+                        { ar: "وَتَوَازَنَتْ فِيهِ الحَيَاةُ: نَعِيمُهَا وَشَقَاؤُهَا", bn: "তার মাঝে জীবন ভারসাম্যপূর্ণ হয়ে গিয়েছে: তার সুখ ও দুঃখ।" },
+                        { ar: "سِيَّانِ فِيهِ غَدَا الرَّبِيعُ مَعَ الْخَرِيفِ أَوِ الشِّتَاءِ", bn: "তার কাছে বসন্ত, শরৎ বা শীত সবই সমান।" },
+                        { ar: "سِيَّانِ نَوْحُ البَائِسِينَ، وَضِحْكُ أَبْنَاءِ الصَّفَاءِ", bn: "দুঃখীদের আর্তনাদ আর সুখী মানুষের হাসি তার কাছে সমান।" },
+                        { ar: "نَبَذَتْهُ ضَوْضَاءُ الْحَيَاةِ فَمَالَ عَنْهَا وَانْفَرَدْ", bn: "জীবনের কোলাহল তাকে ত্যাগ করেছে, তাই সে তা থেকে মুখ ফিরিয়ে নিয়ে একাকী হয়ে পড়েছে।" },
+                        { ar: "فَغَدَا جَمَاداً لَا يَحِنُّ وَلَا يَمِيلُ إِلَى أَحَدٍ", bn: "তা হয়ে পড়েছে এমন জড় পদার্থ, যা কারো প্রতি টান অনুভব করে না এবং ঝুঁকেও না।" },
+                        { ar: "وَغَدَا غَرِيباً بَيْنَ قَوْمٍ كَانَ قَبْلاً مِنْهُمُ", bn: "সে সেই মানুষদের মাঝে অপরিচিত হয়ে পড়েছে যাদের একজন সে পূর্বে ছিল।" },
+                        { ar: "وَغَدَوْتَ بَيْنَ النَّاسِ لُغْزاً فِيهِ لُغْزٌ مُبْهَمُ", bn: "আর আমি মানুষের মাঝে এক রহস্য হয়ে গেছি, যার ভেতরে আরেক দুর্বোধ্য রহস্য।" },
+                        { ar: "يَا نَهْرُ ذَا قَلْبِي، أَرَاهُ، كَمَا أَرَاكَ، مُكَبَّلاً", bn: "হে নদী, এই আমার হৃদয়, আমি তাকে দেখছি, যেমনটা তোমাকে দেখছি, শৃঙ্খলিত।" },
+                        { ar: "وَالْفَرْقُ أَنَّكَ سَوْفَ تَنْشَطُ مِنْ عِقَالِكَ، وَهُوَ... لَا", bn: "তবে পার্থক্য হলো, তুমি শীঘ্রই তোমার বন্ধন থেকে মুক্ত হবে, কিন্তু সে... না।" }
+                    ],
+                    word: [
+                        { ar: "يَا", bn: "হে" }, { ar: "نَهْرُ،", bn: "নদী," }, { ar: "هَلْ", bn: "কি?" }, { ar: "نَضَبَتْ", bn: "শুকিয়ে গেছে" }, { ar: "مِيَاهُكَ", bn: "তোমার জলরাশি" }, { ar: "فَانْقَطَعْتَ", bn: "যে তুমি ত্যাগ করেছ" }, { ar: "عَنِ", bn: "থেকে" }, { ar: "الْخَرِيرِ؟", bn: "কলকল ধ্বনি?" }, { ar: "أَمْ", bn: "নাকি" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "هَرِمْتَ", bn: "তুমি বৃদ্ধ হয়েছ" }, { ar: "وَخَارَ", bn: "এবং নিস্তেজ হয়ে গেছে" }, { ar: "عَزْمُكَ", bn: "তোমার দৃঢ়তা" }, { ar: "فَانْثَنَيْتَ", bn: "তাই তুমি বিরত থেকেছ" }, { ar: "عَنِ", bn: "থেকে" }, { ar: "الْمَسِيرِ؟", bn: "প্রবাহ?" }, { ar: "بِالأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "مُرَنَّماً", bn: "মুখরিত" }, { ar: "بَيْنَ", bn: "মাঝে" }, { ar: "الْحَدَائِقِ", bn: "বাগ-বাগিচার" }, { ar: "وَالزُّهُورِ", bn: "এবং পুষ্পরাজির" }, { ar: "تَتْلُو", bn: "তুমি শোনাতে" }, { ar: "عَلَى", bn: "(অব্যয়)" }, { ar: "الدُّنْيَا", bn: "পৃথিবীকে" }, { ar: "وَمَا", bn: "এবং যা" }, { ar: "فِيْهَا", bn: "তার মাঝে আছে" }, { ar: "أَحَادِيثَ", bn: "ঘটনাবলি" }, { ar: "الدُّهُورِ", bn: "যুগের" }, { ar: "بِالْأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "تَسِيرُ", bn: "প্রবহমান" }, { ar: "لَا", bn: "না" }, { ar: "تَخْشَى", bn: "ভয় করতে" }, { ar: "الْمَوَانِعَ", bn: "বাধাকে" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "الطَّرِيقِ", bn: "চলার পথে" }, { ar: "وَالْيَوْمَ", bn: "আর আজ" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "هَبِطَتْ", bn: "নেমে এসেছে" }, { ar: "عَلَيْكَ", bn: "তোমার উপর" }, { ar: "سَكِينَةُ", bn: "স্তব্ধতা" }, { ar: "اللَّحْدِ", bn: "কবরের" }, { ar: "العَمِيقِ", bn: "গহীন" }, { ar: "بِالأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "إِذَا", bn: "যখন" }, { ar: "أَتَيْتُكَ", bn: "আমি তোমার কাছে আসতাম" }, { ar: "بَاكِياً", bn: "ক্রন্দনরত অবস্থায়" }, { ar: "سَلَّيْتَنِي", bn: "তুমি আমাকে সান্ত্বনা দিতে" }, { ar: "وَالْيَوْمَ", bn: "আর আজ" }, { ar: "صِرْتَ", bn: "তুমি হয়েছ" }, { ar: "إِذَا", bn: "যখন" }, { ar: "أَتَيْتُكَ", bn: "আমি তোমার কাছে আসলাম" }, { ar: "ضَاحِكَاً", bn: "আনন্দচিত্তে" }, { ar: "أَبْكَيْتَنِي", bn: "তুমি আমাকে কাঁদিয়েছ" }, { ar: "بِالْأَمْسِ", bn: "গতকাল" }, { ar: "كُنْتَ", bn: "তুমি ছিলে" }, { ar: "إِذَا", bn: "যখন" }, { ar: "سَمِعْتَ", bn: "তুমি শুনতে" }, { ar: "تَنَهُّدِي", bn: "আমার দীর্ঘশ্বাস" }, { ar: "وَتَوَجُعِي", bn: "ও দুঃখ-বেদনা" }, { ar: "تَبْكِي،", bn: "কাঁদতে," }, { ar: "وَهَا", bn: "আফসোস!" }, { ar: "أَبْكِي", bn: "আমি কাঁদছি" }, { ar: "أَنَا", bn: "আমি" }, { ar: "وَحْدِي،", bn: "একাই," }, { ar: "وَلَا", bn: "এবং না" }, { ar: "تَبْكِي", bn: "তুমি কাঁদছ" }, { ar: "مَعِي!", bn: "আমার সাথে!" }, { ar: "مَا", bn: "কি" }, { ar: "هَذِهِ", bn: "এগুলো?" }, { ar: "الأَكْفَانُ؟", bn: "কাফন?" }, { ar: "أَمْ", bn: "নাকি" }, { ar: "هَذِي", bn: "এগুলো" }, { ar: "قُيُودٌ", bn: "বেষ্টনী" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "جَلِيدٍ", bn: "বরফের?" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "كَبَّلَتْكَ", bn: "তোমাকে বেঁধে ফেলেছে" }, { ar: "وَذَلَّلَتْكَ", bn: "এবং লাঞ্ছিত করেছে" }, { ar: "بِهَا", bn: "তা দিয়ে" }, { ar: "يَدُ", bn: "হাত" }, { ar: "البَرْدِ", bn: "ঠাণ্ডার" }, { ar: "الشَّدِيدِ؟", bn: "তীব্র?" }, { ar: "هَا", bn: "আফসোস!" }, { ar: "حَوْلَكَ", bn: "তোমার চতুর্পাশে" }, { ar: "الصَّفْصَافُ", bn: "উইলো গাছ" }, { ar: "لَا", bn: "নেই" }, { ar: "وَرَقٌ", bn: "কোনো পাতা" }, { ar: "عَلَيْهِ", bn: "তার উপর" }, { ar: "وَلَا", bn: "আর নেই" }, { ar: "جَمَالْ", bn: "কোনো সৌন্দর্য" }, { ar: "يَجْثُو", bn: "হাঁটু গেড়ে বসে থাকে" }, { ar: "كَئِيباً", bn: "বিষণ্ণ অবস্থায়" }, { ar: "كُلَّمَا", bn: "যখনই" }, { ar: "مَرَّتْ", bn: "অতিক্রম করে" }, { ar: "بِهِ", bn: "তাকে" }, { ar: "رِيحُ", bn: "হাওয়া" }, { ar: "الشِّمَالِ", bn: "উত্তুরে" }, { ar: "وَالحَوْرُ", bn: "আর পপলার গাছ" }, { ar: "يَنْدُبُ", bn: "বিলাপ করছে" }, { ar: "فَوْقَ", bn: "উপরে" }, { ar: "رَأْسِكَ", bn: "তোমার মাথার" }, { ar: "نَاثِراً", bn: "ছড়িয়ে" }, { ar: "أَغْصَانَهُ", bn: "তার ডালপালা" }, { ar: "لَا", bn: "না" }, { ar: "يَسْرَحُ", bn: "উড়ে বেড়ায়" }, { ar: "الحَسُّونُ", bn: "ফিঞ্চ পাখিগুলো" }, { ar: "فِيْهِ", bn: "সেখানে" }, { ar: "مُرَدِّداً", bn: "পুনরাবৃত্তি করে" }, { ar: "أَلْحَانَهُ", bn: "তাদের কিচির-মিচির" }, { ar: "تَأْتِيهِ", bn: "সেখানে আসে" }, { ar: "أَسْرَابٌ", bn: "ঝাঁক" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "الْغِرْبَانِ", bn: "কাকের" }, { ar: "تَنْعَقُ", bn: "কা কা করছে" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "الفَضَا", bn: "মহাশূন্যে" }, { ar: "فَكَأَنَّهَا", bn: "মনে হয় যেন সেগুলো" }, { ar: "تَرْثِي", bn: "বিলাপ করছে" }, { ar: "شَبَاباً", bn: "যৌবনের জন্য" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "حَيَاتِكَ", bn: "তোমার জীবনের" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "مَضَى", bn: "যা গত হয়েছে" }, { ar: "وَكَأَنَّهَا", bn: "আর মনে হয় যেন" }, { ar: "بِنَعِيبِهَا", bn: "তাদের কা কা রবে" }, { ar: "عِنْدَ", bn: "সময়ে" }, { ar: "الصَّبَاحِ", bn: "সকালে" }, { ar: "وَفِي", bn: "এবং" }, { ar: "الْمَسَاءِ", bn: "সন্ধ্যায়" }, { ar: "جَوْقٌ", bn: "একদল" }, { ar: "يُشَيِّعُ", bn: "বিদায় জানাচ্ছে" }, { ar: "جِسْمَكَ", bn: "তোমার দেহকে" }, { ar: "الصَّافِي", bn: "স্বচ্ছ" }, { ar: "إِلَى", bn: "দিকে" }, { ar: "دَارِ", bn: "আবাসের" }, { ar: "البَقَاءِ", bn: "চিরস্থায়ী" },
+                        { ar: "لَكِنْ", bn: "কিন্তু" }, { ar: "سَيَنْصَرِفُ", bn: "চলে যাবে" }, { ar: "الشِّتَا،", bn: "শীতকাল," }, { ar: "وَتَعُودُ", bn: "এবং ফিরে আসবে" }, { ar: "أَيَّامُ", bn: "দিনগুলো" }, { ar: "الرَّبِيعِ", bn: "বসন্তের" }, { ar: "فَتَفُكُّ", bn: "তখন মুক্ত হবে" }, { ar: "جِسْمَكَ", bn: "তোমার দেহ" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "عِقَالٍ", bn: "বন্ধন" }, { ar: "مَكَّنَتْهُ", bn: "যা শক্ত করে রেখেছিল" }, { ar: "يَدُ", bn: "হাত" }, { ar: "الصَّقِيعِ", bn: "তুষারের" }, { ar: "وَتَكُرُّ", bn: "ফিরে আসবে" }, { ar: "مَوْجَتُكَ", bn: "তোমার ঢেউ" }, { ar: "النَّقِيَّةُ", bn: "স্বচ্ছ" }, { ar: "حُرَّةً", bn: "স্বাধীনভাবে" }, { ar: "نَحْوَ", bn: "দিকে" }, { ar: "البِحَارِ", bn: "সমুদ্রের" }, { ar: "حُبْلَى", bn: "গর্ভবতী" }, { ar: "بِأَسْرَارِ", bn: "রহস্যে" }, { ar: "الدُّجَى،", bn: "রাতের," }, { ar: "ثَمْلَى", bn: "মাতাল" }, { ar: "بِأَنْوَارِ", bn: "আলোয়" }, { ar: "النَّهَارِ", bn: "দিনের" }, { ar: "وَتَعُودُ", bn: "আর তুমি ফিরে আসবে" }, { ar: "تَبْسَمُ", bn: "হাসতে হাসতে" }, { ar: "إِذْ", bn: "যখন" }, { ar: "يُلَاطِفُ", bn: "ছুঁয়ে যাবে" }, { ar: "وَجْهَكَ", bn: "তোমার মুখ" }, { ar: "الصَّافِي", bn: "স্বচ্ছ" }, { ar: "النَّسِيمُ", bn: "মৃদুমন্দ বাতাস" }, { ar: "وَتَعُودُ", bn: "আর ফিরে আসবে" }, { ar: "تَسْبَحُ", bn: "সাঁতার কাটতে" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "مِيَاهِكَ", bn: "তোমার জলে" }, { ar: "أَنْجُمُ", bn: "তারকারাজি" }, { ar: "اللَّيْلِ", bn: "রাতের" }, { ar: "البَهِيمِ", bn: "গভীর" }, { ar: "وَالبَدْرُ", bn: "আর পূর্ণিমার চাঁদ" }, { ar: "يَبْسُطُ", bn: "বিছিয়ে দিবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "سَمَاهُ", bn: "তার আকাশ" }, { ar: "عَلَيْكَ", bn: "তোমার উপরে" }, { ar: "سِتْراً", bn: "চাদর" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "لُجَيْنٍ", bn: "রূপালী" }, { ar: "وَالشَّمْسُ", bn: "আর সূর্য" }, { ar: "تَسْتُرُ", bn: "ঢেকে দেবে" }, { ar: "بِالْأَزَاهِرِ", bn: "ফুল দিয়ে" }, { ar: "مُنْكَبَيْكَ", bn: "তোমার কাঁধ দুটো" }, { ar: "العَارِيَيْنِ", bn: "নগ্ন" }, { ar: "وَالحَوْرُ", bn: "আর পপলার গাছ" }, { ar: "يَنْسَى", bn: "ভুলে যাবে" }, { ar: "مَا", bn: "যা" }, { ar: "اعْتَرَاهُ", bn: "তার উপর আপতিত" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الْمَصَائِبِ", bn: "বিপদ" }, { ar: "وَالْمِحَنِ", bn: "ও দুর্দশা" }, { ar: "وَيَعُودُ", bn: "এবং ফিরে আসবে" }, { ar: "يَشْمَخُ", bn: "গর্বভরে" }, { ar: "أَنْفُهُ", bn: "তার নাক উঁচু করে" }, { ar: "وَيَمِيسُ", bn: "এবং দুলতে থাকবে" }, { ar: "مُخْضَرَّ", bn: "সবুজ-শ্যামল" }, { ar: "الْفَنَنِ", bn: "ডালে" }, { ar: "وَتَعُودُ", bn: "এবং ফিরে আসবে" }, { ar: "لِلصَّفْصَافِ", bn: "উইলো গাছে" }, { ar: "بَعْدَ", bn: "পরে" }, { ar: "الشَّيْبِ", bn: "বার্ধক্যের" }, { ar: "أَيَّامُ", bn: "দিন" }, { ar: "الشَّبَابِ", bn: "যৌবনের" }, { ar: "فَيُغَرِّدُ", bn: "তখন গান গাইবে" }, { ar: "الحَسُّونُ", bn: "ফিঞ্চ পাখি" }, { ar: "فَوْقَ", bn: "উপরে" }, { ar: "غُصُونِهِ", bn: "তার ডালের" }, { ar: "بَدَلَ", bn: "বদলে" }, { ar: "الغُرَابِ", bn: "কাকের" },
+                        { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "كَانَ", bn: "ছিল" }, { ar: "لِي،", bn: "আমার," }, { ar: "يَا", bn: "হে" }, { ar: "نَهْرُ،", bn: "নদী," }, { ar: "قَلْبٌ", bn: "হৃদয়" }, { ar: "ضَاحِكٌ", bn: "হাস্যোজ্জ্বল" }, { ar: "مِثْلَ", bn: "মত" }, { ar: "الْمُرُوجِ", bn: "তৃণভূমির" }, { ar: "حُرٌّ", bn: "স্বাধীন" }, { ar: "كَقَلْبِكَ", bn: "তোমার হৃদয়ের মত" }, { ar: "فِيهِ", bn: "যাতে" }, { ar: "أَهْوَاءٌ", bn: "আকাঙ্ক্ষা" }, { ar: "وَآمَالٌ", bn: "ও আশা" }, { ar: "تَمُوجُ", bn: "তরঙ্গায়িত হত" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "كَانَ", bn: "ছিল" }, { ar: "يُضْحِي", bn: "সকাল হতো" }, { ar: "غَيْرَ", bn: "ছাড়া" }, { ar: "مَا", bn: "যা" }, { ar: "يُمْسِي", bn: "সন্ধ্যা হতো" }, { ar: "وَلَا", bn: "এবং না" }, { ar: "يَشْكُو", bn: "অভিযোগ করত" }, { ar: "الْمَلَلْ", bn: "একঘেয়েমির" }, { ar: "وَالْيَوْمَ", bn: "অথচ আজ" }, { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "جَمَدَتْ", bn: "স্থবির হয়ে গিয়েছে" }, { ar: "كَوَجْهِكَ", bn: "তোমার চেহারার মত" }, { ar: "فِيهِ", bn: "তাতে" }, { ar: "أَمْوَاجُ", bn: "ঢেউ" }, { ar: "الْأَمَلِ", bn: "আশার" }, { ar: "فَتَسَاوَتِ", bn: "তাই সমান হয়ে গিয়েছে" }, { ar: "الأَيَّامُ", bn: "দিনগুলো" }, { ar: "فِيهِ:", bn: "তার মাঝে:" }, { ar: "صَبَاحُهَا", bn: "তার সকাল" }, { ar: "وَمَسَاؤُهَا", bn: "ও সন্ধ্যা" }, { ar: "وَتَوَازَنَتْ", bn: "এবং ভারসাম্যপূর্ণ হয়ে গিয়েছে" }, { ar: "فِيهِ", bn: "তার মাঝে" }, { ar: "الحَيَاةُ:", bn: "জীবন:" }, { ar: "نَعِيمُهَا", bn: "তার সুখ" }, { ar: "وَشَقَاؤُهَا", bn: "ও দুঃখ" }, { ar: "سِيَّانِ", bn: "সমান" }, { ar: "فِيهِ", bn: "তার কাছে" }, { ar: "غَدَا", bn: "হয়ে গেছে" }, { ar: "الرَّبِيعُ", bn: "বসন্ত" }, { ar: "مَعَ", bn: "সাথে" }, { ar: "الْخَرِيفِ", bn: "শরৎ" }, { ar: "أَوِ", bn: "বা" }, { ar: "الشِّتَاءِ", bn: "শীত" }, { ar: "سِيَّانِ", bn: "সমান" }, { ar: "نَوْحُ", bn: "আর্তনাদ" }, { ar: "البَائِسِينَ،", bn: "দুঃখীদের," }, { ar: "وَضِحْكُ", bn: "এবং হাসি" }, { ar: "أَبْنَاءِ", bn: "সন্তানদের" }, { ar: "الصَّفَاءِ", bn: "সুখী" }, { ar: "نَبَذَتْهُ", bn: "তাকে ত্যাগ করেছে" }, { ar: "ضَوْضَاءُ", bn: "কোলাহল" }, { ar: "الْحَيَاةِ", bn: "জীবনের" }, { ar: "فَمَالَ", bn: "তাই সে মুখ ফিরিয়ে নিয়েছে" }, { ar: "عَنْهَا", bn: "তা থেকে" }, { ar: "وَانْفَرَدْ", bn: "এবং একাকী হয়ে পড়েছে" }, { ar: "فَغَدَا", bn: "তা হয়ে পড়েছে" }, { ar: "جَمَاداً", bn: "জড় পদার্থ" }, { ar: "لَا", bn: "না" }, { ar: "يَحِنُّ", bn: "টান অনুভব করে" }, { ar: "وَلَا", bn: "এবং না" }, { ar: "يَمِيلُ", bn: "ঝুঁকে পড়ে" }, { ar: "إِلَى", bn: "দিকে" }, { ar: "أَحَدٍ", bn: "কারো" }, { ar: "وَغَدَا", bn: "এবং হয়ে পড়েছে" }, { ar: "غَرِيباً", bn: "অপরিচিত" }, { ar: "بَيْنَ", bn: "মাঝে" }, { ar: "قَوْمٍ", bn: "মানুষদের" }, { ar: "كَانَ", bn: "ছিল" }, { ar: "قَبْلاً", bn: "পূর্বে" }, { ar: "مِنْهُمُ", bn: "তাদের একজন" }, { ar: "وَغَدَوْتَ", bn: "আর আমি হয়ে গেছি" }, { ar: "بَيْنَ", bn: "মাঝে" }, { ar: "النَّاسِ", bn: "মানুষের" }, { ar: "لُغْزاً", bn: "এক রহস্য" }, { ar: "فِيهِ", bn: "যার ভেতরে" }, { ar: "لُغْزٌ", bn: "আরেক রহস্য" }, { ar: "مُبْهَمُ", bn: "দুর্বোধ্য" },
+                        { ar: "يَا", bn: "হে" }, { ar: "نَهْرُ", bn: "নদী," }, { ar: "ذَا", bn: "এই" }, { ar: "قَلْبِي،", bn: "আমার হৃদয়," }, { ar: "أَرَاهُ،", bn: "আমি তাকে দেখছি," }, { ar: "كَمَا", bn: "যেমনটা" }, { ar: "أَرَاكَ،", bn: "তোমাকে দেখছি," }, { ar: "مُكَبَّلاً", bn: "শৃঙ্খলিত" }, { ar: "وَالْفَرْقُ", bn: "তবে পার্থক্য হলো" }, { ar: "أَنَّكَ", bn: "তুমি" }, { ar: "سَوْفَ", bn: "শীঘ্রই" }, { ar: "تَنْشَطُ", bn: "মুক্ত হবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "عِقَالِكَ،", bn: "তোমার বন্ধন," }, { ar: "وَهُوَ...", bn: "কিন্তু সে..." }, { ar: "لَا", bn: "না" }
+                    ]
+                },
+                aghmid: {
+                    line: [
+                        { ar: "إِذَا سَمَاؤُكَ يَوْمًا تَحَجَّبَتْ بِالغُيُومِ", bn: "যদি কোনো দিন তোমার আকাশটা মেঘমালায় ঢেকে যায়," },
+                        { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ خَلْفَ الغُيُومِ نُجُومْ", bn: "তাহলে চোখটা বন্ধ করবে; মেঘমালার পেছনে তারকারাজি দেখতে পাবে।" },
+                        { ar: "وَالأَرْضُ حَوْلَكَ إِمَّا تَوَشَّحَتْ بِالثُّلُوجِ", bn: "যখন তোমার চতুর্পাশে ভূমি বরফরাজির পোশাকে সজ্জিত/আচ্ছাদিত হয়;" },
+                        { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ تَحْتَ الثُّلُوجِ مُرُوجْ!", bn: "তখন তোমার চোখটা বন্ধ করো, দেখতে পাবে বরফরাজির নিচে রয়েছে সবুজ-শ্যামল তৃণভূমি।" },
+                        { ar: "وَإِنْ بُلِيتَ بِدَاءٍ وَقِيلَ دَاءٌ عَيَاءْ", bn: "যদি তুমি কোনো রোগে আক্রান্ত হও এবং মানুষ বলাবলি করে, “এ এক দুরারোগ্য রোগ”," },
+                        { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ فِي الدَّاءِ كُلَّ الدَّوَاءِ!", bn: "তাহলে তুমি তোমার চোখ বন্ধ করো, দেখতে পাবে সকল রোগের পেছনে ঔষধ রয়েছে।" },
+                        { ar: "وَعِنْدَمَا المَوْتُ يَدْنُو وَاللَّحْدُ يَفْغَرُ فَاهْ", bn: "যখন মৃত্যু নিকটবর্তী হয় এবং কবর তার মুখ খোলে," },
+                        { ar: "أَغْمِضْ جُفُونَكَ تُبْصِرْ فِي اللَّحْدِ مَهْدَ الحَيَاةِ!", bn: "তখন তুমি তোমার চোখ বন্ধ করলে দেখতে পাবে কবরেই আছে জীবনের বিছানা।" }
+                    ],
+                    word: [
+                        { ar: "إِذَا", bn: "যদি" }, { ar: "سَمَاؤُكَ", bn: "তোমার আকাশ" }, { ar: "يَوْمًا", bn: "কোনো দিন" }, { ar: "تَحَجَّبَتْ", bn: "ঢেকে যায়" }, { ar: "بِالغُيُومِ", bn: "মেঘমালায়" }, { ar: "أَغْمِضْ", bn: "বন্ধ করবে" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "خَلْفَ", bn: "পেছনে" }, { ar: "الغُيُومِ", bn: "মেঘমালার" }, { ar: "نُجُومْ", bn: "তারকারাজি" },
+                        { ar: "وَالأَرْضُ", bn: "এবং ভূমি" }, { ar: "حَوْلَكَ", bn: "তোমার চতুর্পাশে" }, { ar: "إِمَّا", bn: "যখন" }, { ar: "تَوَشَّحَتْ", bn: "আচ্ছাদিত হয়" }, { ar: "بِالثُّلُوجِ", bn: "বরফরাজিতে" }, { ar: "أَغْمِضْ", bn: "বন্ধ করো" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "تَحْتَ", bn: "নিচে" }, { ar: "الثُّلُوجِ", bn: "বরফরাজির" }, { ar: "مُرُوجْ", bn: "সবুজ-শ্যামল তৃণভূমি" },
+                        { ar: "وَإِنْ", bn: "এবং যদি" }, { ar: "بُلِيتَ", bn: "তুমি আক্রান্ত হও" }, { ar: "بِدَاءٍ", bn: "কোনো রোগে" }, { ar: "وَقِيلَ", bn: "এবং বলাবলি করে" }, { ar: "دَاءٌ", bn: "এ এক রোগ" }, { ar: "عَيَاءْ", bn: "দুরারোগ্য" }, { ar: "أَغْمِضْ", bn: "বন্ধ করো" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الدَّاءِ", bn: "রোগের" }, { ar: "كُلَّ", bn: "সকল" }, { ar: "الدَّوَاءِ", bn: "ঔষধ" },
+                        { ar: "وَعِنْدَمَا", bn: "এবং যখন" }, { ar: "المَوْتُ", bn: "মৃত্যু" }, { ar: "يَدْنُو", bn: "নিকটবর্তী হয়" }, { ar: "وَاللَّحْدُ", bn: "এবং কবর" }, { ar: "يَفْغَرُ", bn: "খোলে" }, { ar: "فَاهْ", bn: "তার মুখ" }, { ar: "أَغْمِضْ", bn: "বন্ধ করলে" }, { ar: "جُفُونَكَ", bn: "তোমার চোখ" }, { ar: "تُبْصِرْ", bn: "দেখতে পাবে" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "اللَّحْدِ", bn: "কবরেই" }, { ar: "مَهْدَ", bn: "বিছানা" }, { ar: "الحَيَاةِ", bn: "জীবনের" }
+                    ]
+                },
+                usfur: {
+                    line: [
+                        { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ قَلْبِي لَكَ بُسْتَانُ", bn: "শোন হে ফিরদাউসের পাখি, আমার হৃদয় তো তোমারই বাগান!" },
+                        { ar: "فَفِيهِ الزَّهْرُ وَالمَاءُ وَفِيهِ الغُصْنُ فَيْنَانُ", bn: "এই বাগানে ফুল আছে, পানি আছে, আছে শাখা-প্রশাখাবিশিষ্ট ডালপালা।" },
+                        { ar: "وَفِيهِ مِنْكَ أَنْغَامٌ وَفِيهِ مِنْكَ أَلْحَانُ", bn: "তোমার কত গুঞ্জরণ আর সুর-লহরী এই বাগানে মিশে আছে!" },
+                        { ar: "وَلِلأَشْجَارِ أَوْتَارٌ وَنَايَاتٌ وَعِيدَانُ", bn: "বৃক্ষরাজিতে সেতার, বাঁশি ও বীণার সুর বাজছে।" },
+                        { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ إِنَّ الشِّعْرَ وِجْدَانُ", bn: "ফিরদাউসের পাখি, তোমাকেই বলি- কবিতা আবেগেরই নামান্তর।" },
+                        { ar: "وَفِي شَدْوِكَ شِعْرُ النَّفْسِ لَا زُورٌ وَبُهْتَانُ", bn: "তোমার কলকাকলিতে হৃদয়ের কবিতা খুঁজে পাই। যেখানে কোনো মিথ্যে নেই, নেই কোনো রটনা।" },
+                        { ar: "فَلَا تَقْتَدِ بِالنَّاسِ فَمَا فِي الخَلْقِ إِنْسَانُ", bn: "সুতরাং, মানুষকে অনুসরণ করো না। এই সৃষ্টিলোকে (আসল) মানুষই আর নেই।" },
+                        { ar: "وَجُدْ لِي مِنْكَ بِالشِّعْرِ فَإِنَّا فِيهِ إِخْوَانُ", bn: "বরং আমার জন্যে তুমি সুন্দর সব কবিতা বানাও। আমরা উভয়েই কবিতার সতীর্থ।" },
+                        { ar: "أَلَا يَا طَائِرَ الفِرْدَوْسِ قَلْبِي مِنْكَ وَلْهَانُ", bn: "ফিরদাউসের পাখি, জেনে রাখো! তোমার জন্যে আমার অন্তর বিমোহিত।" },
+                        { ar: "فَهَلْ تَأْنَفُ مِنْ رَوْضِي وَمَا فِي الرَّوْضِ ثُعْبَانُ؟", bn: "তুমি কি আমার বাগানকে তুচ্ছজ্ঞান করবে? আমার বাগানে তো কোনো সাপ নেই!" },
+                        { ar: "وَهَلْ تَنْفِرُ مِنْ جَوِّي وَمَا فِي الجَوِّ عُقْبَانُ؟", bn: "তুমি কি আমার আকাশ থেকে দূরে চলে যাবে? আমার আকাশে তো কোনো বাজপাখি নেই!" },
+                        { ar: "وَهَلْ تَنَفَّرُ مِنْ قَلْبِي كَأَنَّ القَلْبَ خَوَّانُ", bn: "হৃদয়কে বিশ্বাসঘাতক ভেবে নিয়ে তুমি কি আমার হৃদয় থেকে পালিয়ে যাবে?" },
+                        { ar: "فَمَا لِي مِنْكَ إِسْعَادٌ وَلَا لِي مِنْكَ لُقْيَانُ", bn: "তোমার কাছ থেকে কোনো সুখ পাওয়ার নেই। আমার ভাগ্যে নেই তোমার সাথে সাক্ষাৎ।" },
+                        { ar: "وَلِلأَقْدَارِ أَحْكَامٌ وَلِلْمَخْلُوقِ إِذْعَانُ", bn: "ভাগ্যের বিধি সৃষ্টিকে মানতেই হয়, ভাগ্যের লিখন না যায় খণ্ডন।" },
+                        { ar: "أَرَى الأَحْدَاثَ إِسْرَارًا سَتُمْسِي وَهِيَ إِعْلَانُ", bn: "আমি অনেক গোপন ঘটনা দেখেছি, যেগুলো শীঘ্রই প্রকাশ্যে চলে আসবে।" },
+                        { ar: "وَيَهْفُو بِكَ رَيْبُ الدَّهْرِ إِنَّ الدَّهْرَ طَعَّانُ", bn: "জীবনের সংশয় তোমাকে শূন্যে ভাসাবে। জীবন যে আঘাত করতে বড়ই পারঙ্গম!" },
+                        { ar: "فَلَا حُسْنٌ وَلَا شَدْوٌ وَلَا زَهْرٌ وَأَغْصَانُ", bn: "(এ জীবনের) নেই কোনো সৌন্দর্য, নেই কোনো গান, নেই কোনো ফুল কিংবা ডাল।" },
+                        { ar: "سَيَبْقَى لَكَ فِي قَلْبِي مَوَدَّاتٌ وَتَحْنَانُ", bn: "আমার হৃদয়ে তোমার জন্যে ভালোবাসা আর টান অটুট থাকবে।" },
+                        { ar: "فَإِنْ مَلَّكَ أَحْبَابٌ وَإِنْ عَقَّكَ إِخْوَانُ", bn: "কাছের মানুষেরা যদি কষ্ট দেয়, বন্ধুরা যদি বৈরী হয়," },
+                        { ar: "وَإِنْ رَابَكَ مِنْ عَيْشِكَ لَوْعَاتٌ وَأَحْزَانُ", bn: " যন্ত্রণা আর বিষণ্ণতা যদি তোমার জীবনে জমাট বাঁধে," },
+                        { ar: "فَجَرِّبْ عِنْدَهَا قَلْبِي فَقَلْبِي مِنْكَ مَلآنُ", bn: "ওই মুহূর্তে আমার হৃদয়টা পরখ করে নিও। দেখবে, আমার হৃদয় তোমাকে দিয়েই পরিপূর্ণ।" },
+                        { ar: "وَأَسْمِعْنِي مِنَ الشِّعْرِ فَإِنَّا فِيهِ خِلَّانُ", bn: "তুমি আর আমি কবিতা-বন্ধু; তোমার কিছু কবিতা শোনাও না!" },
+                        { ar: "وَهَلْ تَفْهَمُ مَا أَعْنِي وَهَلْ لِلطَّيْرِ أَذْهَانُ؟", bn: "আচ্ছা, আমার কথা কি তুমি বুঝতে পারছো? বোঝার মতো মনন কি পাখির আছে?" }
+                    ],
+                    word: [
+                        { ar: "أَلَا", bn: "শোন" }, { ar: "يَا", bn: "হে" }, { ar: "طَائِرَ", bn: "পাখি" }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের" }, { ar: "قَلْبِي", bn: "আমার হৃদয়" }, { ar: "لَكَ", bn: "তোমারই" }, { ar: "بُسْتَانُ", bn: "বাগান" }, { ar: "فَفِيهِ", bn: "এই বাগানে" }, { ar: "الزَّهْرُ", bn: "ফুল আছে" }, { ar: "وَالمَاءُ", bn: "এবং পানি আছে" }, { ar: "وَفِيهِ", bn: "এবং আছে" }, { ar: "الغُصْنُ", bn: "ডালপালা" }, { ar: "فَيْنَانُ", bn: "শাখা-প্রশাখাবিশিষ্ট" }, { ar: "وَفِيهِ", bn: "এবং এতে আছে" }, { ar: "مِنْكَ", bn: "তোমার" }, { ar: "أَنْغَامٌ", bn: "গুঞ্জরণ" }, { ar: "وَفِيهِ", bn: "এবং এতে আছে" }, { ar: "مِنْكَ", bn: "তোমার" }, { ar: "أَلْحَانُ", bn: "সুর-লহরী" }, { ar: "وَلِلأَشْجَارِ", bn: "এবং বৃক্ষরাজির জন্য" }, { ar: "أَوْتَارٌ", bn: "আছে সেতার" }, { ar: "وَنَايَاتٌ", bn: "এবং বাঁশি" }, { ar: "وَعِيدَانُ", bn: "ও বীণা" }, { ar: "أَلَا", bn: "শোন" }, { ar: "يَا", bn: "হে" }, { ar: "طَائِرَ", bn: "পাখি" }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের" }, { ar: "إِنَّ", bn: "নিশ্চয়ই" }, { ar: "الشِّعْرَ", bn: "কবিতা" }, { ar: "وِجْدَانُ", bn: "আবেগেরই নামান্তর" }, { ar: "وَفِي", bn: "এবং এর মধ্যে" }, { ar: "شَدْوِكَ", bn: "তোমার কলকাকলিতে" }, { ar: "شِعْرُ", bn: "কবিতা" }, { ar: "النَّفْسِ", bn: "হৃদয়ের" }, { ar: "لَا", bn: "নেই" }, { ar: "زُورٌ", bn: "কোনো মিথ্যে" }, { ar: "وَبُهْتَانُ", bn: "ও কোনো রটনা" }, { ar: "فَلَا", bn: "সুতরাং" }, { ar: "تَقْتَدِ", bn: "অনুসরণ করো না" }, { ar: "بِالنَّاسِ", bn: "মানুষকে" }, { ar: "فَمَا", bn: "কেননা নেই" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الخَلْقِ", bn: "এই সৃষ্টিলোকে" }, { ar: "إِنْسَانُ", bn: "একটা মানুষও" }, { ar: "وَجُدْ", bn: "এবং বানাও" }, { ar: "لِي", bn: "আমার জন্যে" }, { ar: "مِنْكَ", bn: "তুমি" }, { ar: "بِالشِّعْرِ", bn: "কবিতা" }, { ar: "فَإِنَّا", bn: "কেননা আমরা" }, { ar: "فِيهِ", bn: "এতে" }, { ar: "إِخْوَانُ", bn: "সতীর্থ" }, { ar: "أَلَا", bn: "জেনে রাখো" }, { ar: "يَا", bn: "হে" }, { ar: "طَائِرَ", bn: "পাখি" }, { ar: "الفِرْدَوْسِ", bn: "ফিরদাউসের" }, { ar: "قَلْبِي", bn: "আমার অন্তর" }, { ar: "مِنْكَ", bn: "তোমার জন্যে" }, { ar: "وَلْهَانُ", bn: "বিমোহিত" }, { ar: "فَهَلْ", bn: "তুমি কি" }, { ar: "تَأْنَفُ", bn: "তুচ্ছজ্ঞান করবে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "رَوْضِي", bn: "আমার বাগানকে" }, { ar: "وَمَا", bn: "অথচ নেই" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الرَّوْضِ", bn: "বাগানে" }, { ar: "ثُعْبَانُ؟", bn: "কোনো সাপ?" }, { ar: "وَهَلْ", bn: "এবং তুমি কি" }, { ar: "تَنْفِرُ", bn: "পালিয়ে যাবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "جَوِّي", bn: "আমার আকাশ" }, { ar: "وَمَا", bn: "অথচ নেই" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "الجَوِّ", bn: "আকাশে" }, { ar: "عُقْبَانُ؟", bn: "কোনো বাজপাখি?" }, { ar: "وَهَلْ", bn: "এবং তুমি কি" }, { ar: "تَنَفَّرُ", bn: "পালিয়ে যাবে" }, { ar: "مِنْ", bn: "থেকে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়" }, { ar: "كَأَنَّ", bn: "ভেবে" }, { ar: "القَلْبَ", bn: "হৃদয়কে" }, { ar: "خَوَّانُ", bn: "বিশ্বাসঘাতক?" }, { ar: "فَمَا", bn: "কেননা নেই" }, { ar: "لِي", bn: "আমার" }, { ar: "مِنْكَ", bn: "তোমার কাছ থেকে" }, { ar: "إِسْعَادٌ", bn: "কোনো সুখ পাওয়ার" }, { ar: "وَلَا", bn: "এবং নেই" }, { ar: "لِي", bn: "আমার ভাগ্যে" }, { ar: "مِنْكَ", bn: "তোমার সাথে" }, { ar: "لُقْيَانُ", bn: "সাক্ষাৎ" },
+                        { ar: "وَلِلأَقْدَارِ", bn: "এবং ভাগ্যের" }, { ar: "أَحْكَامٌ", bn: "আছে বিধি" }, { ar: "وَلِلْمَخْلُوقِ", bn: "এবং সৃষ্টিকে" }, { ar: "إِذْعَانُ", bn: "মানতেই হয়" }, { ar: "أَرَى", bn: "আমি দেখি" }, { ar: "الأَحْدَاثَ", bn: "ঘটনা" }, { ar: "إِسْرَارًا", bn: "গোপন" }, { ar: "سَتُمْسِي", bn: "যা শীঘ্রই" }, { ar: "وَهِيَ", bn: "(অব্যয়)" }, { ar: "إِعْلَانُ", bn: "প্রকাশ্যে চলে আসবে" }, { ar: "وَيَهْفُو", bn: "এবং ভাসাবে" }, { ar: "بِكَ", bn: "তোমাকে" }, { ar: "رَيْبُ", bn: "সংশয়" }, { ar: "الدَّهْرِ", bn: "জীবনের" }, { ar: "إِنَّ", bn: "নিশ্চয়ই" }, { ar: "الدَّهْرَ", bn: "জীবন" }, { ar: "طَعَّانُ", bn: "আঘাত করতে পারঙ্গম" }, { ar: "فَلَا", bn: "সুতরাং নেই" }, { ar: "حُسْنٌ", bn: "কোনো সৌন্দর্য" }, { ar: "وَلَا", bn: "এবং নেই" }, { ar: "شَدْوٌ", bn: "কোনো গান" }, { ar: "وَلَا", bn: "এবং নেই" }, { ar: "زَهْرٌ", bn: "কোনো ফুল" }, { ar: "وَأَغْصَانُ", bn: "কিংবা ডাল" }, { ar: "سَيَبْقَى", bn: "অটুট থাকবে" }, { ar: "لَكَ", bn: "তোমার জন্যে" }, { ar: "فِي", bn: "এর মধ্যে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়ে" }, { ar: "مَوَدَّاتٌ", bn: "ভালোবাসা" }, { ar: "وَتَحْنَانُ", bn: "আর টান" }, { ar: "فَإِنْ", bn: "যদি" }, { ar: "مَلَّكَ", bn: "কষ্ট দেয়" }, { ar: "أَحْبَابٌ", bn: "কাছের মানুষেরা" }, { ar: "وَإِنْ", bn: "এবং যদি" }, { ar: "عَقَّكَ", bn: "বৈরী হয়" }, { ar: "إِخْوَانُ", bn: "বন্ধুরা" }, { ar: "وَإِنْ", bn: "এবং যদি" }, { ar: "رَابَكَ", bn: "জমাট বাঁধে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "عَيْشِكَ", bn: "তোমার জীবনে" }, { ar: "لَوْعَاتٌ", bn: "যন্ত্রণা" }, { ar: "وَأَحْزَانُ", bn: "আর বিষণ্ণতা" }, { ar: "فَجَرِّبْ", bn: "পরখ করে নিও" }, { ar: "عِنْدَهَا", bn: "ওই মুহূর্তে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فَقَلْبِي", bn: "কেননা আমার হৃদয়" }, { ar: "مِنْكَ", bn: "তোমাকে দিয়েই" }, { ar: "مَلآنُ", bn: "পরিপূর্ণ" }, { ar: "وَأَسْمِعْنِي", bn: "এবং শোনাও না" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الشِّعْرِ", bn: "কবিতা" }, { ar: "فَإِنَّا", bn: "কেননা আমরা" }, { ar: "فِيهِ", bn: "এতে" }, { ar: "خِلَّانُ", bn: "বন্ধু" }, { ar: "وَهَلْ", bn: "আচ্ছা," }, { ar: "تَفْهَمُ", bn: "তুমি কি বুঝতে পারছো" }, { ar: "مَا", bn: "যা" }, { ar: "أَعْنِي", bn: "আমার কথা" }, { ar: "وَهَلْ", bn: "এবং আছে কি" }, { ar: "لِلطَّيْرِ", bn: "পাখির" }, { ar: "أَذْهَانُ؟", bn: "বোঝার মতো মনন?" }
+                    ]
+                },
+                anqa: {
+                    line: [
+                        { ar: "أَنَا لَسْتُ بِالحَسْنَاءِ أَوَّلَ مُولَعِ", bn: "এই সুন্দরীর প্রতি আমি প্রথম অনুরাগী নই।" },
+                        { ar: "هِيَ مَطْمَعُ الدُّنْيَا كَمَا هِيَ مَطْمَعِي", bn: "সে দুনিয়ার বাসনার বস্তু, যেমন সে আমারও বাসনার বস্তু।" },
+                        { ar: "فَاقْصُصْ عَلَيَّ إِذَا عَرَفْتَ حَدِيثَهَا", bn: "অতএব যখন তুমি তার কথা জানতে পারবে তখন আমাকে বলো" },
+                        { ar: "وَاسْكُنْ إِذَا حَدَّثْتَ عَنْهَا وَاخْشَعِ", bn: "এবং যখন তার সম্পর্কে কথা বলবে তখন শান্ত ও বিনীত থেকো।" },
+                        { ar: "أَلَمَحْتَهَا فِي صُورَةٍ أَشَهِدْتَهَا", bn: "তুমি তাকে কোন আকৃতিতে দেখেছো কি?" },
+                        { ar: "فِي حَالَةٍ أَرَأَيْتَهَا فِي مَوْضِعِ", bn: "কোন অবস্থায় কিংবা কোন জায়গায় দেখেছো কি?" },
+                        { ar: "إِنِّي لَذُو نَفْسٍ تَهِيمُ وَإِنَّهَا", bn: "আমার মন তৃষ্ণার্ত। আর নিশ্চয়ই সে" },
+                        { ar: "لَجَمِيلَةٌ فَوقَ الجَمَالِ الأَبْدَعِ", bn: "অপূর্বতম সৌন্দর্যের ওপরে সুন্দরী।" },
+                        { ar: "وَيَزِيدُ فِي شَوْقِي إِلَيْهَا أَنَّهَا", bn: "এ ব্যাপারটি তার প্রতি আমার আগ্রহ বাড়িয়ে দেয় যে," },
+                        { ar: "كَالصَّوْتِ لَمْ يُسْفِرْ وَلَمْ يَتَقَنَّعِ", bn: "সে হল সেই আওয়াজের মত যা (কখনো নিজের) চেহারা দেখায়নি, আবার আড়ালেও থাকেনি।" },
+                        { ar: "فَتَّشْتُ جَيْبَ الفَجْرِ عَنْهَا وَالدُّجَى", bn: "আমি তাকে প্রভাতের পকেটে ও অন্ধকারে খুঁজেছি।" },
+                        { ar: "وَمَدَدْتُ حَتَّى لِلكَوَاكِبِ إِصْبَعِي", bn: "এমনকি তারকাদের দিকেও আমার আঙ্গুল বাড়িয়েছি।" },
+                        { ar: "فَإِذَا هُمَا مُتَحَيِّرَانِ كِلَاهُمَا", bn: "দেখা গেল, তারা উভয়ও (অন্ধকার ও তারকারাজি) দিশেহারা" },
+                        { ar: "فِي عَاشِقٍ مُتَحَيِّرٍ مُتَضَعْضِعِ", bn: "একজন দিশেহারা ব্যর্থ প্রেমিকের ব্যাপারে।" },
+                        { ar: "وَإِذَا النُّجُومُ لِعِلْمِهَا أَوْ جَهْلِهَا", bn: "আরো দেখা গেল, তারকারা তার কথা জানার কিংবা না জানার কারণে" },
+                        { ar: "مُتَرَجْرِجَاتٌ فِي الفَضَاءِ الأَوْسَعِ", bn: "বিশাল শূন্যলোকে অস্থির হয়ে কাঁপছে (মিটমিট করে জ্বলছে)।" },
+                        { ar: "رَقَصَتْ أَشِعَّتُهَا عَلَى سَطْحِ الدُّجَى", bn: "অন্ধকারের উপরিভাগে তার কিরণ নৃত্য করেছে" },
+                        { ar: "وَعَلَى رَجَاءٍ فِيَّ غَيْرَ مُشَعْشَعِ", bn: "এবং আমার মনের অনুজ্জ্বল প্রত্যাশার ওপরে।" },
+                        { ar: "وَالبَحْرُ كَمْ سَاءَلْتُهُ فَتَضَاحَكَتْ", bn: "সমুদ্রের কাছে আমি কত জিজ্ঞেস করেছি! তখন হাসাহাসি করেছে" },
+                        { ar: "أَمْوَاجُهُ مِنْ صَوْتِيَ المُتَقَطِّعِ", bn: "তার ঢেউগুলো আমার ভাঙ্গা-ভাঙ্গা আওয়াজ শুনে।" },
+                        { ar: "فَرَجَعْتُ مُرْتَعِشَ الخَوَاطِرِ وَالمُنَى", bn: "আমি তখন কম্পিত মন ও আশা নিয়ে ফিরে এসেছি" },
+                        { ar: "كَحَمَامَةٍ مَحْمُولَةٍ فِي زَعْزَعِ", bn: "ঝড়ের মধ্যে বহনকৃত একটি কবুতরের ন্যায়।" },
+                        { ar: "وَلَكَمْ دَخَلْتُ إِلَى القُصُورِ مُفَتِّشًا", bn: "তার তালাশে কতবার আমি বিভিন্ন প্রাসাদে প্রবেশ করেছি" },
+                        { ar: "عَنْهَا وَعُجْتُ بِدَارِسَاتِ الأَرْبُعِ", bn: "এবং সেখানকার বসতঘরগুলোর মুছে-যাওয়া নিদর্শনসমূহের প্রতি আকৃষ্ট হয়েছি!" },
+                        { ar: "إِنْ لَاحَ طَيْفٌ قُلْتُ يَا عَيْنُ انْظُرِي", bn: "কোন ছায়ামূতি দেখা গেলে বলেছি, হে চোখ! তাকাও।" },
+                        { ar: "أَوْ رَنَّ صَوْتٌ قُلْتُ يَا أُذُنُ اسْمَعِي", bn: "কোন আওয়াজ ধ্বনিত হলে বলেছি, হে কান! শোন।" },
+                        { ar: "فَإِذَا الَّذِي فِي القَصْرِ مِثْلِي حَائِرٌ", bn: "দেখা গিয়েছে, প্রাসাদে যে আছে সেও আমার মতই দিশেহারা।" },
+                        { ar: "وَإِذَا الَّذِي فِي القَفْرِ مِثْلِي لَا يَعِي", bn: "আবার দেখা গিয়েছে, বিজন প্রান্তরে যে আছে সেও আমার মতই (কিছু) জানে না।" },
+                        { ar: "قَالُوا تَوَرَّعْ إِنَّهَا مَحْجُوبَةٌ", bn: "লোকেরা আমাকে বলেছে, তুমি পরহেজগার হও। সে তো চেহারা দেখায় না" },
+                        { ar: "إِلَّا عَنِ المُتَزَهِّدِ المُتَوَرِّعِ", bn: "তাপস পরহেজগার ছাড়া কাউকে।" },
+                        { ar: "فَوَأَدْتُ أَفْرَاحِي وَطَلَّقْتُ المُنَى", bn: "তখন থেকে আমি আমার আনন্দসমূহ কবর দিয়েছি, আকাংক্ষাসমূহ পরিত্যাগ করেছি" },
+                        { ar: "وَنَسَخْتُ آيَاتِ الهَوَى مِنْ أَضْلُعِي", bn: "এবং পাঁজর (বুক) থেকে কামনার চিহ্নগুলো মুছে দিয়েছি।" },
+                        { ar: "وَحَطَّمْتُ أَقْدَاحِي وَلَمَّا أَرْتَوِ", bn: "তৃষ্ণা না মিটিয়েই পানপাত্রগুলো ভেঙ্গে ফেলেছি" },
+                        { ar: "وَعَفَفْتُ عَنْ زَادِي وَلَمَّا أَشْبَعِ", bn: "এবং তৃপ্ত না হয়েই খাদ্যগ্রহণ থেকে বিরত থেকেছি।" },
+                        { ar: "وَحَسِبْتُنِي أَدْنُو إِلَيْهَا مُسْرِعًا", bn: "(এভাবে) মনে করেছিলাম, আমি দ্রুত তার কাছে আসছি;" },
+                        { ar: "فَوَجَدْتُ أَنِّي قَدْ دَنَوْتُ لِمَصْرَعِي", bn: "কিন্তু দেখলাম, আসলে আমি আমার মৃত্যুর কাছে এসে গিয়েছি।" },
+                        { ar: "عَصَرَ الأَسَى رُوحِي فَسَالَتْ أَدْمُعًا", bn: "দুঃখ আমার প্রাণটি নিংড়িয়ে নেয় এবং অশ্রু হয়ে তা গড়িয়ে পড়ে।" },
+                        { ar: "فَلَمَحْتُهَا وَلَمَسْتُهَا فِي أَدْمُعِي", bn: "তখন আমি তাকে আমার অশ্রুর মাঝে দেখতে পাই এবং তাকে স্পর্শ করি।" },
+                        { ar: "وَعَلِمْتُ حِينَ العِلْمُ لَا يُجْدِي الفَتَى", bn: "আর আমি জানতে পারি, যখন এই জানা যুবকের কোনই উপকারে আসবে না" },
+                        { ar: "أَنَّ الَّتِي ضَيَّعْتُهَا كَانَتْ مَعِي", bn: "যে, আমি যাকে হারিয়েছিলাম আসলে সে তো আমার সঙ্গেই ছিল।" },
+                    ],
+                    word: [
+                        { ar: "أَنَا", bn: "আমি" }, { ar: "لَسْتُ", bn: "নই" }, { ar: "بِالحَسْنَاءِ", bn: "এই সুন্দরীর প্রতি" }, { ar: "أَوَّلَ", bn: "প্রথম" }, { ar: "مُولَعِ", bn: "অনুরাগী" },
+                        { ar: "هِيَ", bn: "সে" }, { ar: "مَطْمَعُ", bn: "বাসনার বস্তু" }, { ar: "الدُّنْيَا", bn: "দুনিয়ার" }, { ar: "كَمَا", bn: "যেমন" }, { ar: "هِيَ", bn: "সে" }, { ar: "مَطْمَعِي", bn: "আমারও বাসনার বস্তু" },
+                        { ar: "فَاقْصُصْ", bn: "অতএব বলো" }, { ar: "عَلَيَّ", bn: "আমাকে" }, { ar: "إِذَا", bn: "যখন" }, { ar: "عَرَفْتَ", bn: "তুমি জানতে পারবে" }, { ar: "حَدِيثَهَا", bn: "তার কথা" },
+                        { ar: "وَاسْكُنْ", bn: "এবং শান্ত থেকো" }, { ar: "إِذَا", bn: "যখন" }, { ar: "حَدَّثْتَ", bn: "তুমি কথা বলবে" }, { ar: "عَنْهَا", bn: "তার সম্পর্কে" }, { ar: "وَاخْشَعِ", bn: "ও বিনীত থেকো" },
+                        { ar: "أَلَمَحْتَهَا", bn: "তুমি কি তাকে দেখেছো" }, { ar: "فِي", bn: "কোন" }, { ar: "صُورَةٍ", bn: "আকৃতিতে" }, { ar: "أَشَهِدْتَهَا", bn: "তুমি কি তাকে দেখেছো" },
+                        { ar: "فِي", bn: "কোন" }, { ar: "حَالَةٍ", bn: "অবস্থায়" }, { ar: "أَرَأَيْتَهَا", bn: "তুমি কি তাকে দেখেছো" }, { ar: "فِي", bn: "কোন" }, { ar: "مَوْضِعِ", bn: "জায়গায়" },
+                        { ar: "إِنِّي", bn: "নিশ্চয়ই আমি" }, { ar: "لَذُو", bn: "এমন একজন" }, { ar: "نَفْسٍ", bn: "যার মন" }, { ar: "تَهِيمُ", bn: "তৃষ্ণার্ত" },
+                        { ar: "وَإِنَّهَا", bn: "আর নিশ্চয়ই সে" }, { ar: "لَجَمِيلَةٌ", bn: "সুন্দরী" }, { ar: "فَوْقَ", bn: "ওপরে" }, { ar: "الجَمَالِ", bn: "সৌন্দর্যের" }, { ar: "الأَبْدَعِ", bn: "অপূর্বতম" },
+                        { ar: "وَيَزِيدُ", bn: "এবং বাড়িয়ে দেয়" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "شَوْقِي", bn: "আমার আগ্রহ" }, { ar: "إِلَيْهَا", bn: "তার প্রতি" },
+                        { ar: "أَنَّهَا", bn: "এ ব্যাপারটি যে সে" }, { ar: "كَالصَّوْتِ", bn: "সেই আওয়াজের মত" }, { ar: "لَمْ", bn: "না" }, { ar: "يُسْفِرْ", bn: "(কখনো) চেহারা দেখায়নি" },
+                        { ar: "وَلَمْ", bn: "এবং না" }, { ar: "يَتَقَنَّعِ", bn: "আড়ালেও থাকেনি" }, { ar: "فَتَّشْتُ", bn: "আমি খুঁজেছি" }, { ar: "جَيْبَ", bn: "পকেটে" },
+                        { ar: "الفَجْرِ", bn: "প্রভাতের" }, { ar: "عَنْهَا", bn: "তাকে" }, { ar: "وَالدُّجَى", bn: "ও অন্ধকারে" }, { ar: "وَمَدَدْتُ", bn: "এবং বাড়িয়েছি" },
+                        { ar: "حَتَّى", bn: "এমনকি" }, { ar: "لِلكَوَاكِبِ", bn: "তারকাদের দিকেও" }, { ar: "إِصْبَعِي", bn: "আমার আঙ্গুল" },
+                        { ar: "فَإِذَا", bn: "দেখা গেল" }, { ar: "هُمَا", bn: "তারা উভয়ও" }, { ar: "مُتَحَيِّرَانِ", bn: "দিশেহারা" }, { ar: "كِلَاهُمَا", bn: "তারা উভয়ও" },
+                        { ar: "فِي", bn: "ব্যাপারে" }, { ar: "عَاشِقٍ", bn: "একজন প্রেমিকের" }, { ar: "مُتَحَيِّرٍ", bn: "দিশেহারা" }, { ar: "مُتَضَعْضِعِ", bn: "ব্যর্থ" },
+                        { ar: "وَإِذَا", bn: "আরো দেখা গেল" }, { ar: "النُّجُومُ", bn: "তারকারা" }, { ar: "لِعِلْمِهَا", bn: "তার কথা জানার" }, { ar: "أَوْ", bn: "কিংবা" },
+                        { ar: "جَهْلِهَا", bn: "না জানার কারণে" }, { ar: "مُتَرَجْرِجَاتٌ", bn: "অস্থির হয়ে কাঁপছে" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "الفَضَاءِ", bn: "শূন্যলোকে" },
+                        { ar: "الأَوْسَعِ", bn: "বিশাল" }, { ar: "رَقَصَتْ", bn: "নৃত্য করেছে" }, { ar: "أَشِعَّتُهَا", bn: "তার কিরণ" }, { ar: "عَلَى", bn: "ওপরে" },
+                        { ar: "سَطْحِ", bn: "উপরিভাগে" }, { ar: "الدُّجَى", bn: "অন্ধকারের" }, { ar: "وَعَلَى", bn: "এবং ওপরে" }, { ar: "رَجَاءٍ", bn: "প্রত্যাশার" },
+                        { ar: "فِيَّ", bn: "আমার মনের" }, { ar: "غَيْرَ", bn: "(যা ছিল)" }, { ar: "مُشَعْشَعِ", bn: "অনুজ্জ্বল" }, { ar: "وَالبَحْرُ", bn: "এবং সমুদ্রের কাছে" },
+                        { ar: "كَمْ", bn: "কত" }, { ar: "سَاءَلْتُهُ", bn: "আমি জিজ্ঞেস করেছি" }, { ar: "فَتَضَاحَكَتْ", bn: "তখন হাসাহাসি করেছে" },
+                        { ar: "أَمْوَاجُهُ", bn: "তার ঢেউগুলো" }, { ar: "مِنْ", bn: "শুনে" }, { ar: "صَوْتِيَ", bn: "আমার আওয়াজ" }, { ar: "المُتَقَطِّعِ", bn: "ভাঙ্গা-ভাঙ্গা" },
+                        { ar: "فَرَجَعْتُ", bn: "আমি তখন ফিরে এসেছি" }, { ar: "مُرْتَعِشَ", bn: "কম্পিত" }, { ar: "الخَوَاطِرِ", bn: "মন" }, { ar: "وَالمُنَى", bn: "ও আশা নিয়ে" },
+                        { ar: "كَحَمَامَةٍ", bn: "একটি কবুতরের ন্যায়" }, { ar: "مَحْمُولَةٍ", bn: "বহনকৃত" }, { ar: "فِي", bn: "মধ্যে" }, { ar: "زَعْزَعِ", bn: "ঝড়ের" },
+                        { ar: "وَلَكَمْ", bn: "এবং কতবার" }, { ar: "دَخَلْتُ", bn: "আমি প্রবেশ করেছি" }, { ar: "إِلَى", bn: "(অব্যয়)" }, { ar: "القُصُورِ", bn: "বিভিন্ন প্রাসাদে" },
+                        { ar: "مُفَتِّشًا", bn: "তালাশ করতে" }, { ar: "عَنْهَا", bn: "তার" }, { ar: "وَعُجْتُ", bn: "এবং আকৃষ্ট হয়েছি" }, { ar: "بِدَارِسَاتِ", bn: "মুছে-যাওয়া নিদর্শনের প্রতি" },
+                        { ar: "الأَرْبُعِ", bn: "বসতঘরগুলোর" }, { ar: "إِنْ", bn: "যদি" }, { ar: "لَاحَ", bn: "দেখা যেত" }, { ar: "طَيْفٌ", bn: "কোন ছায়ামূতি" },
+                        { ar: "قُلْتُ", bn: "আমি বলতাম" }, { ar: "يَا", bn: "হে" }, { ar: "عَيْنُ", bn: "চোখ" }, { ar: "انْظُرِي", bn: "তাকাও" },
+                        { ar: "أَوْ", bn: "অথবা" }, { ar: "رَنَّ", bn: "ধ্বনিত হলে" }, { ar: "صَوْتٌ", bn: "কোন আওয়াজ" }, { ar: "قُلْتُ", bn: "আমি বলতাম" },
+                        { ar: "يَا", bn: "হে" }, { ar: "أُذُنُ", bn: "কান" }, { ar: "اسْمَعِي", bn: "শোন" }, { ar: "فَإِذَا", bn: "দেখা গিয়েছে" },
+                        { ar: "الَّذِي", bn: "যে" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "القَصْرِ", bn: "প্রাসাদে আছে" }, { ar: "مِثْلِي", bn: "সেও আমার মতই" },
+                        { ar: "حَائِرٌ", bn: "দিশেহারা" }, { ar: "وَإِذَا", bn: "আবার দেখা গিয়েছে" }, { ar: "الَّذِي", bn: "যে" }, { ar: "فِي", bn: "(অব্যয়)" },
+                        { ar: "القَفْرِ", bn: "বিজন প্রান্তরে আছে" }, { ar: "مِثْلِي", bn: "সেও আমার মতই" }, { ar: "لَا", bn: "না" }, { ar: "يَعِي", bn: "(কিছু) জানে" },
+                        { ar: "قَالُوا", bn: "লোকেরা আমাকে বলেছে" }, { ar: "تَوَرَّعْ", bn: "তুমি পরহেজগার হও" }, { ar: "إِنَّهَا", bn: "নিশ্চয়ই সে" }, { ar: "مَحْجُوبَةٌ", bn: "পর্দানشীন" },
+                        { ar: "إِلَّا", bn: "ছাড়া" }, { ar: "عَنِ", bn: "(অব্যয়)" }, { ar: "المُتَزَهِّدِ", bn: "তাপস" }, { ar: "المُتَوَرِّعِ", bn: "পরহেজগার" },
+                        { ar: "فَوَأَدْتُ", bn: "তখন থেকে আমি কবর দিয়েছি" }, { ar: "أَفْرَاحِي", bn: "আমার আনন্দসমূহ" }, { ar: "وَطَلَّقْتُ", bn: "এবং পরিত্যাগ করেছি" }, { ar: "المُنَى", bn: "আকাঙ্ক্ষাসমূহ" },
+                        { ar: "وَنَسَخْتُ", bn: "এবং মুছে দিয়েছি" }, { ar: "آيَاتِ", bn: "চিহ্নগুলো" }, { ar: "الهَوَى", bn: "কামনার" }, { ar: "مِنْ", bn: "থেকে" },
+                        { ar: "أَضْلُعِي", bn: "পাঁজর (বুক)" }, { ar: "وَحَطَّمْتُ", bn: "এবং ভেঙ্গে ফেলেছি" }, { ar: "أَقْدَاحِي", bn: "পানপাত্রগুলো" }, { ar: "وَلَمَّا", bn: "অথচ" },
+                        { ar: "أَرْتَوِ", bn: "তৃষ্ণা মেটেনি" }, { ar: "وَعَفَفْتُ", bn: "এবং বিরত থেকেছি" }, { ar: "عَنْ", bn: "থেকে" }, { ar: "زَادِي", bn: "খাদ্যগ্রহণ" },
+                        { ar: "وَلَمَّا", bn: "অথচ" }, { ar: "أَشْبَعِ", bn: "তৃপ্ত হইনি" }, { ar: "وَحَسِبْتُنِي", bn: "এবং মনে করেছিলাম" }, { ar: "أَدْنُو", bn: "আমি কাছে আসছি" },
+                        { ar: "إِلَيْهَا", bn: "তার" }, { ar: "مُسْرِعًا", bn: "দ্রুত" }, { ar: "فَوَجَدْتُ", bn: "কিন্তু দেখলাম" }, { ar: "أَنِّي", bn: "আসলে আমি" },
+                        { ar: "قَدْ", bn: "(অব্যয়)" }, { ar: "دَنَوْتُ", bn: "কাছে এসে গিয়েছি" }, { ar: "لِمَصْرَعِي", bn: "আমার মৃত্যুর" },
+                        { ar: "عَصَرَ", bn: "নিংড়িয়ে নেয়" }, { ar: "الأَسَى", bn: "দুঃখ" }, { ar: "رُوحِي", bn: "আমার প্রাণটি" }, { ar: "فَسَالَتْ", bn: "এবং তা গড়িয়ে পড়ে" },
+                        { ar: "أَدْمُعًا", bn: "অশ্রু হয়ে" }, { ar: "فَلَمَحْتُهَا", bn: "তখন আমি তাকে দেখতে পাই" }, { ar: "وَلَمَسْتُهَا", bn: "এবং তাকে স্পর্শ করি" }, { ar: "فِي", bn: "(অব্যয়)" },
+                        { ar: "أَدْمُعِي", bn: "আমার অশ্রুর মাঝে" }, { ar: "وَعَلِمْتُ", bn: "আর আমি জানতে পারি" }, { ar: "حِينَ", bn: "যখন" }, { ar: "العِلْمُ", bn: "এই জানা" },
+                        { ar: "لَا", bn: "না" }, { ar: "يُجْدِي", bn: "উপকারে আসবে" }, { ar: "الفَتَى", bn: "যুবকের কোনই" }, { ar: "أَنَّ", bn: "যে" },
+                        { ar: "الَّتِي", bn: "যাকে" }, { ar: "ضَيَّعْتُهَا", bn: "আমি হারিয়েছিলাম" }, { ar: "كَانَتْ", bn: "আসলে সে তো ছিল" }, { ar: "مَعِي", bn: "আমার সঙ্গেই" }
+                    ]
+                },
+                ina: {
+                    line: [
+                        { ar: "عَصَرْتُ فُؤَادِي فِي إِناءٍ مِنَ الهَوَى", bn: "আমি আমার হৃদয়টা অনুরাগের একটি পাত্রে নিংড়ালাম।" },
+                        { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الفُقَرَاءِ", bn: "তারপর (সেখান থেকে পান করার জন্য) পাত্রটি গরীবদের ঠোঁটের কাছে নিলাম।" },
+                        { ar: "فَقَالُوا خُمُورٌ مَا تُبَرِّدُ غُلَّةً", bn: "তারা বলল, \"শরাব তৃষ্ণা মেটাবে না।\"" },
+                        { ar: "فَتَمْتَمْتُ وَاهًا أَكْبُدَ الشُّعَرَاءِ", bn: "আমি তখন বিড়বিড় করে বললাম, \"হায়রে কবিদের অন্তর!\"" },
+                        { ar: "أَيُنْكَرُ حَتَّى البُؤْسُ مَا فِيكِ مِنْ غِنًى", bn: "তবে কি দারিদ্র্যও তোমাদের ঐশ্বর্য প্রত্যাখ্যান করছে?" },
+                        { ar: "وَأَيَّ غِذَاءٍ أَنْتِ لِلبُؤَسَاءِ", bn: "আর তোমরাই বা হতদরিদ্রদের জন্য কোন্ প্রকারের খাবার?" },
+                        { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                        { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الرُّؤَسَاءِ", bn: "তারপর সেটি বড়লোকদের ঠোঁটের কাছে নিলাম।" },
+                        { ar: "وَقُلْتُ لَهُمْ هَذَا هُوَ العَدْلُ فَاشْرَبُوا", bn: "তাদেরকে বললাম, \"এটাই ন্যায়বিচার; তাই আপনারা পান করুন।" },
+                        { ar: "لَعَلَّكُمْ تُصْغُونَ لِلضُّعَفَاءِ", bn: "তাহলে আশা করা যায়, আপনারা দুর্বলদের প্রতি মনোযোগী হতে পারবেন।\"" },
+                        { ar: "فَمَالُوا جَمِيعًا عَنْ إِنَائِي وَغَمْغَمُوا", bn: "কিন্তু তারা সবাই আমার পাত্রটি থেকে মুখ ফিরিয়ে নেয় আর বিড়বিড় করে বলে," },
+                        { ar: "إِنَاؤُكَ مَحْظُورٌ عَلَى الزُّعَمَاءِ", bn: "\"তোমার এই পাত্র নেতাদের জন্য নিষিদ্ধ।”" },
+                        { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আবার আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                        { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ السُّجَنَاءِ", bn: "তারপর সেটি কারাবন্দীদের ঠোঁটের কাছে নিলাম।" },
+                        { ar: "وَقُلْتُ لَهُمْ هَذَا عَزَاءُ قُلُوبِكُمْ", bn: "তাদেরকে বললাম, \"এটা তোমাদের অন্তরের সান্ত্বনা।" },
+                        { ar: "فَلِلأَبْرِيَاءِ التَّاعِسِينَ دِمَائِي", bn: "কেননা, আমার রক্ত তো নিরপরাধ অভাগা মানুষগুলোর জন্য।”" },
+                        { ar: "فَقَالُوا دِمَاءٌ مَا تَحِلُّ قُيُودَنَا", bn: "তখন তারা বলল, \"(তোমার) রক্ত আমাদের বন্ধন খুলবে না।\"" },
+                        { ar: "فَهَاتِ قَوَانِينًا لِغَيْرِ قَضَاءِ", bn: "তাই (পারলে) তুমি বিনা বিচারের কিছু আইন নিয়ে এসো।" },
+                        { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আবার আমি আমার হৃদয়টা গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                        { ar: "وَأَدْنَيْتُهُ مِنْ مِرْشَفِ الحُكَمَاءِ", bn: "তারপর সেটি বিজ্ঞজনদের ঠোঁটের কাছে নিলাম।" },
+                        { ar: "وَقُلْتُ لَهُمْ هَذَا هُوَ النُّورُ فَاشْرَبُوا", bn: "তাদেরকে বললাম, \"এটাই আলো; আপনারা পান করুন।" },
+                        { ar: "فَآرَاؤُكُمْ فِي حَاجَةٍ لِضِيَاءِ", bn: "কারণ, আপনাদের চিন্তায় আলোর প্রয়োজন রয়েছে।\"" },
+                        { ar: "فَقَالُوا وَقَدْ هَزُّوا الرُّؤُوسَ شَمَاتَةً", bn: "তখন তাঁরা বিদ্বেষবশত মাথা নাড়িয়ে বললেন," },
+                        { ar: "ضِيَاؤُكَ هَذَا خِدْعَةُ الجُهَلَاءِ", bn: "\"তোমার এই আলো তো মূর্খদের প্রতারণা।\"" },
+                        { ar: "وَمَا زِلْتُ فِي الدُّنْيَا أَطُوفُ بِخَمْرَتِي", bn: "(এভাবে) আমি আমার শরাব নিয়ে পৃথিবীতে অবিরাম ঘুরে বেড়িয়েছি;" },
+                        { ar: "وَحَوْلِيَ شَعْبٌ هَازِئٌ بِوَفَائِي", bn: "তখন আমার চারপাশের মানুষকে আমার দায়বোধ নিয়ে বিদ্রূপ করতে দেখেছি।" },
+                        { ar: "إِلَى أَنْ دَهَانِي اليَأْسُ فَاخْتَرْتُ عُزْلَةً", bn: "এক পর্যায়ে হতাশা আমাকে গ্রাস করে; তখন আমি একাকীত্ব বরণ করে" },
+                        { ar: "أُفَتِّشُ فِيهَا عَنْ حُطَامِ رَجَائِي", bn: "নিজ আশার খড়কুটা সন্ধান করেছি।" },
+                        { ar: "وَذَوَّبْتُ قَلْبِي فِي إِناءٍ مِنَ الهَوَى", bn: "আমি আমার কান্নার সাথে মিশিয়ে নিজে পান করার জন্য আমার অন্তর" },
+                        { ar: "لِأَشْرَبَهَا مَمْزُوجَةً بِبُكَائِي", bn: "গলিয়ে অনুরাগের একটি পাত্রে রাখলাম।" },
+                        { ar: "فَشَاهَدْتُ قَلْبِي فِي إِنَائِيَ ضَاحِكًا", bn: "তখন দেখতে পেলাম, আমার সেই পাত্রে আমার অন্তরটি হাসছে" },
+                        { ar: "بِهِ دَعَةٌ عَذْرَاءُ فِي خُيَلَاءِ", bn: "এবং অহঙ্কারের মাঝে তাতে নিশ্ছিদ্র প্রশান্তি বিরাজ করছে।" },
+                        { ar: "فَأَدْنَيْتُهُ مِنْ مِرْشَفِي وَشَرِبْتُهُ", bn: "তখনি আমি পাত্রটি আমার ঠোঁটের কাছে নিয়ে পান করলাম।" },
+                        { ar: "وَمَا زَالَ مَاءُ الحُبِّ مِلْءَ إِنَائِي", bn: "আমার সেই পাত্র (এখনো) ভালবাসার পানিতে ভরাই আছে।" }
+                    ],
+                    word: [
+                        { ar: "عَصَرْتُ", bn: "আমি নিংড়ালাম" }, { ar: "فُؤَادِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" },
+                        { ar: "وَأَدْنَيْتُهُ", bn: "এবং কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "الفُقَرَاءِ", bn: "গরীবদের" },
+                        { ar: "فَقَالُوا", bn: "তারা বলল" }, { ar: "خُمُورٌ", bn: "শরাব" }, { ar: "مَا", bn: "(যা) না" }, { ar: "تُبَرِّدُ", bn: "তৃষ্ণা মেটাবে" }, { ar: "غُلَّةً", bn: "প্রবল তৃষ্ণা" },
+                        { ar: "فَتَمْتَمْتُ", bn: "আমি তখন বিড়বিড় করে বললাম" }, { ar: "وَاهًا", bn: "হায়রে" }, { ar: "أَكْبُدَ", bn: "অন্তর" }, { ar: "الشُّعَرَاءِ", bn: "কবিদের!" },
+                        { ar: "أَيُنْكَرُ", bn: "তবে কি প্রত্যাখ্যান করছে?" }, { ar: "حَتَّى", bn: "এমনকি" }, { ar: "البُؤْسُ", bn: "দারিদ্র্যও" }, { ar: "مَا", bn: "যা" }, { ar: "فِيكِ", bn: "তোমার মধ্যে আছে" },
+                        { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "غِنًى", bn: "ঐশ্বর্য" }, { ar: "وَأَيَّ", bn: "এবং কোন্ প্রকারের" }, { ar: "غِذَاءٍ", bn: "খাবার" }, { ar: "أَنْتِ", bn: "তোমরাই বা" }, { ar: "لِلبُؤَسَاءِ", bn: "হতদরিদ্রদের জন্য?" },
+                        { ar: "وَذَوَّبْتُ", bn: "এবং আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" },
+                        { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "الرُّؤَسَاءِ", bn: "বড়লোকদের" },
+                        { ar: "وَقُلْتُ", bn: "এবং বললাম" }, { ar: "لَهُمْ", bn: "তাদেরকে" }, { ar: "هَذَا", bn: "এটাই" }, { ar: "هُوَ", bn: "(অব্যয়)" }, { ar: "العَدْلُ", bn: "ন্যায়বিচার" },
+                        { ar: "فَاشْرَبُوا", bn: "তাই আপনারা পান করুন" }, { ar: "لَعَلَّكُمْ", bn: "তাহলে আশা করা যায়, আপনারা" }, { ar: "تُصْغُونَ", bn: "মনোযোগী হতে পারবেন" }, { ar: "لِلضُّعَفَاءِ", bn: "দুর্বলদের প্রতি" },
+                        { ar: "فَمَالُوا", bn: "কিন্তু তারা মুখ ফিরিয়ে নেয়" }, { ar: "جَمِيعًا", bn: "সবাই" }, { ar: "عَنْ", bn: "থেকে" }, { ar: "إِنَائِي", bn: "আমার পাত্রটি" },
+                        { ar: "وَغَمْغَمُوا", bn: "আর বিড়বিড় করে বলে" }, { ar: "إِنَاؤُكَ", bn: "তোমার এই পাত্র" }, { ar: "مَحْظُورٌ", bn: "নিষিদ্ধ" }, { ar: "عَلَى", bn: "জন্য" }, { ar: "الزُّعَمَاءِ", bn: "নেতাদের" },
+                        { ar: "وَذَوَّبْتُ", bn: "আবার আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" },
+                        { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "السُّجَنَاءِ", bn: "কারাবন্দীদের" },
+                        { ar: "وَقُلْتُ", bn: "এবং বললাম" }, { ar: "لَهُمْ", bn: "তাদেরকে" }, { ar: "هَذَا", bn: "এটা" }, { ar: "عَزَاءُ", bn: "সান্ত্বনা" }, { ar: "قُلُوبِكُمْ", bn: "তোমাদের অন্তরের" },
+                        { ar: "فَلِلأَبْرِيَاءِ", bn: "কেননা নিরপরাধ" }, { ar: "التَّاعِسِينَ", bn: "অভাগা মানুষগুলোর জন্য" }, { ar: "دِمَائِي", bn: "আমার রক্ত" },
+                        { ar: "فَقَالُوا", bn: "তখন তারা বলল" }, { ar: "دِمَاءٌ", bn: "(তোমার) রক্ত" }, { ar: "مَا", bn: "(যা) না" }, { ar: "تَحِلُّ", bn: "খুলবে" }, { ar: "قُيُودَنَا", bn: "আমাদের বন্ধন" },
+                        { ar: "فَهَاتِ", bn: "তাই নিয়ে এসো" }, { ar: "قَوَانِينًا", bn: "কিছু আইন" }, { ar: "لِغَيْرِ", bn: "ছাড়া" }, { ar: "قَضَاءِ", bn: "বিচারের" },
+                        { ar: "وَذَوَّبْتُ", bn: "আবার আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার হৃদয়টা" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" },
+                        { ar: "وَأَدْنَيْتُهُ", bn: "এবং সেটি কাছে নিলাম" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِ", bn: "ঠোঁটের" }, { ar: "الحُكَمَاءِ", bn: "বিজ্ঞজনদের" },
+                        { ar: "وَقُلْتُ", bn: "এবং বললাম" }, { ar: "لَهُمْ", bn: "তাদেরকে" }, { ar: "هَذَا", bn: "এটাই" }, { ar: "هُوَ", bn: "(অব্যয়)" }, { ar: "النُّورُ", bn: "আলো" },
+                        { ar: "فَاشْرَبُوا", bn: "তাই আপনারা পান করুন" }, { ar: "فَآرَاؤُكُمْ", bn: "কারণ, আপনাদের চিন্তায়" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "حَاجَةٍ", bn: "প্রয়োজন" }, { ar: "لِضِيَاءِ", bn: "আলোর" },
+                        { ar: "فَقَالُوا", bn: "তখন তাঁরা বললেন" }, { ar: "وَقَدْ", bn: "এবং" }, { ar: "هَزُّوا", bn: "তাঁরা নাড়িয়ে" }, { ar: "الرُّؤُوسَ", bn: "মাথা" }, { ar: "شَمَاتَةً", bn: "বিদ্বেষবশত" },
+                        { ar: "ضِيَاؤُكَ", bn: "তোমার এই আলো" }, { ar: "هَذَا", bn: "(অব্যয়)" }, { ar: "خِدْعَةُ", bn: "প্রতারণা" }, { ar: "الجُهَلَاءِ", bn: "মূর্খদের" },
+                        { ar: "وَمَا", bn: "এবং" }, { ar: "زِلْتُ", bn: "আমি অবিরাম" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "الدُّنْيَا", bn: "পৃথিবীতে" }, { ar: "أَطُوفُ", bn: "ঘুরে বেড়িয়েছি" },
+                        { ar: "بِخَمْرَتِي", bn: "আমার শরাব নিয়ে" }, { ar: "وَحَوْلِيَ", bn: "এবং আমার চারপাশে" }, { ar: "شَعْبٌ", bn: "মানুষকে" }, { ar: "هَازِئٌ", bn: "বিদ্রূপ করতে দেখেছি" }, { ar: "بِوَفَائِي", bn: "আমার দায়বোধ নিয়ে" },
+                        { ar: "إِلَى", bn: "(অব্যয়)" }, { ar: "أَنْ", bn: "এক পর্যায়ে" }, { ar: "دَهَانِي", bn: "আমাকে গ্রাস করে" }, { ar: "اليَأْسُ", bn: "হতাশা" }, { ar: "فَاخْتَرْتُ", bn: "তখন আমি বরণ করে" },
+                        { ar: "عُزْلَةً", bn: "একাকীত্ব" }, { ar: "أُفَتِّشُ", bn: "আমি সন্ধান করেছি" }, { ar: "فِيهَا", bn: "তাতে" }, { ar: "عَنْ", bn: "(অব্যয়)" }, { ar: "حُطَامِ", bn: "খড়কুটা" }, { ar: "رَجَائِي", bn: "নিজ আশার" },
+                        { ar: "وَذَوَّبْتُ", bn: "এবং আমি গলিয়ে" }, { ar: "قَلْبِي", bn: "আমার অন্তর" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِناءٍ", bn: "একটি পাত্রে" }, { ar: "مِنَ", bn: "(অব্যয়)" }, { ar: "الهَوَى", bn: "অনুরাগের" },
+                        { ar: "لِأَشْرَبَهَا", bn: "নিজে পান করার জন্য" }, { ar: "مَمْزُوجَةً", bn: "মিশিয়ে" }, { ar: "بِبُكَائِي", bn: "আমার কান্নার সাথে" },
+                        { ar: "فَشَاهَدْتُ", bn: "তখন দেখতে পেলাম" }, { ar: "قَلْبِي", bn: "আমার অন্তরটি" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "إِنَائِيَ", bn: "আমার সেই পাত্রে" }, { ar: "ضَاحِكًا", bn: "হাসছে" },
+                        { ar: "بِهِ", bn: "তাতে" }, { ar: "دَعَةٌ", bn: "প্রশান্তি" }, { ar: "عَذْرَاءُ", bn: "নিশ্ছিদ্র" }, { ar: "فِي", bn: "(অব্যয়)" }, { ar: "خُيَلَاءِ", bn: "অহঙ্কারের মাঝে" },
+                        { ar: "فَأَدْنَيْتُهُ", bn: "তখনি আমি কাছে নিয়ে" }, { ar: "مِنْ", bn: "(অব্যয়)" }, { ar: "مِرْشَفِي", bn: "আমার ঠোঁটের" }, { ar: "وَشَرِبْتُهُ", bn: "এবং পান করলাম" },
+                        { ar: "وَمَا", bn: "এবং এখনো" }, { ar: "زَالَ", bn: "আছে" }, { ar: "مَاءُ", bn: "পানি" }, { ar: "الحُبِّ", bn: "ভালবাসার" }, { ar: "مِلْءَ", bn: "ভরাই" }, { ar: "إِنَائِي", bn: "আমার সেই পাত্র" }
+                    ]
+                }
+            };
+            
+            const poemTitles = {
+                akhi: { ar: "أخي", bn: "আমার ভাই" },
+                nahr: { ar: "النهر المتجمد", bn: "জমাট বাঁধা নদী" },
+                aghmid: { ar: "أغمض جفونك تبصر", bn: "চোখ বন্ধ করো, দেখতে পাবে" },
+                usfur: { ar: "عصفور الجنة", bn: "স্বর্গের চড়ুই" },
+                anqa: { ar: "العنقاء", bn: "আল-'আনক্বা'" },
+                ina: { ar: "إِناءٌ", bn: "আল-ইনা'" }
+            };
+
+            let currentPage = 1;
+            let itemsPerPage = 15;
+            let currentPoemData = [];
+            let currentPoemType = '';
+
+            function renderTable() {
+				 window.scrollTo(0, 0); // <-- ADD THIS LINE
+                const tableBody = document.getElementById('trans-body');
+                if (!tableBody) return;
+
+                tableBody.innerHTML = '';
+                const totalItems = currentPoemData.length;
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                
+                const pageInfo = document.getElementById('page-info');
+                pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const paginatedItems = currentPoemData.slice(start, end);
+
+                paginatedItems.forEach(item => {
+                    const row = document.createElement('tr');
+                    const arabicCell = document.createElement('td');
+                    const bengaliCell = document.createElement('td');
+
+                    arabicCell.innerHTML = `<strong>${item.ar}</strong>`;
+                    bengaliCell.textContent = item.bn;
+
+                    arabicCell.className = `p-3 ${currentPoemType === 'word' ? 'word-by-word-arabic' : 'line-by-line-arabic'}`;
+                    bengaliCell.className = 'p-3 bengali-text';
+                    
+                    row.appendChild(arabicCell);
+                    row.appendChild(bengaliCell);
+                    tableBody.appendChild(row);
+                });
+            }
+
+            document.getElementById('prev-btn').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable();
+                }
+            });
+
+            document.getElementById('next-btn').addEventListener('click', () => {
+                const totalItems = currentPoemData.length;
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderTable();
+                }
+            });
+
+            function showPage(pageId) {
+                document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            document.querySelectorAll('.main-menu-btn, .poem-menu-btn, .back-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPageId = button.getAttribute('data-target');
+                    showPage(targetPageId);
+                });
+            });
+
+            document.querySelectorAll('.translation-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const poemId = button.getAttribute('data-poem');
+                    const type = button.getAttribute('data-type');
+                    
+                    currentPoemData = poemsData[poemId][type];
+                    currentPoemType = type;
+                    currentPage = 1;
+
+                    const titleAr = document.getElementById('trans-title-ar');
+                    const titleBn = document.getElementById('trans-title-bn');
+                    
+                    titleAr.textContent = poemTitles[poemId].ar;
+                    titleBn.textContent = `${poemTitles[poemId].bn} (${type === 'word' ? 'শব্দে শব্দে' : 'লাইনে লাইনে'})`;
+                    
+                    document.querySelector('#page-translation .back-btn').setAttribute('data-target', `page-poem-${poemId}`);
+                    
+                    renderTable();
+                    showPage('page-translation');
+                });
+            });
+
+            // Set initial page
+            showPage('page-main');
+        });
+    </script>
+</body>
+</html>
