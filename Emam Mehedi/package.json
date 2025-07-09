@@ -1,7 +1,0 @@
-{
-  "name": "ai-search-function",
-  "version": "1.0.0",
-  "dependencies": {
-    "@google/generative-ai": "^0.14.1"
-  }
-}
