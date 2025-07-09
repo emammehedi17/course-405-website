@@ -95,6 +95,8 @@ This section provides materials for two instructors.
 
 // This is the main serverless function that Netlify will run.
 // It receives the user's question, sends it to the Google AI with the context above, and returns the answer.
+// REPLACE your existing exports.handler function with this one.
+
 exports.handler = async function (event) {
   // We only want to handle POST requests from our website
   if (event.httpMethod !== 'POST') {
@@ -114,7 +116,12 @@ exports.handler = async function (event) {
         You are a helpful and friendly assistant for "The Class Caddy," a study website for university students. 
         Your primary role is to answer the user's question based ONLY on the detailed context provided below.
         Do not use any external knowledge.
-        If the answer is not found in the context, you MUST respond with: "I'm sorry, I can't answer that based on the provided materials."
+
+        --- LANGUAGE RULE ---
+        You MUST respond in the same language as the "USER'S QUESTION". If the question is in Arabic, your entire answer must be in Arabic. If it is in English, your answer must be in English.
+        --- END LANGUAGE RULE ---
+
+        If the answer is not found in the context, respond with: "I'm sorry, I can't answer that based on the provided materials."
 
         CONTEXT:
         ${websiteContent}
