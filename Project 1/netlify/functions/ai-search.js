@@ -97,55 +97,72 @@ This section provides materials for two instructors.
 // It receives the user's question, sends it to the Google AI with the context above, and returns the answer.
 // REPLACE your existing exports.handler function with this one.
 
+// REPLACE your entire existing exports.handler function with this one.
+
 exports.handler = async function (event) {
-  // We only want to handle POST requests from our website
+  // We only want to handle POST requests
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   try {
-    // Get the user's question from the request body
+    // Get the user's question from the request
     const { query } = JSON.parse(event.body);
     
-    // Access your secret API key from the environment variable set on Netlify
-    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+    // Set up the AI model
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // Construct the final prompt we will send to the AI
-// REPLACE your old prompt variable with this new one.
+    // --- STEP 1: The "Website Expert" Prompt ---
+    // This prompt forces the AI to ONLY use the website content.
+    // If it can't find the answer, it MUST reply with the keyword "NOT_FOUND".
+    const expertPrompt = `
+      You are an expert on the content of a specific website. Based ONLY on the CONTEXT provided below, answer the user's question.
 
-		// This is the correct prompt. Make sure your file has this exact text.
-		const prompt = `
-		    You are a helpful and friendly assistant for "The Class Caddy," a study website.
-		
-		    Your main goal is to answer the user's question. First, prioritize finding the answer in the provided CONTEXT. If the question is about a general topic not covered in the context, answer it using your general knowledge.
-		
-		    --- CRITICAL RULE ---
-		    Provide the answer directly. Do not use introductory phrases like "The provided text does not contain..." or "I will answer using my own knowledge." Just give the final answer.
-		    --- END CRITICAL RULE ---
-		
-		    --- LANGUAGE RULE ---
-		    You MUST respond in the same language as the "USER'S QUESTION".
-		    --- END LANGUAGE RULE ---
-		
-		    CONTEXT:
-		    ${websiteContent}
-		
-		    USER'S QUESTION:
-		    ${query}
-		`;
-    // Send the prompt to the AI model and wait for the result
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const aiAnswer = response.text();
+      If the answer is not found in the CONTEXT, you absolutely must respond with the single keyword: NOT_FOUND
 
-    // Send the AI's generated answer back to the website
+      CONTEXT:
+      ${websiteContent}
+
+      USER'S QUESTION:
+      ${query}
+    `;
+
+    // Ask the "expert" first
+    const expertResult = await model.generateContent(expertPrompt);
+    const expertResponse = await expertResult.response.text();
+
+    let finalAnswer = "";
+
+    // --- STEP 2: Check the Response ---
+    // If the expert AI responded with our keyword, we then ask a general knowledge AI.
+    if (expertResponse.trim() === 'NOT_FOUND') {
+
+      // --- STEP 3: The "General Knowledge" Prompt ---
+      // This prompt has NO website context, so the AI will use its general knowledge.
+      const generalPrompt = `
+        You are a helpful assistant. Provide a direct answer to the user's question.
+        You MUST respond in the same language as the "USER'S QUESTION".
+
+        USER'S QUESTION:
+        ${query}
+      `;
+      
+      const generalResult = await model.generateContent(generalPrompt);
+      finalAnswer = await generalResult.response.text();
+
+    } else {
+      // If the expert AI found the answer in the content, we use its response.
+      finalAnswer = expertResponse;
+    }
+
+    // --- Final Step: Send the Answer Back ---
     return {
       statusCode: 200,
-      body: JSON.stringify({ answer: aiAnswer }),
+      body: JSON.stringify({ answer: finalAnswer }),
     };
+
   } catch (error) {
-    // If anything goes wrong, send back an error message
     console.error("Error in AI function:", error);
     return { statusCode: 500, body: JSON.stringify({ error: "There was an error processing your request." }) };
   }
