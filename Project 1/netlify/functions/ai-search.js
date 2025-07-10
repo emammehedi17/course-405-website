@@ -110,7 +110,7 @@ exports.handler = async function (event) {
     const { query } = JSON.parse(event.body);
     
     // Set up the AI model
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     // --- STEP 1: The "Website Expert" Prompt ---
