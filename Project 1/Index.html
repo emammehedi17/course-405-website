@@ -12,7 +12,7 @@
     <title>Complete Study for Midterm [Course-405]</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
+	<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -341,7 +341,7 @@
 
 
 
-<style>
+	<style>
     /* This sets up the CSS variable for dynamic font sizing */
     :root {
         --base-font-size: 16px;
@@ -406,6 +406,55 @@
         background-color: rgba(31, 41, 55, 0.8); /* bg-gray-800/80 */
         border-color: rgb(55 65 81); /* border-gray-700 */
     }
+	
+	/* --- AI Search Dark Mode Styles --- */
+
+/* Styles the "Ask a Question" heading */
+.dark #page-main h2.text-3xl {
+  color: rgb(243 244 246); /* text-gray-100 */
+}
+
+/* Styles the search input box */
+.dark #ai-search-input {
+  background-color: rgb(31 41 55);  /* bg-gray-800 */
+  border-color: rgb(55 65 81);      /* border-gray-700 */
+  color: rgb(229 231 235);          /* text-gray-200 */
+}
+
+/* Styles the placeholder text (e.g., "What is 'The Frozen River' about?") */
+.dark #ai-search-input::placeholder {
+  color: rgb(156 163 175);          /* text-gray-400 */
+}
+
+/* Optional: Adjusts the search button for a slightly better look on dark backgrounds */
+.dark #ai-search-btn {
+  background-color: rgb(59 130 246); /* bg-blue-500 */
+}
+
+.dark #ai-search-btn:hover {
+  background-color: rgb(37 99 235);  /* hover:bg-blue-600 */
+}
+
+
+/* --- AI Answer Box Styling --- */
+
+/* Applies the new font stack to the answer box */
+#ai-answer-box {	
+  /* Amiri is first: it will apply to Arabic text. */
+  /* The browser will fall back to Cairo/Kalpurush for English/Bengali text. */
+  font-family: 'Amiri', 'Cairo', 'Kalpurush', sans-serif;
+  font-size: 1.1rem; /* Slightly larger font for better readability */
+  line-height: 2;   /* Increased line spacing for Arabic */
+}
+
+/* Fixes the colors for dark mode */
+.dark #ai-answer-box {
+  background-color: rgb(31 41 55);  /* bg-gray-800 */
+  color: rgb(229 231 235);          /* text-gray-200 */
+  border-color: rgb(55 65 81);      /* border-gray-700 */
+}
+
+
 </style>
 
 
@@ -429,7 +478,7 @@
 
         <div class="flex flex-col items-center space-y-4">
 
-            <a href="https://course-405.netlify.app/#page-main"><img src="Name.png" alt="The Class Caddy Logo" class="h-12 md:h-14"></a>
+            <a href="https://course-405.netlify.app/#page-main"><img id="logo-img" src="Name.png" alt="The Class Caddy Logo" class="h-12 md:h-14"></a>
 
             <div class="relative inline-block text-left">
 
@@ -2025,15 +2074,21 @@ fontDecreaseBtn.addEventListener('click', () => {
 });
 
 // --- THEME TOGGLE LOGIC ---
+// --- THEME TOGGLE LOGIC ---
 function applyTheme(theme) {
-    if (theme === 'dark') {
-        root.classList.add('dark');
-        themeNameSpan.textContent = 'Light';
-    } else {
-        root.classList.remove('dark');
-        themeNameSpan.textContent = 'Dark';
-    }
-    localStorage.setItem('theme', theme);
+    const logoImg = document.getElementById('logo-img');
+
+    if (theme === 'dark') {
+        root.classList.add('dark');
+        themeNameSpan.textContent = 'Light';
+        if (logoImg) logoImg.src = 'Name-dark.png'; // Set path to your dark mode logo
+
+    } else {
+        root.classList.remove('dark');
+        themeNameSpan.textContent = 'Dark';
+        if (logoImg) logoImg.src = 'Name.png'; // Set path back to your light mode logo
+    }
+    localStorage.setItem('theme', theme);
 }
 themeToggleBtn.addEventListener('click', () => {
     const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
