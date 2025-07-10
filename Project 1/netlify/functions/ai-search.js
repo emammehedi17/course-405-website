@@ -114,8 +114,7 @@ exports.handler = async function (event) {
     // Construct the final prompt we will send to the AI
 // REPLACE your old prompt variable with this new one.
 
-// REPLACE your old prompt variable with this new one.
-
+		// This is the correct prompt. Make sure your file has this exact text.
 		const prompt = `
 		    You are a helpful and friendly assistant for "The Class Caddy," a study website.
 		
