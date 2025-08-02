@@ -1,59 +1,67 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-// This function is automatically called when the request comes in
+// --- NEW: Define CORS headers ---
+// These headers give your website permission to call the function
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
+
 Deno.serve(async (req) => {
-  // 1. Initialize Supabase Admin Client
-  // This uses secrets stored securely in your Supabase project
-  const supabase = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-  );
+  // --- NEW: Handle preflight OPTIONS request ---
+  // This is a security check the browser sends before the real request
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders });
+  }
 
-  // 2. Get the user's data from the submitted form
-  const { fullName, email, mobile, password } = await req.json();
+  try {
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    );
 
-  // 3. Save the data to your 'registration_requests' table
-  const { error: dbError } = await supabase
-    .from('registration_requests')
-    .insert({
-      full_name: fullName,
-      email: email,
-      mobile_no: mobile,
-      password: password
+    const { fullName, email, mobile, password } = await req.json();
+
+    const { error: dbError } = await supabase
+      .from('registration_requests')
+      .insert({ full_name: fullName, email, mobile_no: mobile, password });
+
+    if (dbError) {
+      throw dbError; // Throw error to be caught below
+    }
+
+    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        from: 'onboarding@resend.dev',
+        to: 'emammehedi17@gmail.com',
+        subject: 'New Access Request for Class Caddy',
+        html: `
+          <h3>A new user has requested access:</h3>
+          <p><strong>Name:</strong> ${fullName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Mobile:</strong> ${mobile}</p>
+          <p><em>You can now add this user in your Supabase Auth dashboard.</em></p>
+        `
+      }),
     });
 
-  if (dbError) {
-    console.error('Database Error:', dbError);
-    return new Response(JSON.stringify({ error: 'Could not save request.' }), { status: 500 });
+    // Return success response with CORS headers
+    return new Response(JSON.stringify({ message: 'Request submitted successfully' }), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      status: 200,
+    });
+
+  } catch (error) {
+    // Return error response with CORS headers
+    return new Response(JSON.stringify({ error: error.message }), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      status: 500,
+    });
   }
-
-  // 4. Send the email notification using your Resend API key
-  const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
-  const emailResponse = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${RESEND_API_KEY}`
-    },
-    body: JSON.stringify({
-      from: 'onboarding@resend.dev', // Resend's required "from" address for testing
-      to: 'emammehedi17@gmail.com', // Your email address
-      subject: 'New Access Request for Class Caddy',
-      html: `
-        <h3>A new user has requested access:</h3>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mobile:</strong> ${mobile}</p>
-        <p><em>You can now add this user in your Supabase Auth dashboard.</em></p>
-      `
-    }),
-  });
-
-  if (!emailResponse.ok) {
-    console.error('Resend Error:', await emailResponse.text());
-    // We still return a success to the user, as their request was saved.
-  }
-
-  // 5. Send a success response back to the website
-  return new Response(JSON.stringify({ message: 'Request submitted successfully' }), { status: 200 });
 });
