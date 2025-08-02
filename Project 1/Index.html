@@ -1104,7 +1104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // SETUP & STATE MANAGEMENT
     // =================================================================
 	
-	const loginErrorMsg = document.getElementById('login-error-msg');
+	
 	const headerLogoutBtn = document.getElementById('header-logout-btn'); // <-- ADD THIS LINE
 
 
@@ -1116,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let isLoggedIn = false;
 
     const loginForm = document.getElementById('login-form');
-    const loginErrorMsg = document.getElementById('login-error-msg');
+
     
     // =================================================================
     // AUTHENTICATION LOGIC
@@ -1191,37 +1191,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     // =================================================================
     // UNIFIED NAVIGATION LOGIC (THE FIX)
     // =================================================================
-    const appContainer = document.getElementById('app');
-    if (appContainer) {
-        appContainer.addEventListener('click', (e) => {
-            const navButton = e.target.closest('.nav-btn');
-            
-            if (navButton) {
-                e.preventDefault();
-                const targetId = navButton.getAttribute('data-target');
-                if (!targetId) return;
+    // =================================================================
+		// UNIFIED NAVIGATION LOGIC (THE FIX)
+		// =================================================================
+		const appContainer = document.getElementById('app');
+		if (appContainer) {
+			appContainer.addEventListener('click', (e) => {
+				const navButton = e.target.closest('.nav-btn');
 
-                // --- 🔒 Authentication Check ---
-                const protectedPages = ['page-course-408', 'page-408-outline', 'page-408-contents'];
-                
-                if (protectedPages.includes(targetId) && !isLoggedIn) {
-                    alert("Please login to access Course-408.");
-                    // THIS IS THE KEY: We stop the function here.
-                    return; 
-                }
-                
-                // --- Navigation Logic (Only runs if auth check passes) ---
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-                const targetPage = document.getElementById(targetId);
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                    window.scrollTo(0, 0);
-                }
-            }
-        });
-    }
+				if (navButton) {
+					e.preventDefault();
+					const targetId = navButton.getAttribute('data-target');
+					if (!targetId) return;
+
+					// --- 🔒 Authentication Check ---
+					const isProtected = document.getElementById(targetId)?.classList.contains('confidential');
+
+					if (isProtected && !isLoggedIn) {
+						alert("Please log in to access this content.");
+						// Optional: Scroll to the login form
+						document.getElementById('login-section')?.scrollIntoView({ behavior: 'smooth' });
+						return; // Stop the function here
+					}
+
+					// --- Navigation Logic (Only runs if auth check passes) ---
+					showPage(targetId);
+				}
+			});
+		}
     
     // =================================================================
     
