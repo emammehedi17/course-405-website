@@ -533,7 +533,7 @@
 
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 
@@ -1597,8 +1597,9 @@
 </div>
 
 <script>
-	const { createClient } = supabase;
+	
     document.addEventListener('DOMContentLoaded', () => {
+		const { createClient } = supabase;
 
         // =================================================================
         // DATA & METADATA
@@ -2387,8 +2388,88 @@ socialToggleBtn.addEventListener('click', () => {
 
 
     });
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const navButtons = document.querySelectorAll('.nav-btn');
+
+    navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            if (!targetId) return;
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the targeted page
+            const targetPage = document.getElementById(targetId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+const { createClient } = supabase;
+const supabaseUrl = "https://fazbjfhistqokvtusxlo.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhemJqZmhpc3Rxb2t2dHVzeGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMTE3ODIsImV4cCI6MjA2OTY4Nzc4Mn0.XCByCRlDiA1TdGG54Jcn_kssLCBxY2rkiPgIt-m03k0"; // Use the anon/public key only
+const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+// Global login state
+let isLoggedIn = false;
+
+// Check login state on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+
+    if (session) {
+        isLoggedIn = true;
+        console.log("✅ Logged in");
+    } else {
+        console.log("❌ Not logged in");
+    }
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const navButtons = document.querySelectorAll('.nav-btn');
+
+    navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            if (!targetId) return;
+
+            // 🔒 Check if the target is protected
+            const protectedPages = ['page-course-408', 'page-408-outline', 'page-408-contents'];
+
+            if (protectedPages.includes(targetId) && !isLoggedIn) {
+                alert("Please login to access Course-408.");
+                return;
+            }
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show target page
+            const targetPage = document.getElementById(targetId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
+
 </body>
 </html>
 
