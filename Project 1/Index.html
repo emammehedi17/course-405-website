@@ -104,6 +104,10 @@
 		<a href="#login-section" id="header-login-btn" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-8 py-2 bg-white text-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 eng-btn">
 			Login
 		</a>
+
+		<a href="#" id="header-logout-btn" class="hidden inline-flex justify-center w-full rounded-md border border-red-300 shadow-sm px-8 py-2 bg-red-100 text-md font-medium text-red-700 hover:bg-red-200 eng-btn">
+			Log out
+		</a>
         </div>
     </div>
     <!-- Top Left Profile Image -->
@@ -1099,6 +1103,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // =================================================================
     // SETUP & STATE MANAGEMENT
     // =================================================================
+	
+	const loginErrorMsg = document.getElementById('login-error-msg');
+	const headerLogoutBtn = document.getElementById('header-logout-btn'); // <-- ADD THIS LINE
+
+
     const { createClient } = supabase;
     const SUPABASE_URL = 'https://fazbjfhistqokvtusxlo.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhemJqZmhpc3Rxb2t2dHVzeGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMTE3ODIsImV4cCI6MjA2OTY4Nzc4Mn0.XCByCRlDiA1TdGG54Jcn_kssLCBxY2rkiPgIt-m03k0';
@@ -1124,6 +1133,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (loginSection) loginSection.style.display = 'none';
         if (regSection) regSection.style.display = 'none';
         if (orText && orText.tagName === 'P') orText.style.display = 'none';
+		
+		// It hides the login button and shows the logout button
+    const headerLoginBtn = document.getElementById('header-login-btn');
+    if(headerLoginBtn) headerLoginBtn.style.display = 'none';
+    if(headerLogoutBtn) headerLogoutBtn.classList.remove('hidden');
     }
     
     // Check session on initial load
@@ -1158,6 +1172,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+		// --- Log out Button Handler ---
+		if (headerLogoutBtn) {
+			headerLogoutBtn.addEventListener('click', async (e) => {
+				e.preventDefault();
+
+				const { error } = await supabaseClient.auth.signOut();
+
+				if (error) {
+					alert('Error logging out. Please try again.');
+					console.error('Logout error:', error);
+				} else {
+					// Reload the page to reset the UI to the logged-out state
+					window.location.reload();
+				}
+			});
+		}
     // =================================================================
     // UNIFIED NAVIGATION LOGIC (THE FIX)
     // =================================================================
