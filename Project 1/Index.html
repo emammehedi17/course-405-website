@@ -1171,6 +1171,42 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+	
+	// --- Registration Form Handler ---
+		const registrationForm = document.getElementById('registration-form');
+		const regSuccessMsg = document.getElementById('reg-success-msg');
+
+		if (registrationForm) {
+			registrationForm.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				
+				// Disable the button to prevent multiple submissions
+				const submitButton = registrationForm.querySelector('button[type="submit"]');
+				submitButton.disabled = true;
+				submitButton.textContent = 'Submitting...';
+
+				const fullName = document.getElementById('reg-name').value;
+				const email = document.getElementById('reg-email').value;
+				const mobile = document.getElementById('reg-mobile').value;
+				const password = document.getElementById('reg-password').value;
+
+				// Call the Edge Function we just created
+				const { error } = await supabaseClient.functions.invoke('handle-registration', {
+					body: { fullName, email, mobile, password },
+				});
+
+				if (error) {
+					alert('Something went wrong. Please try again.');
+					// Re-enable the button if there was an error
+					submitButton.disabled = false;
+					submitButton.textContent = 'Submit Request';
+				} else {
+					// On success, hide the form and show the success message
+					registrationForm.style.display = 'none';
+					if(regSuccessMsg) regSuccessMsg.classList.remove('hidden');
+				}
+			});
+		}
 
 		// --- Log out Button Handler ---
 		if (headerLogoutBtn) {
