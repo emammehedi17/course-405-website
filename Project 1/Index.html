@@ -1188,7 +1188,9 @@ if (registrationForm) {
         const email = document.getElementById('reg-email').value;
         const mobile = document.getElementById('reg-mobile').value;
         const password = document.getElementById('reg-password').value;
-
+		
+		console.log("Sending to function:", { fullName, email, mobile, password }); 
+		
         // This calls your backend function and sends the data
         const { error } = await supabaseClient.functions.invoke('handle-registration', {
             body: { fullName, email, mobile, password },
