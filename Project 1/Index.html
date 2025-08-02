@@ -1,4 +1,3 @@
-<!-- Kire Pagla, ki korchis? -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -337,6 +336,20 @@
 .main-menu-btn:hover .btn-text {
     color: white;
 }
+
+/* --- NEW: Styles for Social Button Hiding/Showing --- */
+#social-links-container {
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+#social-links-container.hidden {
+    transform: translateY(200px);
+    opacity: 0;
+    pointer-events: none;
+}
+.confidential {
+    display: none;
+}
     </style>
 
 
@@ -447,6 +460,13 @@
   line-height: 2;   /* Increased line spacing for Arabic */
 }
 
+/* --- AI Answer Box Light Mode --- */
+#ai-answer-box {
+    background-color: #F9FAFB; /* A light gray */
+    color: #1F2937;            /* Dark text */
+    border-color: #E5E7EB;     /* A light border */
+}
+
 /* Fixes the colors for dark mode */
 .dark #ai-answer-box {
   background-color: rgb(31 41 55);  /* bg-gray-800 */
@@ -454,6 +474,60 @@
   border-color: rgb(55 65 81);      /* border-gray-700 */
 }
 
+/* --- Settings UI Light Mode --- */
+
+/* Styles the settings gear icon button */
+#settings-btn {
+    background-color: white;
+    border-color: #E5E7EB;
+}
+#settings-btn svg {
+    color: #374151; /* Dark icon color */
+}
+#settings-btn:hover {
+    background-color: #F9FAFB;
+}
+
+/* Styles the main settings pop-up box */
+#settings-modal-content {
+    background-color: white;
+    border-color: #D1D5DB;
+}
+
+/* Styles the text and buttons inside the settings box */
+#settings-modal-content h3, 
+#settings-modal-content p, 
+#settings-modal-content button,
+#settings-modal-content span {
+    color: #374151; /* Dark text for all content */
+}
+
+#settings-modal-content .font-bold {
+    color: #111827; /* Even darker for bold text */
+}
+
+/* Styles the interactive buttons like font size and theme toggle */
+#settings-modal-content #font-increase-btn,
+#settings-modal-content #font-decrease-btn,
+#settings-modal-content #theme-toggle-btn {
+    background-color: #E5E7EB;
+}
+
+#settings-modal-content #font-increase-btn:hover,
+#settings-modal-content #font-decrease-btn:hover,
+#settings-modal-content #theme-toggle-btn:hover {
+    background-color: #D1D5DB;
+}
+/* --- NEW: Styles for Social Button Hiding/Showing --- */
+#social-links-container {
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+#social-links-container.hidden {
+    transform: translateY(200px);
+    opacity: 0;
+    pointer-events: none;
+}
 
 </style>
 
@@ -480,41 +554,9 @@
 
             <a href="https://course-405.netlify.app/#page-main"><img id="logo-img" src="Name.png" alt="The Class Caddy Logo" class="h-12 md:h-14"></a>
 
-            <div class="relative inline-block text-left">
-
-                <div>
-
-                    <button type="button" id="courses-menu-button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-8 py-2 bg-white text-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 eng-btn">
-
-                        Courses
-
-                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-
-                        </svg>
-
-                    </button>
-
-                </div>
-
-                <div id="courses-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="courses-menu-button">
-
-                    <div class="py-1" role="none">
-
-                        <a href="#" data-target="page-course-405" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-405</a>
-
-                        <a href="#" data-target="page-course-406" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-406</a>
-
-                        <a href="#" data-target="page-course-407" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-407</a>
-
-                        <a href="#" data-target="page-course-408" class="course-link text-gray-700 block px-4 py-2 text-sm eng-btn" role="menuitem" tabindex="-1">Course-408</a>
-
-                    </div>
-
-                </div>
-
-            </div>
+		<a href="#login-section" id="header-login-btn" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-8 py-2 bg-white text-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 eng-btn">
+			Login
+		</a>
 
         </div>
 
@@ -589,7 +631,55 @@
 					</button>
 
 				</div>
+				
+			<div id="login-section" class="mt-24 max-w-lg mx-auto">
+				<div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700">
+					<div class="text-center mb-6">
+						<div class="mx-auto w-20 h-20 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 mb-4">
+							<svg class="w-12 h-12 text-gray-400 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+						</div>
+						<h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Member Login</h2>
+					</div>
 
+					<form id="login-form">
+						<div class="mb-4">
+							<label for="login-email" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Email ID*</label>
+							<input type="email" id="login-email" placeholder="Enter your academic email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500">
+							<p class="text-xs text-gray-500 mt-1">i.e. s-2020343876@arab.du.ac.bd</p>
+						</div>
+
+						<div class="mb-5">
+							<label for="login-password" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Password*</label>
+							<input type="password" id="login-password" placeholder="Ask the developer for a password" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500">
+							
+						</div>
+
+						<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">Login</button>
+						<p id="login-error-msg" class="text-red-500 text-center mt-3 text-sm"></p>
+					</form>
+				</div>
+
+				<p class="text-center my-8 text-gray-500 dark:text-gray-400 font-semibold">Or, request a registration</p>
+
+				<div id="registration-section" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700">
+					 <div class="text-center mb-6">
+						<h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Request Access</h2>
+					</div>
+					<form id="registration-form">
+						<div class="space-y-4">
+							<input type="text" id="reg-name" placeholder="Full Name*" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+							<input type="email" id="reg-email" placeholder="Email*" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+							<input type="tel" id="reg-mobile" placeholder="Mobile No.*" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+							<input type="password" id="reg-password" placeholder="Create a Password*" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+						</div>
+						<button type="submit" class="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">Submit Request</button>
+					</form>
+					<div id="reg-success-msg" class="hidden text-center mt-4 p-3 bg-green-100 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg text-green-800 dark:text-green-200">
+						Request sent successfully! You will get an email soon. 
+						<br>Or, <a href="https://wa.me/+8801743303877" target="_blank" class="font-bold underline">contact</a> the developer to get access.
+					</div>
+				</div>
+			</div>
         </div>
 
 
@@ -1060,7 +1150,7 @@
 
         ================================================================== -->
 
-        <div id="page-course-408" class="page">
+        <div id="page-course-408" class="page confidential">
 
             <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-main">← Back</button>
 
@@ -1438,27 +1528,42 @@
 
 </footer>
 
-<!-- START: Social Media Buttons Container -->
-<div class="fixed bottom-24 right-5 z-20 flex flex-col items-center gap-3">
+<!-- START: Social and Settings Buttons Container -->
+<div class="fixed bottom-5 right-5 z-20 flex flex-col items-center gap-3">
 
-    <!-- Messenger Button -->
-    <a href="https://m.me/emammehedi17" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300" aria-label="Chat on Messenger">
-        <svg xmlns="http://www.w.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.493 1.825 6.594 4.574 8.537V24l3.25-1.857C9.44 22.754 10.68 22.889 12 22.889c6.627 0 12-4.974 12-11.11S18.627 0 12 0zm1.196 14.963l-2.203-2.203-4.574 2.203L12.58 8.797l2.203 2.203 4.574-2.203-6.16 6.166z"/>
+    <!-- This is the new container for the social links -->
+    <div id="social-links-container" class="flex flex-col items-center gap-3">
+        <!-- Messenger Button -->
+        <a href="[https://m.me/emammehedi17](https://m.me/emammehedi17)" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300" aria-label="Chat on Messenger">
+            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.493 1.825 6.594 4.574 8.537V24l3.25-1.857C9.44 22.754 10.68 22.889 12 22.889c6.627 0 12-4.974 12-11.11S18.627 0 12 0zm1.196 14.963l-2.203-2.203-4.574 2.203L12.58 8.797l2.203 2.203 4.574-2.203-6.16 6.166z"/>
+            </svg>
+        </a>
+
+        <!-- WhatsApp Button -->
+        <a href="[https://wa.me/+8801743303877](https://wa.me/+8801743303877)" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300" aria-label="Chat on WhatsApp">
+            <img src="wa icon.png" alt="Chat on WhatsApp" class="w-8 h-8">
+        </a>
+    </div>
+
+    <!-- This is the new Toggle Button -->
+    <button id="social-toggle-btn" class="w-12 h-12 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+        <!-- Down arrow (visible by default) -->
+        <svg id="arrow-down" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
-    </a>
+        <!-- Up arrow (hidden by default) -->
+        <svg id="arrow-up" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/+8801743303877" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300" aria-label="Chat on WhatsApp">
-        <!-- The SVG has been replaced with this img tag -->
-        <img src="wa icon.png" alt="Chat on WhatsApp" class="w-8 h-8">
-    </a>
+    <!-- Your existing Settings Button remains here -->
+    <button id="settings-btn" class="bg-white dark:bg-gray-700 p-3 rounded-full shadow-lg border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="h-6 w-6 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+    </button>
 </div>
-<!-- END: Social Media Buttons Container -->
-
-		<button id="settings-btn" class="fixed bottom-5 right-5 z-20 bg-white dark:bg-gray-700 p-3 rounded-full shadow-lg border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-			</button>
+<!-- END: Social and Settings Buttons Container -->
 
 <div id="settings-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30 flex justify-end items-end p-5 pb-24">
     <div id="settings-modal-content" class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-sm border dark:border-gray-700">
@@ -1492,6 +1597,7 @@
 </div>
 
 <script>
+	const { createClient } = supabase;
     document.addEventListener('DOMContentLoaded', () => {
 
         // =================================================================
@@ -1500,6 +1606,92 @@
 
         // CORRECTED AND COMPLETED: The full poem data is now included here.
         // Newly added lines are marked with 'new: true' for highlighting.
+
+
+
+// --- SUPABASE INITIALIZATION ---
+const SUPABASE_URL = 'https://fazbjfhistqokvtusxlo.supabase.co'; // Paste your URL here
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhemJqZmhpc3Rxb2t2dHVzeGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMTE3ODIsImV4cCI6MjA2OTY4Nzc4Mn0.XCByCRlDiA1TdGG54Jcn_kssLCBxY2rkiPgIt-m03k0'; // Paste your Anon Key here
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+// =================================================================
+// LOGIN, REGISTRATION, AND SESSION LOGIC
+// =================================================================
+
+const loginForm = document.getElementById('login-form');
+const loginErrorMsg = document.getElementById('login-error-msg');
+const registrationForm = document.getElementById('registration-form');
+const regSuccessMsg = document.getElementById('reg-success-msg');
+const headerLoginBtn = document.getElementById('header-login-btn');
+
+// Function to show confidential content
+function showConfidentialContent() {
+    document.querySelectorAll('.confidential').forEach(el => {
+        el.style.display = 'block'; // Or 'grid', 'flex' depending on element
+    });
+    // You might want to hide the login/registration section now
+    document.getElementById('login-section').style.display = 'none';
+}
+
+// Check if user is already logged in on page load
+if (sessionStorage.getItem('user-logged-in') === 'true') {
+    showConfidentialContent();
+}
+
+// --- Login Form Handler ---
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loginErrorMsg.textContent = '';
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const { data, error } = await supabase.functions.invoke('login-user', {
+        body: { email, password },
+    });
+
+    if (error) {
+        loginErrorMsg.textContent = 'Login credentials did not match.';
+    } else {
+        // Login success
+        sessionStorage.setItem('user-logged-in', 'true');
+        showConfidentialContent();
+    }
+});
+
+// --- Registration Form Handler ---
+registrationForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fullName = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value;
+    const mobile = document.getElementById('reg-mobile').value;
+    const password = document.getElementById('reg-password').value;
+
+    const { error } = await supabase.functions.invoke('handle-registration', {
+        body: { fullName, email, mobile, password },
+    });
+
+    if (error) {
+        alert('Something went wrong. Please try again.');
+    } else {
+        registrationForm.style.display = 'none';
+        regSuccessMsg.classList.remove('hidden');
+    }
+});
+
+// --- Header Login Button Scroll ---
+headerLoginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('login-section').scrollIntoView({ behavior: 'smooth' });
+});
+
+// --- Remove old Courses Dropdown logic ---
+// You can now delete the JavaScript related to 'courses-menu-button' and 'courses-menu'
+// since we removed the HTML for it.
+
+
+
+
         const poemsData = {
             akhi: {
                 line: [
@@ -1919,18 +2111,7 @@
             }
         });
 
-        const coursesMenuButton = document.getElementById('courses-menu-button');
-        const coursesMenu = document.getElementById('courses-menu');
-        coursesMenuButton.addEventListener('click', (e) => { e.stopPropagation(); coursesMenu.classList.toggle('hidden'); });
-        window.addEventListener('click', () => { if (!coursesMenu.classList.contains('hidden')) { coursesMenu.classList.add('hidden'); } });
-        document.querySelectorAll('.course-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetPageId = link.getAttribute('data-target');
-                showPage(targetPageId);
-                coursesMenu.classList.add('hidden');
-            });
-        });
+        
 
         document.querySelectorAll('.translation-btn').forEach(button => {
             button.addEventListener('click', () => {
@@ -2189,7 +2370,24 @@ searchBtn.addEventListener('click', async () => {
         searchBtn.disabled = false;
     }
 });
+// --- NEW: Social Buttons Toggle Functionality ---
+const socialToggleBtn = document.getElementById('social-toggle-btn');
+const socialLinksContainer = document.getElementById('social-links-container');
+const arrowDown = document.getElementById('arrow-down');
+const arrowUp = document.getElementById('arrow-up');
+
+socialToggleBtn.addEventListener('click', () => {
+    // Toggle the 'hidden' class on the container
+    socialLinksContainer.classList.toggle('hidden');
+
+    // Toggle which arrow is visible
+    arrowDown.classList.toggle('hidden');
+    arrowUp.classList.toggle('hidden');
+});
+
+
     });
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </script>
 </body>
 </html>
