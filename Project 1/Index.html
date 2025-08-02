@@ -1,599 +1,125 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Complete Study for Midterm [Course-405]</title>
-
+    <title>Class Caddy</title>
     <script src="https://cdn.tailwindcss.com"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
 	<link rel="icon" href="https://eco.du.ac.bd//assets/images/fab_icon.ico" type="image/x-icon">
-
     <style>
-
-
-/* --- Styles for Interactive Button Hover Effect --- */
-
-/* Make the button a container for the absolute-positioned image span */
-.main-menu-btn {
-    position: relative;
-    overflow: hidden; /* This keeps the image within the button's rounded corners */
-}
-
-/* Position the text on top of the background image */
-.main-menu-btn .btn-text {
-    position: relative;
-    z-index: 2;
-}
-
-/* Style the background image span itself */
-.main-menu-btn .btn-bg-image {
-    background-image: url('course-405-bg.jpg'); /* Your image file! */
-    background-size: cover;
-    background-position: center;
-    
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1; /* Place it behind the text */
-    
-    opacity: 0; /* Hidden by default */
-    filter: brightness(70%); /* Dims the image so text is readable */
-    transition: opacity 0.4s ease-in-out; /* This creates the smooth fade effect */
-}
-/* --- Add these new rules to define the image for each button --- */
-
-.main-menu-btn .bg-405 {
-    background-image: url('course-405-bg.jpg');
-}
-
-.main-menu-btn .bg-406 {
-    background-image: url('course-406-bg.jpg');
-}
-
-.main-menu-btn .bg-407 {
-    background-image: url('course-407-bg.jpg');
-}
-
-.main-menu-btn .bg-408 {
-    background-image: url('course-408-bg.jpg');
-}
-
-/* This is the magic part: On hover of the button, fade the image in */
-.main-menu-btn:hover .btn-bg-image {
-    opacity: 1;
-}
-	@font-face {
-
-        font-family: 'Basmala'; /* We are naming our font 'Basmala' */
-
-        src: url('Basmala.ttf') format('truetype');
-
-    }
-
-
-
-    body {
-
-        font-family: 'Cairo', 'Kalpurush', sans-serif;
-
-        background-color: #f0f4f8;
-
-    }
-
-/* This gives the 3D space for the animation to happen in */
-
-.translation-container {
-
-    perspective: 1200px;
-
-}
-
-
-
-/* Keyframes for the "Next" button peel effect */
-
-@keyframes peel-off-next {
-
-    from {
-
-        transform: rotateY(0deg);
-
-        opacity: 1;
-
-    }
-
-    to {
-
-        transform: translateX(-50%) rotateY(-80deg);
-
-        opacity: 0;
-
-    }
-
-}
-
-@keyframes peel-in-next {
-
-    from {
-
-        transform: translateX(50%) rotateY(80deg);
-
-        opacity: 0;
-
-    }
-
-    to {
-
-        transform: rotateY(0deg);
-
-        opacity: 1;
-
-    }
-
-}
-
-
-
-/* Keyframes for the "Previous" button peel effect */
-
-@keyframes peel-off-prev {
-
-    from {
-
-        transform: rotateY(0deg);
-
-        opacity: 1;
-
-    }
-
-    to {
-
-        transform: translateX(50%) rotateY(80deg);
-
-        opacity: 0;
-
-    }
-
-}
-
-@keyframes peel-in-prev {
-
-    from {
-
-        transform: translateX(-50%) rotateY(-80deg);
-
-        opacity: 0;
-
-    }
-
-    to {
-
-        transform: rotateY(0deg);
-
-        opacity: 1;
-
-    }
-
-}
-
-
-
-/* Classes to trigger the animations */
-
-.peel-out-next {
-
-    animation: peel-off-next 0.5s ease-in-out forwards;
-
-}
-
-.peel-in-next {
-
-    animation: peel-in-next 0.5s ease-in-out;
-
-}
-
-.peel-out-prev {
-
-    animation: peel-off-prev 0.5s ease-in-out forwards;
-
-}
-
-.peel-in-prev {
-
-    animation: peel-in-prev 0.5s ease-in-out;
-
-}
-
-
-
-
-
-        .arabic-text, .arabic-title {
-
-			font-family: 'Times New Roman', serif;
-
-									}
-
-        .bengali-text, .bengali-title {
-
-            font-family: 'Kalpurush', sans-serif;
-
-        }
-
-        .eng-btn {
-
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
-        }
-
-        .page {
-
-            display: none;
-
-        }
-
-        .page.active {
-
-            display: block;
-
-        }
-
-        .card-hover {
-
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-        }
-
-        .card-hover:hover {
-
-            transform: translateY(-5px);
-
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-
-        }
-
-        .word-by-word-arabic {
-
-    font-family: 'Times New Roman', serif;
-
-    font-size: 1.6rem;
-
-    line-height: 2.4rem;
-
-	text-align: right;
-
-	}
-
-	.line-by-line-arabic {
-
-    font-family: 'Times New Roman', serif;
-
-    font-size: 1.25rem;
-
-    line-height: 2rem;
-
-	text-align: right;
-
-}
-
-        }
-
-        table {
-
-            border-collapse: collapse;
-
-        }
-
-        tbody tr:last-child {
-
-            border-bottom: none;
-
-        }
-
-        tr {
-
-            border-bottom: 1px solid #e5e7eb;
-
-        }
-
-        .pagination-btn:disabled {
-
-            opacity: 0.5;
-
-            cursor: not-allowed;
-
-        }
-
-	/* NEW CSS for the hiding header */
-
-    #global-header, #du-logo, #profile-picture {
-
-        transition: transform 0.3s ease-in-out;
-
-    }
-
-
-
-    .header-hidden {
-
-        transform: translateY(-120%);
-
-    }
-
-
-/* This rule changes the text color to white on hover */
-.main-menu-btn:hover .btn-text {
-    color: white;
-}
-
-/* --- NEW: Styles for Social Button Hiding/Showing --- */
-#social-links-container {
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-}
-
-#social-links-container.hidden {
-    transform: translateY(200px);
-    opacity: 0;
-    pointer-events: none;
-}
-.confidential {
-    display: none;
-}
+    /* --- Styles for Interactive Button Hover Effect --- */
+    .main-menu-btn { position: relative; overflow: hidden; }
+    .main-menu-btn .btn-text { position: relative; z-index: 2; }
+    .main-menu-btn .btn-bg-image { background-size: cover; background-position: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; opacity: 0; filter: brightness(70%); transition: opacity 0.4s ease-in-out; }
+    .main-menu-btn .bg-405 { background-image: url('course-405-bg.jpg'); }
+    .main-menu-btn .bg-406 { background-image: url('course-406-bg.jpg'); }
+    .main-menu-btn .bg-407 { background-image: url('course-407-bg.jpg'); }
+    .main-menu-btn .bg-408 { background-image: url('course-408-bg.jpg'); }
+    .main-menu-btn:hover .btn-bg-image { opacity: 1; }
+    @font-face { font-family: 'Basmala'; src: url('Basmala.ttf') format('truetype'); }
+    body { font-family: 'Cairo', 'Kalpurush', sans-serif; background-color: #f0f4f8; }
+    .translation-container { perspective: 1200px; }
+    @keyframes peel-off-next { from { transform: rotateY(0deg); opacity: 1; } to { transform: translateX(-50%) rotateY(-80deg); opacity: 0; } }
+    @keyframes peel-in-next { from { transform: translateX(50%) rotateY(80deg); opacity: 0; } to { transform: rotateY(0deg); opacity: 1; } }
+    @keyframes peel-off-prev { from { transform: rotateY(0deg); opacity: 1; } to { transform: translateX(50%) rotateY(80deg); opacity: 0; } }
+    @keyframes peel-in-prev { from { transform: translateX(-50%) rotateY(-80deg); opacity: 0; } to { transform: rotateY(0deg); opacity: 1; } }
+    .peel-out-next { animation: peel-off-next 0.5s ease-in-out forwards; }
+    .peel-in-next { animation: peel-in-next 0.5s ease-in-out; }
+    .peel-out-prev { animation: peel-off-prev 0.5s ease-in-out forwards; }
+    .peel-in-prev { animation: peel-in-prev 0.5s ease-in-out; }
+    .arabic-text, .arabic-title { font-family: 'Times New Roman', serif; }
+    .bengali-text, .bengali-title { font-family: 'Kalpurush', sans-serif; }
+    .eng-btn { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .word-by-word-arabic { font-family: 'Times New Roman', serif; font-size: 1.6rem; line-height: 2.4rem; text-align: right; }
+	.line-by-line-arabic { font-family: 'Times New Roman', serif; font-size: 1.25rem; line-height: 2rem; text-align: right; }
+    table { border-collapse: collapse; }
+    tbody tr:last-child { border-bottom: none; }
+    tr { border-bottom: 1px solid #e5e7eb; }
+    .pagination-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    #global-header, #du-logo, #profile-picture { transition: transform 0.3s ease-in-out; }
+    .header-hidden { transform: translateY(-120%); }
+    .main-menu-btn:hover .btn-text { color: white; }
+    #social-links-container { transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; }
+    #social-links-container.hidden { transform: translateY(200px); opacity: 0; pointer-events: none; }
+    .confidential { display: none; }
     </style>
-
-
-
 	<style>
-    /* This sets up the CSS variable for dynamic font sizing */
-    :root {
-        --base-font-size: 16px;
-    }
-
-    /* Apply the font size to the body */
-    body {
-        font-size: var(--base-font-size);
-    }
-    
-    /* --- Corrected and Complete Dark Mode Theme Styles --- */
-    .dark body {
-        background-color: rgb(17 24 39); /* bg-gray-900 */
-        color: rgb(229 231 235); /* text-gray-200 */
-    }
-    /* Cards and main content areas */
-    .dark .bg-white {
-        background-color: rgb(31 41 55); /* bg-gray-800 */
-        border-color: rgb(55 65 81); /* border-gray-700 */
-    }
-    /* Table headers, etc. */
-    .dark .bg-gray-100 {
-        background-color: rgb(17 24 39); /* bg-gray-900 */
-    }
-    .dark .bg-gray-100:hover {
-        background-color: rgb(55 65 81) !important; /* Overrides for specific buttons */
-    }
-    /* Buttons inside Settings Panel */
-    .dark .bg-gray-200 {
-        background-color: rgb(55 65 81); /* bg-gray-700 */
-    }
-    .dark .bg-gray-200:hover {
-        background-color: rgb(75 85 99); /* bg-gray-600 */
-    }
-     /* Text color corrections */
-    .dark .text-gray-800 {
-        color: rgb(243 244 246); /* text-gray-100 */
-    }
-    .dark .text-gray-700 {
-        color: rgb(209 213 219); /* text-gray-300 */
-    }
-    .dark .text-gray-500 {
-        color: rgb(156 163 175); /* text-gray-400 */
-    }
-    /* Borders */
-    .dark .border, .dark .border-b, .dark tr {
-        border-color: rgb(55 65 81); /* border-gray-700 */
-    }
-    /* Remove shadows in dark mode for a flatter look */
-    .dark .shadow-lg, .dark .shadow-md, .dark .shadow-xl {
-        box-shadow: none;
-    }
-    /* Specific overrides for buttons and header */
-    .dark .main-menu-btn {
-        background-color: rgb(31 41 55); /* bg-gray-800 */
-        border-color: rgb(55 65 81); /* border-gray-700 */
-    }
-    .dark .main-menu-btn:hover {
-        background-color: rgb(55 65 81); /* hover:bg-gray-700 */
-    }
-    .dark #global-header {
-        background-color: rgba(31, 41, 55, 0.8); /* bg-gray-800/80 */
-        border-color: rgb(55 65 81); /* border-gray-700 */
-    }
-	
-	/* --- AI Search Dark Mode Styles --- */
-
-/* Styles the "Ask a Question" heading */
-.dark #page-main h2.text-3xl {
-  color: rgb(243 244 246); /* text-gray-100 */
-}
-
-/* Styles the search input box */
-.dark #ai-search-input {
-  background-color: rgb(31 41 55);  /* bg-gray-800 */
-  border-color: rgb(55 65 81);      /* border-gray-700 */
-  color: rgb(229 231 235);          /* text-gray-200 */
-}
-
-/* Styles the placeholder text (e.g., "What is 'The Frozen River' about?") */
-.dark #ai-search-input::placeholder {
-  color: rgb(156 163 175);          /* text-gray-400 */
-}
-
-/* Optional: Adjusts the search button for a slightly better look on dark backgrounds */
-.dark #ai-search-btn {
-  background-color: rgb(59 130 246); /* bg-blue-500 */
-}
-
-.dark #ai-search-btn:hover {
-  background-color: rgb(37 99 235);  /* hover:bg-blue-600 */
-}
-
-
-/* --- AI Answer Box Styling --- */
-
-/* Applies the new font stack to the answer box */
-#ai-answer-box {	
-  /* Amiri is first: it will apply to Arabic text. */
-  /* The browser will fall back to Cairo/Kalpurush for English/Bengali text. */
-  font-family: 'Amiri', 'Cairo', 'Kalpurush', sans-serif;
-  font-size: 1.1rem; /* Slightly larger font for better readability */
-  line-height: 2;   /* Increased line spacing for Arabic */
-}
-
-/* --- AI Answer Box Light Mode --- */
-#ai-answer-box {
-    background-color: #F9FAFB; /* A light gray */
-    color: #1F2937;            /* Dark text */
-    border-color: #E5E7EB;     /* A light border */
-}
-
-/* Fixes the colors for dark mode */
-.dark #ai-answer-box {
-  background-color: rgb(31 41 55);  /* bg-gray-800 */
-  color: rgb(229 231 235);          /* text-gray-200 */
-  border-color: rgb(55 65 81);      /* border-gray-700 */
-}
-
-/* --- Settings UI Light Mode --- */
-
-/* Styles the settings gear icon button */
-#settings-btn {
-    background-color: white;
-    border-color: #E5E7EB;
-}
-#settings-btn svg {
-    color: #374151; /* Dark icon color */
-}
-#settings-btn:hover {
-    background-color: #F9FAFB;
-}
-
-/* Styles the main settings pop-up box */
-#settings-modal-content {
-    background-color: white;
-    border-color: #D1D5DB;
-}
-
-/* Styles the text and buttons inside the settings box */
-#settings-modal-content h3, 
-#settings-modal-content p, 
-#settings-modal-content button,
-#settings-modal-content span {
-    color: #374151; /* Dark text for all content */
-}
-
-#settings-modal-content .font-bold {
-    color: #111827; /* Even darker for bold text */
-}
-
-/* Styles the interactive buttons like font size and theme toggle */
-#settings-modal-content #font-increase-btn,
-#settings-modal-content #font-decrease-btn,
-#settings-modal-content #theme-toggle-btn {
-    background-color: #E5E7EB;
-}
-
-#settings-modal-content #font-increase-btn:hover,
-#settings-modal-content #font-decrease-btn:hover,
-#settings-modal-content #theme-toggle-btn:hover {
-    background-color: #D1D5DB;
-}
-/* --- NEW: Styles for Social Button Hiding/Showing --- */
-#social-links-container {
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-}
-
-#social-links-container.hidden {
-    transform: translateY(200px);
-    opacity: 0;
-    pointer-events: none;
-}
-
-</style>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    :root { --base-font-size: 16px; }
+    body { font-size: var(--base-font-size); }
+    .dark body { background-color: rgb(17 24 39); color: rgb(229 231 235); }
+    .dark .bg-white { background-color: rgb(31 41 55); border-color: rgb(55 65 81); }
+    .dark .bg-gray-100 { background-color: rgb(17 24 39); }
+    .dark .bg-gray-100:hover { background-color: rgb(55 65 81) !important; }
+    .dark .bg-gray-200 { background-color: rgb(55 65 81); }
+    .dark .bg-gray-200:hover { background-color: rgb(75 85 99); }
+    .dark .text-gray-800 { color: rgb(243 244 246); }
+    .dark .text-gray-700 { color: rgb(209 213 219); }
+    .dark .text-gray-500 { color: rgb(156 163 175); }
+    .dark .border, .dark .border-b, .dark tr { border-color: rgb(55 65 81); }
+    .dark .shadow-lg, .dark .shadow-md, .dark .shadow-xl { box-shadow: none; }
+    .dark .main-menu-btn { background-color: rgb(31 41 55); border-color: rgb(55 65 81); }
+    .dark .main-menu-btn:hover { background-color: rgb(55 65 81); }
+    .dark #global-header { background-color: rgba(31, 41, 55, 0.8); border-color: rgb(55 65 81); }
+	.dark #page-main h2.text-3xl { color: rgb(243 244 246); }
+    .dark #ai-search-input { background-color: rgb(31 41 55); border-color: rgb(55 65 81); color: rgb(229 231 235); }
+    .dark #ai-search-input::placeholder { color: rgb(156 163 175); }
+    .dark #ai-search-btn { background-color: rgb(59 130 246); }
+    .dark #ai-search-btn:hover { background-color: rgb(37 99 235); }
+    #ai-answer-box { font-family: 'Amiri', 'Cairo', 'Kalpurush', sans-serif; font-size: 1.1rem; line-height: 2; }
+    #ai-answer-box { background-color: #F9FAFB; color: #1F2937; border-color: #E5E7EB; }
+    .dark #ai-answer-box { background-color: rgb(31 41 55); color: rgb(229 231 235); border-color: rgb(55 65 81); }
+    #settings-btn { background-color: white; border-color: #E5E7EB; }
+    #settings-btn svg { color: #374151; }
+    #settings-btn:hover { background-color: #F9FAFB; }
+    #settings-modal-content { background-color: white; border-color: #D1D5DB; }
+    #settings-modal-content h3, #settings-modal-content p, #settings-modal-content button, #settings-modal-content span { color: #374151; }
+    #settings-modal-content .font-bold { color: #111827; }
+    #settings-modal-content #font-increase-btn, #settings-modal-content #font-decrease-btn, #settings-modal-content #theme-toggle-btn { background-color: #E5E7EB; }
+    #settings-modal-content #font-increase-btn:hover, #settings-modal-content #font-decrease-btn:hover, #settings-modal-content #theme-toggle-btn:hover { background-color: #D1D5DB; }
+    #social-links-container { transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; }
+    #social-links-container.hidden { transform: translateY(200px); opacity: 0; pointer-events: none; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-
-
-
 <body class="text-gray-800">
 
-
+    <!-- All your HTML content from the original file goes here... -->
+    <!-- I am omitting the large HTML block for brevity, but you should PASTE YOUR ENTIRE HTML CONTENT HERE -->
+    <!-- from <div id="global-header"> to the end of the </footer> -->
 
     <!-- =================================================================
-
         GLOBAL FIXED HEADER
-
     ================================================================== -->
-
     <div id="global-header" class="fixed top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm shadow-md flex justify-center py-4 border-b border-gray-200">
-
         <div class="flex flex-col items-center space-y-4">
-
             <a href="https://course-405.netlify.app/#page-main"><img id="logo-img" src="Name.png" alt="The Class Caddy Logo" class="h-12 md:h-14"></a>
-
 		<a href="#login-section" id="header-login-btn" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-8 py-2 bg-white text-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 eng-btn">
 			Login
 		</a>
-
         </div>
-
     </div>
-
-
-
     <!-- Top Left Profile Image -->
-
     <div id="profile-picture" class="fixed top-14 left-4 z-20">
-
         <a href="https://www.facebook.com/emammehedi17"><img src="profile.jpg" alt="Emam Mehedi" class="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-lg">
-
         </a>
-
     </div>
-
-
-
     <!-- Dhaka University Logo -->
-
     <div id="du-logo" class="fixed top-14 right-4 z-20">
-
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNBAHKuj1sO6IJF6tmiRnrF-W9C2gKbWs9EUZ1bhH8o9AIC1O4JlI9sIBmT22TJPbaSH93pyXcSIvMCL2pztom6QD7XbB6JpjvzVFLXW2BjMgzzTDKJeQnMRECM_VYjIcC-UmfiaVVH7G5/s1600/dhaka-university.jpg" alt="Dhaka University Logo" class="h-24 w-24 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-lg">
-
     </div>
-
     
-
     <div id="app" class="container mx-auto p-4 pt-44 md:pt-48 min-h-screen pb-24">
 
-
-
         <!-- =================================================================
-
         PAGE 1: MAIN MENU
-
         ================================================================== -->
 
         <div id="page-main" class="page active">
@@ -625,7 +151,7 @@
 						<span class="btn-bg-image bg-407"></span>
 					</button>
 					
-					<button data-target="page-course-408" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-rose-100 hover:bg-rose-200 rounded-2xl shadow-lg border border-rose-200 transition-colors duration-300">
+					<button data-target="page-course-408" id="course-408-btn" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-rose-100 hover:bg-rose-200 rounded-2xl shadow-lg border border-rose-200 transition-colors duration-300">
 						<span class="btn-text">Course-408 (B)</span>
 						<span class="btn-bg-image bg-408"></span>
 					</button>
@@ -683,8 +209,7 @@
         </div>
 
 
-
-        <!-- =================================================================
+ <!-- =================================================================
 
         PAGE: COURSE 405 TEACHERS Is very interesting... Hellow world.
 
@@ -1145,13 +670,10 @@
  
 
         <!-- =================================================================
-
         COURSE 408 PAGES START HERE
-
         ================================================================== -->
-
         <div id="page-course-408" class="page confidential">
-
+             
             <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-main">← Back</button>
 
             <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
@@ -1165,13 +687,9 @@
                 <button data-target="page-408-contents" class="nav-btn main-menu-btn card-hover text-2xl font-bold p-10 bg-indigo-100 hover:bg-indigo-200 rounded-2xl shadow-lg border border-indigo-200 transition-colors duration-300">Contents</button>
 
             </div>
-
         </div>
-
-
-
-                <div id="page-408-outline" class="page">
-
+        <div id="page-408-outline" class="page confidential">
+            
             <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-408">← Back</button>
 
             <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
@@ -1341,13 +859,9 @@
                 </ol>
 
             </div>
-
         </div>
-
-
-
-               <div id="page-408-contents" class="page">
-
+        <div id="page-408-contents" class="page confidential">
+            
             <button class="nav-btn back-btn bg-white py-2 px-5 rounded-lg shadow mb-4 eng-btn" data-target="page-course-408">← Back</button>
 
             <div class="breadcrumb-container text-sm text-gray-500 mb-8"></div>
@@ -1501,34 +1015,16 @@
             </div>
 
         </div>
-
-
-
     </div> <!-- End of #app container -->
 
-
-
-<!-- =================================================================
-
-    COURSE 408 PAGES END HERE
-
-================================================================== -->
-
-    <!-- Footer -->
-
     <footer class="fixed bottom-0 left-0 right-0 z-10 text-center py-4 bg-white border-t border-gray-200 shadow-t-lg">
-
 		<p class="text-gray-500 text-sm">
-
 		© <span id="current-year"></span> The Class Caddy. All Rights Reserved. <br>
-
 		Made by <a href="https://www.facebook.com/emammehedi17" target="_blank" class="font-bold text-indigo-600 hover:underline">Emam Mehedi</a>.
-
 		</p>
+    </footer>
 
-</footer>
-
-<!-- START: Social and Settings Buttons Container -->
+  <!-- START: Social and Settings Buttons Container -->
 <div class="fixed bottom-5 right-5 z-20 flex flex-col items-center gap-3">
 
     <!-- This is the new container for the social links -->
@@ -1596,103 +1092,109 @@
     </div>
 </div>
 
+
+
 <script>
-	
-    document.addEventListener('DOMContentLoaded', () => {
-		const { createClient } = supabase;
+document.addEventListener('DOMContentLoaded', async () => {
+    // =================================================================
+    // SETUP & STATE MANAGEMENT
+    // =================================================================
+    const { createClient } = supabase;
+    const SUPABASE_URL = 'https://fazbjfhistqokvtusxlo.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhemJqZmhpc3Rxb2t2dHVzeGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMTE3ODIsImV4cCI6MjA2OTY4Nzc4Mn0.XCByCRlDiA1TdGG54Jcn_kssLCBxY2rkiPgIt-m03k0';
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // =================================================================
-        // DATA & METADATA
-        // =================================================================
+    let isLoggedIn = false;
 
-        // CORRECTED AND COMPLETED: The full poem data is now included here.
-        // Newly added lines are marked with 'new: true' for highlighting.
-
-
-
-// --- SUPABASE INITIALIZATION ---
-const SUPABASE_URL = 'https://fazbjfhistqokvtusxlo.supabase.co'; // Paste your URL here
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhemJqZmhpc3Rxb2t2dHVzeGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMTE3ODIsImV4cCI6MjA2OTY4Nzc4Mn0.XCByCRlDiA1TdGG54Jcn_kssLCBxY2rkiPgIt-m03k0'; // Paste your Anon Key here
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-
-// =================================================================
-// LOGIN, REGISTRATION, AND SESSION LOGIC
-// =================================================================
-
-const loginForm = document.getElementById('login-form');
-const loginErrorMsg = document.getElementById('login-error-msg');
-const registrationForm = document.getElementById('registration-form');
-const regSuccessMsg = document.getElementById('reg-success-msg');
-const headerLoginBtn = document.getElementById('header-login-btn');
-
-// Function to show confidential content
-function showConfidentialContent() {
-    document.querySelectorAll('.confidential').forEach(el => {
-        el.style.display = 'block'; // Or 'grid', 'flex' depending on element
-    });
-    // You might want to hide the login/registration section now
-    document.getElementById('login-section').style.display = 'none';
-}
-
-// Check if user is already logged in on page load
-if (sessionStorage.getItem('user-logged-in') === 'true') {
-    showConfidentialContent();
-}
-
-// --- Login Form Handler ---
-loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    loginErrorMsg.textContent = '';
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-
-    const { data, error } = await supabase.functions.invoke('login-user', {
-        body: { email, password },
-    });
-
-    if (error) {
-        loginErrorMsg.textContent = 'Login credentials did not match.';
-    } else {
-        // Login success
-        sessionStorage.setItem('user-logged-in', 'true');
+    const loginForm = document.getElementById('login-form');
+    const loginErrorMsg = document.getElementById('login-error-msg');
+    
+    // =================================================================
+    // AUTHENTICATION LOGIC
+    // =================================================================
+    
+    function showConfidentialContent() {
+        document.querySelectorAll('.confidential').forEach(el => {
+            el.style.display = 'block';
+        });
+        // Hide login-related sections after successful login
+        const loginSection = document.getElementById('login-section');
+        const regSection = document.getElementById('registration-section');
+        const orText = loginSection?.nextElementSibling;
+        if (loginSection) loginSection.style.display = 'none';
+        if (regSection) regSection.style.display = 'none';
+        if (orText && orText.tagName === 'P') orText.style.display = 'none';
+    }
+    
+    // Check session on initial load
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session) {
+        isLoggedIn = true;
         showConfidentialContent();
-    }
-});
-
-// --- Registration Form Handler ---
-registrationForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const fullName = document.getElementById('reg-name').value;
-    const email = document.getElementById('reg-email').value;
-    const mobile = document.getElementById('reg-mobile').value;
-    const password = document.getElementById('reg-password').value;
-
-    const { error } = await supabase.functions.invoke('handle-registration', {
-        body: { fullName, email, mobile, password },
-    });
-
-    if (error) {
-        alert('Something went wrong. Please try again.');
+        console.log("✅ User is logged in via active session.");
     } else {
-        registrationForm.style.display = 'none';
-        regSuccessMsg.classList.remove('hidden');
+        isLoggedIn = false;
+        console.log("❌ User is not logged in.");
     }
-});
+    
+    // --- Login Form Handler ---
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loginErrorMsg.textContent = '';
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
 
-// --- Header Login Button Scroll ---
-headerLoginBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('login-section').scrollIntoView({ behavior: 'smooth' });
-});
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
-// --- Remove old Courses Dropdown logic ---
-// You can now delete the JavaScript related to 'courses-menu-button' and 'courses-menu'
-// since we removed the HTML for it.
+            if (error) {
+                loginErrorMsg.textContent = 'Login failed. Please check your credentials.';
+                isLoggedIn = false;
+            } else {
+                isLoggedIn = true;
+                showConfidentialContent();
+                alert('Login successful!');
+            }
+        });
+    }
 
+    // =================================================================
+    // UNIFIED NAVIGATION LOGIC (THE FIX)
+    // =================================================================
+    const appContainer = document.getElementById('app');
+    if (appContainer) {
+        appContainer.addEventListener('click', (e) => {
+            const navButton = e.target.closest('.nav-btn');
+            
+            if (navButton) {
+                e.preventDefault();
+                const targetId = navButton.getAttribute('data-target');
+                if (!targetId) return;
 
-
-
+                // --- 🔒 Authentication Check ---
+                const protectedPages = ['page-course-408', 'page-408-outline', 'page-408-contents'];
+                
+                if (protectedPages.includes(targetId) && !isLoggedIn) {
+                    alert("Please login to access Course-408.");
+                    // THIS IS THE KEY: We stop the function here.
+                    return; 
+                }
+                
+                // --- Navigation Logic (Only runs if auth check passes) ---
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                const targetPage = document.getElementById(targetId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    window.scrollTo(0, 0);
+                }
+            }
+        });
+    }
+    
+    // =================================================================
+    
         const poemsData = {
             akhi: {
                 line: [
@@ -2101,16 +1603,7 @@ headerLoginBtn.addEventListener('click', (e) => {
             else if (direction === 'prev') tableBody.classList.add('peel-in-prev');
         }
 
-        document.getElementById('app').addEventListener('click', (e) => {
-            const navButton = e.target.closest('.nav-btn');
-            if (navButton) {
-                e.preventDefault();
-                const targetPageId = navButton.getAttribute('data-target');
-                if (targetPageId) {
-                    showPage(targetPageId);
-                }
-            }
-        });
+        
 
         
 
@@ -2389,87 +1882,9 @@ socialToggleBtn.addEventListener('click', () => {
 
     });
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const navButtons = document.querySelectorAll('.nav-btn');
-
-    navButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
-            if (!targetId) return;
-
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-
-            // Show the targeted page
-            const targetPage = document.getElementById(targetId);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-        });
-    });
-});
-</script>
-
-<script>
-const { createClient } = supabase;
-const supabaseUrl = "https://fazbjfhistqokvtusxlo.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhemJqZmhpc3Rxb2t2dHVzeGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMTE3ODIsImV4cCI6MjA2OTY4Nzc4Mn0.XCByCRlDiA1TdGG54Jcn_kssLCBxY2rkiPgIt-m03k0"; // Use the anon/public key only
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
-// Global login state
-let isLoggedIn = false;
-
-// Check login state on page load
-document.addEventListener('DOMContentLoaded', async () => {
-    const { data: { session } } = await supabaseClient.auth.getSession();
-
-    if (session) {
-        isLoggedIn = true;
-        console.log("✅ Logged in");
-    } else {
-        console.log("❌ Not logged in");
-    }
-});
-</script>
 
 
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const navButtons = document.querySelectorAll('.nav-btn');
-
-    navButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
-            if (!targetId) return;
-
-            // 🔒 Check if the target is protected
-            const protectedPages = ['page-course-408', 'page-408-outline', 'page-408-contents'];
-
-            if (protectedPages.includes(targetId) && !isLoggedIn) {
-                alert("Please login to access Course-408.");
-                return;
-            }
-
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-
-            // Show target page
-            const targetPage = document.getElementById(targetId);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-        });
-    });
-});
-</script>
 
 
 </body>
 </html>
-
