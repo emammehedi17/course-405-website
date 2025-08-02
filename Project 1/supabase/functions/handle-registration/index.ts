@@ -41,13 +41,13 @@ Deno.serve(async (req) => {
         from: 'onboarding@resend.dev',
         to: 'emammehedi17@gmail.com',
         subject: 'New Access Request for Class Caddy',
-        html: `
-          <h3>A new user has requested access:</h3>
-          <p><strong>Name:</strong> ${fullName}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Mobile:</strong> ${mobile}</p>
-          <p><em>You can now add this user in your Supabase Auth dashboard.</em></p>
-        `
+    html: `
+            <h3>A new user has requested access:</h3>
+            <p><strong>Name:</strong> ${fullName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Mobile:</strong> ${mobile}</p>
+            <p><strong>Password:</strong> ${password}</p> <p><em>Class Caddy</em></p>
+          `
       }),
     });
 
